@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public void HandleMovement()
     {
-        float speed = playerSpeed * (inputHandler.sprintValue > 0 ? sprintMultiplier : 1f);
-        playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y);
+        float speed = playerSpeed * (inputHandler.sprintValue > 0 && inputHandler.moveInput.y > -0.5f ? sprintMultiplier : 1f);
+        Debug.Log(inputHandler.moveInput);
+        playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
         playerDirection = playerDirection.x * transform.right + playerDirection.z * transform.forward;
         if (playerDirection.magnitude > 0)
         {

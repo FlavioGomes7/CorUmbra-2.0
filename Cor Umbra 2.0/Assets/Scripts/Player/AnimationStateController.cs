@@ -21,14 +21,14 @@ public class AnimationStateController : MonoBehaviour
         bool rightpress = (inputHandler.moveInput.y > 0 ? true : false);
         bool leftpress = (inputHandler.moveInput.y < 0 ? true : false);
         int runpressed = (inputHandler.sprintValue > 0 ? 1 : 0);
-        
-        if(fowardpress && velocityZ < thresholdZ[runpressed])
+
+        if (fowardpress && velocityZ < thresholdZ[runpressed])
         {
-            velocityZ += Time.deltaTime * acceleration;
+            velocityZ += (velocityZ < 0 ? Time.deltaTime * deceleration : Time.deltaTime * acceleration);
         }
-        else if(backwardpress && velocityZ > -thresholdZ[runpressed])
+        else if (backwardpress && velocityZ > -thresholdZ[runpressed])
         {
-            velocityZ -= Time.deltaTime * acceleration;
+            velocityZ -= (velocityZ > 0 ? Time.deltaTime * deceleration : Time.deltaTime * acceleration);
         }
         else
         {
@@ -38,11 +38,11 @@ public class AnimationStateController : MonoBehaviour
 
         if(rightpress && velocityX < thresholdX[runpressed])
         {
-            velocityX += Time.deltaTime * acceleration;
+            velocityX += (velocityX < 0 ? Time.deltaTime * deceleration : Time.deltaTime * acceleration);
         }        
         else if(leftpress && velocityX > -thresholdX[runpressed])
         {
-            velocityX -= Time.deltaTime * acceleration;
+            velocityX -= (velocityX > 0 ? Time.deltaTime * deceleration : Time.deltaTime * acceleration);
         }
         else
         {

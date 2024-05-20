@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2562,17 +2562,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1346403524085840029, guid: 27bf6eef8775f4b4798e32f1c76b2eed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d3c74af8657aad449791bd88d05a824, type: 2}
     - target: {fileID: 4100765002847720821, guid: 27bf6eef8775f4b4798e32f1c76b2eed, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7101324270086180159, guid: 27bf6eef8775f4b4798e32f1c76b2eed, type: 3}
       propertyPath: acceleration
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7101324270086180159, guid: 27bf6eef8775f4b4798e32f1c76b2eed, type: 3}
       propertyPath: deceleration
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
