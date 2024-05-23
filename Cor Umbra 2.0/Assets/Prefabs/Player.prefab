@@ -67,6 +67,7 @@ Transform:
   m_Children:
   - {fileID: 6170189200519700176}
   - {fileID: 1478165665194338640}
+  - {fileID: 3537271691067175355}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5822059122918068413
@@ -138,6 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freeLook: {fileID: 0}
   playerSpeed: 7.5
+  sprintMultiplier: 0
+  turnSmoothTime: 0
 --- !u!143 &2994937829209593985
 CharacterController:
   m_ObjectHideFlags: 0
@@ -164,6 +167,37 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!1 &8201177715622186256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3537271691067175355}
+  m_Layer: 0
+  m_Name: "3\xB0Person Aim"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3537271691067175355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201177715622186256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.288, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 703161407849019060}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5920636050514966843
 PrefabInstance:
   m_ObjectHideFlags: 0

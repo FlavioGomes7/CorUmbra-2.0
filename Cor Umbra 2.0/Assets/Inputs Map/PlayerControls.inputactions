@@ -122,7 +122,7 @@
                     "name": "",
                     "id": "0dbffb55-073a-41c9-840f-7408abe254db",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Aim",

@@ -6,7 +6,6 @@ public class AnimationStateController : MonoBehaviour
 {
     private InputHandler inputHandler;
     private Animator animator;
-    private int velocityHash;
     private float velocityX = 0f;
     private float velocityZ = 0f;
     private float[] thresholdX = new float[2];
@@ -60,7 +59,6 @@ public class AnimationStateController : MonoBehaviour
     {
         inputHandler = InputHandler.instance;
         animator = GetComponent<Animator>();
-        velocityHash = Animator.StringToHash("Velocity");
 
         thresholdX[0] = 0.5f;
         thresholdX[1] = 1.0f;

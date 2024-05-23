@@ -42,8 +42,10 @@ public class InputHandler : MonoBehaviour
         moveAction.canceled += context => moveInput = Vector2.zero;
 
         sprintAction.performed += context => sprintValue = context.ReadValue<float>();
-        sprintAction.canceled += context => sprintValue = 0f; 
+        sprintAction.canceled += context => sprintValue = 0f;
 
+        lookAction.performed += context => lookValue = context.ReadValue<Vector2>();
+        lookAction.canceled += context => lookValue = Vector2.zero;
 
         aimAction.performed += context => aimTriggered = true;
         aimAction.canceled += context => aimTriggered = false;
@@ -57,6 +59,7 @@ public class InputHandler : MonoBehaviour
     {
         moveAction.Enable();
         sprintAction.Enable();
+        lookAction.Enable();
         aimAction.Enable();
         dashAction.Enable();
     }
@@ -64,6 +67,7 @@ public class InputHandler : MonoBehaviour
     {
         moveAction.Disable();
         sprintAction.Disable();
+        lookAction.Disable();
         aimAction.Disable();
         dashAction.Disable();
     }
@@ -95,6 +99,7 @@ public class InputHandler : MonoBehaviour
      
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         sprintAction = playerControls.FindActionMap(actionMapName).FindAction(sprint);
+        lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         aimAction = playerControls.FindActionMap(actionMapName).FindAction(aim);
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
         RegisterInputActions();
