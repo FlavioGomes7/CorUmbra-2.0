@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
             chController.Move(playerDirection * playerSpeed * Time.deltaTime);
 
             followTarget.transform.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.x * sensitivy, Vector3.up);
-            followTarget.transform.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.y * sensitivy, Vector3.right);
+            followTarget.transform.rotation *= Quaternion.AngleAxis(-inputHandler.lookValue.y * sensitivy, Vector3.right);
 
             var angles = followTarget.transform.eulerAngles;
             angles.z = 0;
