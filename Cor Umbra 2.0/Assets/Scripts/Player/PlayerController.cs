@@ -16,11 +16,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float sensitivy;
     [SerializeField] private float sprintMultiplier;
+    [SerializeField] private float evadeTime;
     [SerializeField] private float turnSmoothTime;
     [SerializeField] private LayerMask aimColliderMask = new LayerMask();
     [SerializeField] private Transform debugTransform;
     private float turnSmoothVelocity;
     private bool isAim;
+    private bool isEvade;
 
 
     public void HandleMovement()
@@ -29,13 +31,14 @@ public class PlayerController : MonoBehaviour
         playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
         playerDirection = playerDirection.x * transform.right + playerDirection.z * transform.forward;
         float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
-        if (playerDirection.magnitude > 0 && !isAim)
+        if (playerDirection.magnitude > 0 && !isAim && !isEvade)
         {
             chController.Move(playerDirection * Time.deltaTime * speed);
             //transform.localRotation = Quaternion.Euler(0, followTarget.transform.rotation.y, 0);
             //transform.rotation = Quaternion.Euler(0, followTarget.transform.rotation.eulerAngles.y, 0);
             transform.eulerAngles = new Vector3(transform.localEulerAngles.x, angle, transform.localEulerAngles.z);
         }
+
     }
 
     //void HandleCamera()
@@ -58,6 +61,31 @@ public class PlayerController : MonoBehaviour
     //    followTarget.transform.localEulerAngles = angles;
     //    //followTarget.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
     //}
+
+    public void HandleEvade()
+    {
+        if(inputHandler.dashTriggered) 
+        {
+            isEvade = true;
+            StartCoroutine(Evade());
+            StartCoroutine(inputHandler.Delay(0.2f, "Evade"));
+        }
+    }
+
+    public IEnumerator Evade()
+    {
+        
+        Vector3 evadeDirection = new Vector3(inputHandler.moveInput.x, 0, inputHandler.moveInput.y).normalized;
+        evadeDirection = evadeDirection.z * transform.forward + evadeDirection.x * transform.right;
+        float startTime = Time.time;
+
+        while(Time.time < startTime + evadeTime)
+        {
+            chController.Move(evadeDirection * Time.deltaTime * 10f);
+            yield return null;
+        }
+        isEvade = false;
+    }
 
     public void HandleAim()
     {
@@ -120,6 +148,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         followTarget.transform.position = new Vector3(transform.position.x, followTarget.transform.position.y, transform.position.z);
+        HandleEvade();
         HandleAim();
         HandleMovement();
         //HandleCamera();      
