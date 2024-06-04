@@ -73,6 +73,18 @@ public class AnimationStateController : MonoBehaviour
         }
     }
 
+    void HandleEvadeAnim()
+    {
+        if (inputHandler.dashTriggered)
+        {
+            animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 2f, Time.deltaTime * 150f));
+        }
+        else
+        {
+            animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 0f, Time.deltaTime * 2f));
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,5 +104,6 @@ public class AnimationStateController : MonoBehaviour
        aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20);
        HandleBlendMove();
        HandleAimAnim();
+       HandleEvadeAnim();
     }
 }
