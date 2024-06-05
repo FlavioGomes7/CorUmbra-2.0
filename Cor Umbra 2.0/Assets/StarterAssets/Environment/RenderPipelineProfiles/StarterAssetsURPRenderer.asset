@@ -26,7 +26,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: 1117235008459753308}
   - {fileID: 5155047711078965896}
-  m_RendererFeatureMap: 5cc7df215237810f88620da394688a47
+  - {fileID: 3113328631725457042}
+  m_RendererFeatureMap: 5cc7df215237810f88620da394688a47927e0c3be5c3342b
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -79,9 +80,32 @@ MonoBehaviour:
   m_Name: DitherFx
   m_EditorClassIdentifier: 
   m_Active: 1
-  _event: 600
+  _event: 550
   _pass: {fileID: 7134621958111900656}
   _blitShader: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+--- !u!114 &3113328631725457042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
+  m_Name: DecalRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Settings:
+    technique: 0
+    maxDrawDistance: 1000
+    decalLayers: 0
+    dBufferSettings:
+      surfaceData: 2
+    screenSpaceSettings:
+      normalBlend: 0
+  m_CopyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+  m_DBufferClear: {fileID: 4800000, guid: f056d8bd2a1c7e44e9729144b4c70395, type: 3}
 --- !u!114 &5155047711078965896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00045f12942b46c698459096c89274e, type: 3}
   m_Name: FiltroCRT
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   passMaterial: {fileID: 2100000, guid: 2deef1400e95a22448283d267c452f3a, type: 2}
   injectionPoint: 600
   requirements: 4
