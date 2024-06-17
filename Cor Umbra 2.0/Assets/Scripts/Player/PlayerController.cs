@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool isAim;
     private bool isEvade;
 
+    [SerializeField] private Collider pickingArea;
 
     public void HandleMovement()
     {
@@ -133,6 +134,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void HandlePickItem()
+    {
+        if(inputHandler.pickTriggered)
+        {
+            pickingArea.enabled = true;
+        }
+        else if(!inputHandler.pickTriggered)
+        {
+            pickingArea.enabled = false;
+        }
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -151,7 +165,8 @@ public class PlayerController : MonoBehaviour
         HandleEvade();
         HandleAim();
         HandleMovement();
-        //HandleCamera();      
+        HandlePickItem();
+        //HandleCamera();
     }
 
 
