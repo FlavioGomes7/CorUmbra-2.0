@@ -1,0 +1,30 @@
+.header {
+    font-size: 40px;
+    background-color: rgba(56, 56, 56, 0);
+    background-image: url('project://database/Assets/NOME_GAME_CORUMBRA.png?fileID=2800000&guid=39125e59c31530247932623d32b1f252&type=3#NOME_GAME_CORUMBRA');
+    width: 920px;
+    height: 240px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    bottom: auto;
+}
+
+.button {
+    font-size: 20px;
+    width: 220px;
+    height: 60px;
+    justify-content: center;
+    align-self: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    translate: 0 0;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}

@@ -20,18 +20,21 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string look = "Look";
     [SerializeField] private string aim = "Aim";
     [SerializeField] private string dash = "Dash";
+    [SerializeField] private string pick = "Pick";
 
     private InputAction moveAction;
     private InputAction sprintAction;
     private InputAction lookAction;
     private InputAction aimAction;
     private InputAction dashAction;
+    private InputAction pickAction;
 
     public Vector2 moveInput { get; private set; }
     public Vector2 lookValue { get; private set;}
     public float sprintValue { get; private set; }
     public bool aimTriggered { get; private set; }
     public bool dashTriggered { get; private set; }
+    public bool pickTriggered { get; private set; }
 
     public static InputHandler instance { get; private set; }
 
@@ -53,6 +56,9 @@ public class InputHandler : MonoBehaviour
 
         dashAction.performed += context => dashTriggered = true;
         dashAction.canceled += context => dashTriggered = false;
+
+        pickAction.performed += context => pickTriggered = true;
+        pickAction.canceled += context => pickTriggered = false;
     }
 
     private void OnEnable()
@@ -62,6 +68,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Enable();
         aimAction.Enable();
         dashAction.Enable();
+        pickAction.Enable();
     }
     private void OnDisable()
     {
@@ -70,6 +77,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Disable();
         aimAction.Disable();
         dashAction.Disable();
+        pickAction.Disable();
     }
 
     public void SwichInput(string action, bool isEnable)
@@ -102,6 +110,7 @@ public class InputHandler : MonoBehaviour
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         aimAction = playerControls.FindActionMap(actionMapName).FindAction(aim);
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
+        pickAction = playerControls.FindActionMap(actionMapName).FindAction(pick);
         RegisterInputActions();
 
     }

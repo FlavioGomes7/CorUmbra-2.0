@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.Animations.Rigging;
 
 public class AnimationStateController : MonoBehaviour
 {
     private InputHandler inputHandler;
     private Animator animator;
+    [SerializeField] private Rig aimRig;
+    private float aimRigWeight;
     private float velocityX = 0f;
     private float velocityZ = 0f;
     private float[] thresholdX = new float[2];
     private float[] thresholdZ = new float[2];
     [SerializeField] private float acceleration;
     [SerializeField] private float deceleration;
+    
 
     private void HandleBlendMove()
     {
@@ -54,6 +59,32 @@ public class AnimationStateController : MonoBehaviour
 
     }
 
+    void HandleAimAnim()
+    {
+        if(inputHandler.aimTriggered)
+        {
+            aimRigWeight = 1f;
+            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f) );
+        }
+        else
+        {
+            aimRigWeight = 0f;
+            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+        }
+    }
+
+    void HandleEvadeAnim()
+    {
+        if (inputHandler.dashTriggered)
+        {
+            animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 2f, Time.deltaTime * 150f));
+        }
+        else
+        {
+            animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 0f, Time.deltaTime * 2f));
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +101,9 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20);
        HandleBlendMove();
+       HandleAimAnim();
+       HandleEvadeAnim();
     }
 }
