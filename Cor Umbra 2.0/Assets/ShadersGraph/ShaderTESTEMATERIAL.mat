@@ -115,20 +115,20 @@ Material:
     - _IsLinear: 0
     - _IsVerticalRGB: 1
     - _Metallic: 0
-    - _NoiseIntensity: 0.114
+    - _NoiseIntensity: 0.253
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _RGBLINES_SCALE: 144.3
+    - _RGBLINES_SCALE: 256
     - _RGB_Opacity: 0.01
     - _RGB_Scale: 634.7
     - _ReceiveShadows: 1
-    - _ScanLineOppacity: 0.973
+    - _ScanLineOppacity: 0
     - _ScaningLine: 100
     - _ScaningLineSpeed: 1
-    - _ScanlineQuantity: 135.7
+    - _ScanlineQuantity: 149.91
     - _ScanlineSharpness: 0.38
-    - _Scanline_Thickness: 0.38
+    - _Scanline_Thickness: 0.173
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
