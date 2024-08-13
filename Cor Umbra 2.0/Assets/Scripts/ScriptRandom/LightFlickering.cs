@@ -31,7 +31,7 @@ public class LightFlickering : MonoBehaviour
         if (timer > interval)
         {
             lastIntensity = myLight.intensity;
-            targetIntensity = Random.Range(0.3f, 2.5f);
+            targetIntensity = Random.Range(2f, 20f);
             timer = 0;
             interval = Random.Range(0, maxInterval);
 

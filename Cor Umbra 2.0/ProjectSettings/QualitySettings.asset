@@ -20,10 +20,7 @@ QualitySettings:
     shadowmaskMode: 0
     skinWeights: 1
     globalTextureMipmapLimit: 1
-    textureMipmapLimitSettings:
-    - serializedVersion: 0
-      limitBiasMode: 0
-      limitBias: 0
+    textureMipmapLimitSettings: []
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
@@ -72,10 +69,7 @@ QualitySettings:
     shadowmaskMode: 0
     skinWeights: 2
     globalTextureMipmapLimit: 0
-    textureMipmapLimitSettings:
-    - serializedVersion: 0
-      limitBiasMode: 0
-      limitBias: 0
+    textureMipmapLimitSettings: []
     anisotropicTextures: 0
     antiAliasing: 0
     softParticles: 0
@@ -124,10 +118,7 @@ QualitySettings:
     shadowmaskMode: 0
     skinWeights: 2
     globalTextureMipmapLimit: 0
-    textureMipmapLimitSettings:
-    - serializedVersion: 0
-      limitBiasMode: 0
-      limitBias: 0
+    textureMipmapLimitSettings: []
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
@@ -176,10 +167,7 @@ QualitySettings:
     shadowmaskMode: 1
     skinWeights: 2
     globalTextureMipmapLimit: 0
-    textureMipmapLimitSettings:
-    - serializedVersion: 0
-      limitBiasMode: 0
-      limitBias: 0
+    textureMipmapLimitSettings: []
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
@@ -228,10 +216,7 @@ QualitySettings:
     shadowmaskMode: 1
     skinWeights: 4
     globalTextureMipmapLimit: 0
-    textureMipmapLimitSettings:
-    - serializedVersion: 0
-      limitBiasMode: 0
-      limitBias: 0
+    textureMipmapLimitSettings: []
     anisotropicTextures: 2
     antiAliasing: 2
     softParticles: 1
@@ -280,10 +265,7 @@ QualitySettings:
     shadowmaskMode: 1
     skinWeights: 4
     globalTextureMipmapLimit: 0
-    textureMipmapLimitSettings:
-    - serializedVersion: 0
-      limitBiasMode: 1
-      limitBias: 0
+    textureMipmapLimitSettings: []
     anisotropicTextures: 2
     antiAliasing: 0
     softParticles: 1
@@ -292,10 +274,10 @@ QualitySettings:
     billboardsFaceCameraPosition: 1
     useLegacyDetailDistribution: 1
     vSyncCount: 1
-    realtimeGICPUUsage: 100
+    realtimeGICPUUsage: 75
     lodBias: 2
     maximumLODLevel: 0
-    enableLODCrossFade: 1
+    enableLODCrossFade: 0
     streamingMipmapsActive: 0
     streamingMipmapsAddAllCameras: 1
     streamingMipmapsMemoryBudget: 1024
@@ -307,7 +289,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: f48f873ae78af40b9a7b8220a8c6f95f, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -318,8 +300,7 @@ QualitySettings:
     terrainFadeLength: 5
     terrainMaxTrees: 50
     excludedTargetPlatforms: []
-  m_TextureMipmapLimitGroupNames:
-  - teste
+  m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
     Android: 2
     GameCoreScarlett: 5
