@@ -4,8 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Core
 {
+    //Estados
+    [SerializeField] private StandardState standardState;
+    [SerializeField] private OnAirState onAirState;
+    [SerializeField] private HittedState hittedState;
+    [SerializeField] private InteractingState interactingState;
+
     private CharacterController chController;
     private InputHandler inputHandler;
     [SerializeField]private CinemachineFreeLook freeLook;
@@ -15,32 +21,32 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerDirection;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float sensitivy;
-    [SerializeField] private float sprintMultiplier;
-    [SerializeField] private float evadeTime;
-    [SerializeField] private float turnSmoothTime;
+    //[SerializeField] private float sprintMultiplier;
+    //[SerializeField] private float evadeTime;
+    //[SerializeField] private float turnSmoothTime;
     [SerializeField] private LayerMask aimColliderMask = new LayerMask();
     [SerializeField] private Transform debugTransform;
-    private float turnSmoothVelocity;
+    //private float turnSmoothVelocity;
     private bool isAim;
-    private bool isEvade;
+    //private bool isEvade;
 
     [SerializeField] private Collider pickingArea;
 
-    public void HandleMovement()
-    {
-        float speed = playerSpeed * (inputHandler.sprintValue > 0 && inputHandler.moveInput.y > -0.5f ? sprintMultiplier : 1f);
-        playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
-        playerDirection = playerDirection.x * transform.right + playerDirection.z * transform.forward;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
-        if (playerDirection.magnitude > 0 && !isAim && !isEvade)
-        {
-            chController.Move(playerDirection * Time.deltaTime * speed);
-            //transform.localRotation = Quaternion.Euler(0, followTarget.transform.rotation.y, 0);
-            //transform.rotation = Quaternion.Euler(0, followTarget.transform.rotation.eulerAngles.y, 0);
-            transform.eulerAngles = new Vector3(transform.localEulerAngles.x, angle, transform.localEulerAngles.z);
-        }
+    //public void HandleMovement()
+    //{
+    //    float speed = playerSpeed * (inputHandler.sprintValue > 0 && inputHandler.moveInput.y > -0.5f ? sprintMultiplier : 1f);
+    //    playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
+    //    playerDirection = playerDirection.x * transform.right + playerDirection.z * transform.forward;
+    //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
+    //    if (playerDirection.magnitude > 0 && !isAim && !isEvade)
+    //    {
+    //        chController.Move(playerDirection * Time.deltaTime * speed);
+    //        //transform.localRotation = Quaternion.Euler(0, followTarget.transform.rotation.y, 0);
+    //        //transform.rotation = Quaternion.Euler(0, followTarget.transform.rotation.eulerAngles.y, 0);
+    //        transform.eulerAngles = new Vector3(transform.localEulerAngles.x, angle, transform.localEulerAngles.z);
+    //    }
 
-    }
+    //}
 
     //void HandleCamera()
     //{
@@ -63,30 +69,30 @@ public class PlayerController : MonoBehaviour
     //    //followTarget.transform.localEulerAngles = new Vector3(angles.x, 0, 0);
     //}
 
-    public void HandleEvade()
-    {
-        if(inputHandler.dashTriggered) 
-        {
-            isEvade = true;
-            StartCoroutine(Evade());
-            StartCoroutine(inputHandler.Delay(0.2f, "Evade"));
-        }
-    }
+    //public void HandleEvade()
+    //{
+    //    if(inputHandler.dashTriggered) 
+    //    {
+    //        isEvade = true;
+    //        StartCoroutine(Evade());
+    //        StartCoroutine(inputHandler.Delay(0.2f, "Evade"));
+    //    }
+    //}
 
-    public IEnumerator Evade()
-    {
+    //public IEnumerator Evade()
+    //{
         
-        Vector3 evadeDirection = new Vector3(inputHandler.moveInput.x, 0, inputHandler.moveInput.y).normalized;
-        evadeDirection = evadeDirection.z * transform.forward + evadeDirection.x * transform.right;
-        float startTime = Time.time;
+    //    Vector3 evadeDirection = new Vector3(inputHandler.moveInput.x, 0, inputHandler.moveInput.y).normalized;
+    //    evadeDirection = evadeDirection.z * transform.forward + evadeDirection.x * transform.right;
+    //    float startTime = Time.time;
 
-        while(Time.time < startTime + evadeTime)
-        {
-            chController.Move(evadeDirection * Time.deltaTime * 10f);
-            yield return null;
-        }
-        isEvade = false;
-    }
+    //    while(Time.time < startTime + evadeTime)
+    //    {
+    //        chController.Move(evadeDirection * Time.deltaTime * 10f);
+    //        yield return null;
+    //    }
+    //    isEvade = false;
+    //}
 
     public void HandleAim()
     {
@@ -113,7 +119,7 @@ public class PlayerController : MonoBehaviour
             angles.z = 0;
           
             followTarget.transform.localEulerAngles = angles;
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderMask))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, float.PositiveInfinity, aimColliderMask))
             {
                 debugTransform.position = raycastHit.point;
                 mouseWorldPosition = raycastHit.point;
@@ -146,11 +152,27 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    private void SelectState()
+    {
+        if(state.isCompleted)
+        {
+            if (groundSensor.grounded)
+            {
+                Set(standardState);
+            }
+            else
+            {
+                Set(onAirState);
+            }
+        }
+        state.DoBranch();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        SetupInstances();
+        Set(standardState);
         chController = GetComponent<CharacterController>();
         inputHandler = InputHandler.instance;
 
@@ -162,11 +184,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         followTarget.transform.position = new Vector3(transform.position.x, followTarget.transform.position.y, transform.position.z);
-        HandleEvade();
+        SelectState();
+        
+        //HandleEvade();
         HandleAim();
-        HandleMovement();
+        //HandleMovement();
         HandlePickItem();
         //HandleCamera();
+
+        
     }
 
 
