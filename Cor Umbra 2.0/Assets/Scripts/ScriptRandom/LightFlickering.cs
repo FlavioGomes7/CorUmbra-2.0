@@ -11,6 +11,8 @@ public class LightFlickering : MonoBehaviour
     float lastIntensity;
     float interval;
     float timer;
+    public float rMinIntesity;
+    public float rMaxIntesity;
 
     public float maxDisplacement = 0.25f;
     Vector3 targetPosition;
@@ -31,7 +33,7 @@ public class LightFlickering : MonoBehaviour
         if (timer > interval)
         {
             lastIntensity = myLight.intensity;
-            targetIntensity = Random.Range(0.3f, 2.5f);
+            targetIntensity = Random.Range(rMinIntesity, rMaxIntesity);
             timer = 0;
             interval = Random.Range(0, maxInterval);
 
