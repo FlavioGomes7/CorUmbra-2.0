@@ -19,6 +19,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string sprint = "Sprint";
     [SerializeField] private string look = "Look";
     [SerializeField] private string aim = "Aim";
+    [SerializeField] private string shoot = "Shoot";
     [SerializeField] private string dash = "Dash";
     [SerializeField] private string pick = "Pick";
 
@@ -26,6 +27,7 @@ public class InputHandler : MonoBehaviour
     private InputAction sprintAction;
     private InputAction lookAction;
     private InputAction aimAction;
+    private InputAction shootAction;
     private InputAction dashAction;
     private InputAction pickAction;
 
@@ -33,6 +35,7 @@ public class InputHandler : MonoBehaviour
     public Vector2 lookValue { get; private set;}
     public float sprintValue { get; private set; }
     public bool aimTriggered { get; private set; }
+    public bool shootTriggered { get; private set; }
     public bool dashTriggered { get; private set; }
     public bool pickTriggered { get; private set; }
 
@@ -53,6 +56,8 @@ public class InputHandler : MonoBehaviour
         aimAction.performed += context => aimTriggered = true;
         aimAction.canceled += context => aimTriggered = false;
 
+        shootAction.performed += context => shootTriggered = true;
+        shootAction.canceled += context => shootTriggered = false;
 
         dashAction.performed += context => dashTriggered = true;
         dashAction.canceled += context => dashTriggered = false;
@@ -61,12 +66,18 @@ public class InputHandler : MonoBehaviour
         pickAction.canceled += context => pickTriggered = false;
     }
 
+    private void ShootAction_canceled(InputAction.CallbackContext obj)
+    {
+        throw new System.NotImplementedException();
+    }
+
     private void OnEnable()
     {
         moveAction.Enable();
         sprintAction.Enable();
         lookAction.Enable();
         aimAction.Enable();
+        shootAction.Enable();
         dashAction.Enable();
         pickAction.Enable();
     }
@@ -76,17 +87,9 @@ public class InputHandler : MonoBehaviour
         sprintAction.Disable();
         lookAction.Disable();
         aimAction.Disable();
+        shootAction.Disable();
         dashAction.Disable();
         pickAction.Disable();
-    }
-
-    public void SwichInput(string action, bool isEnable)
-    {
-        InputAction inputAction = playerControls.FindActionMap(actionMapName).FindAction(action);
-        if(isEnable == true)
-        { inputAction.Enable(); }
-        else
-        { inputAction.Disable(); }
     }
 
     public IEnumerator Delay(float delay, string action)
@@ -109,6 +112,7 @@ public class InputHandler : MonoBehaviour
         sprintAction = playerControls.FindActionMap(actionMapName).FindAction(sprint);
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         aimAction = playerControls.FindActionMap(actionMapName).FindAction(aim);
+        shootAction = playerControls.FindActionMap(actionMapName).FindAction(shoot);
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
         pickAction = playerControls.FindActionMap(actionMapName).FindAction(pick);
         RegisterInputActions();

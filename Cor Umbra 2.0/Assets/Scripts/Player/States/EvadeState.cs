@@ -27,7 +27,7 @@ public class EvadeState : State
         evadeDirection = evadeDirection.z * transform.forward + evadeDirection.x * transform.right;
         if(evadeDirection == Vector3.zero)
         {
-            evadeDirection = -Vector3.forward * 0.5f;
+            evadeDirection = -transform.forward * 0.5f;
         }
         float startTime = Time.time;
 

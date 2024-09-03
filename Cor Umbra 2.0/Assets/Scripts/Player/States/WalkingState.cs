@@ -8,6 +8,7 @@ public class WalkingState : State
     [SerializeField] private CharacterController chController;
     [SerializeField] private Transform player;
     [SerializeField] private CinemachineFreeLook freeLook;
+    [SerializeField] private bool isAimMode;
 
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float sprintMultiplier;
@@ -19,24 +20,27 @@ public class WalkingState : State
 
     public override void Enter()
     {
+        isCompleted = true;
         inputHandler = InputHandler.instance;
-        freeLook.Priority = 1;
     }
     public override void Do()
     {
         float speed = playerSpeed * (inputHandler.sprintValue > 0 && inputHandler.moveInput.y > -0.5f ? sprintMultiplier : 1f);
         playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
         playerDirection = playerDirection.x * player.right + playerDirection.z * player.forward;
-        float angle = Mathf.SmoothDampAngle(player.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
-        
-     
-        chController.Move(playerDirection * Time.deltaTime * speed);
-        player.eulerAngles = new Vector3(player.localEulerAngles.x, angle, player.localEulerAngles.z);
 
-        if(inputHandler.moveInput.magnitude == 0)
-        {
-            isCompleted = true;
+        if(!isAimMode)
+        {      
+            float angle = Mathf.SmoothDampAngle(player.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
+            player.eulerAngles = new Vector3(player.localEulerAngles.x, angle, player.localEulerAngles.z);
         }
+
+        chController.Move(playerDirection * Time.deltaTime * speed);
       
+    }
+
+    public override void Exit()
+    {
+ 
     }
 }
