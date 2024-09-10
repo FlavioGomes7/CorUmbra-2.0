@@ -14,10 +14,6 @@ public class PlayerController : Core
 
     private CharacterController chController;
     private InputHandler inputHandler;
-    [SerializeField]private CinemachineFreeLook freeLook;
-    [SerializeField] private CinemachineVirtualCamera aimCamera;
-    [SerializeField] private GameObject followTarget;
-    [SerializeField] private GameObject crosshair;
 
 
     [SerializeField] private Collider pickingArea;
@@ -65,16 +61,8 @@ public class PlayerController : Core
     // Update is called once per frame
     void Update()
     {
-        followTarget.transform.position = new Vector3(transform.position.x, followTarget.transform.position.y, transform.position.z);
         SelectState();
-        
-        //HandleEvade();
-       /* HandleAim()*//*;*/
-        //HandleMovement();
         HandlePickItem();
-        //HandleCamera();
-
-        
     }
 
 

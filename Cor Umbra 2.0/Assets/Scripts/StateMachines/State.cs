@@ -7,6 +7,7 @@ public abstract class State : MonoBehaviour
     protected Core core;
 
     public bool isCompleted { get; protected set; }
+    public bool isStarted { get; protected set;}
     protected float startTime;
     public float time => Time.time - startTime;
 
@@ -61,6 +62,7 @@ public abstract class State : MonoBehaviour
     {
         parent = _parent;
         isCompleted = false;
+        isStarted = true;
         startTime = Time.time;
     }
 }

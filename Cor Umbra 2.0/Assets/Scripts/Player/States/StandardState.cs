@@ -19,24 +19,27 @@ public class StandardState : State
     }
     public override void Do()
     {
-        if (state.isCompleted)
-        {
-            Set(idleState);
+ 
 
-            if (inputHandler.dashTriggered)
-            {
-                Set(evadeState);
-            }
-            else if (inputHandler.aimTriggered)
-            {
-                Set(aimingState);
-            }
-            else if (inputHandler.moveInput.magnitude > 0)
-            {
-                Set(walkingState);
-            }
-           
+        if(inputHandler.dashTriggered)
+        {
+           Set(evadeState);
         }
+        else if(inputHandler.aimTriggered && !evadeState.isStarted)
+        {
+           Set(aimingState);
+        }
+        else if(inputHandler.moveInput.magnitude > 0 && state.isCompleted)
+        {
+           Set(walkingState);
+        }
+        else if(inputHandler.moveInput.magnitude == 0 && state.isCompleted)
+        {
+           Set(idleState);
+        }
+           
+           
+           
         isCompleted = true;
 
     }

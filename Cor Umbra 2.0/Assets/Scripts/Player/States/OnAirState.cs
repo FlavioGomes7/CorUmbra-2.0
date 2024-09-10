@@ -7,23 +7,19 @@ public class OnAirState : State
     [SerializeField] private Transform player;
     [SerializeField] private CharacterController chController;
     [SerializeField] private float gravityforce;
-    private Vector3 playerDirection;
+    private Vector3 velocity;
 
     public override void Enter()
     {
-        playerDirection = player.position;
+        isCompleted = true;
     }
     public override void Do()
     {
-        playerDirection.y += gravityforce;
-        chController.Move(playerDirection * Time.deltaTime);
-        if(groundSensor.grounded)
-        {
-            isCompleted = true;
-        }
+        velocity.y += gravityforce * Time.deltaTime;
+        chController.Move(velocity * Time.deltaTime);
     }
     public override void Exit()
     {
-
+        velocity.y = 0f;
     }
 }

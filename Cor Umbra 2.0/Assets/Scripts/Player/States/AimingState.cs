@@ -17,13 +17,17 @@ public class AimingState : State
     [SerializeField] private LayerMask aimColliderMask = new LayerMask();
 
     private InputHandler inputHandler;
+    public Collider hitCollider = null;
     public Transform hitTransform = null;
+
+    private float rotationY;
 
     public override void Enter()
     {
         inputHandler = InputHandler.instance;
         aimCamera.Priority = 2;
         isCompleted = true;
+
     }
 
     public override void Do()
@@ -61,26 +65,39 @@ public class AimingState : State
         Vector3 mouseWorldPosition = Vector3.zero;
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-
-        playerAim.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.x * sensitivy, Vector3.up);
+       
+        player.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.x * sensitivy, Vector3.up);
         playerAim.rotation *= Quaternion.AngleAxis(-inputHandler.lookValue.y * sensitivy, Vector3.right);
 
-        var angles = playerAim.transform.eulerAngles;
+        var angles = player.eulerAngles;
         angles.z = 0;
 
-        playerAim.transform.localEulerAngles = angles;
+       // var angle = playerAim.eulerAngles;
+
+        //if(angle.x > 180 && angle.x < 340)
+        //{
+        //    angle.x = 340;
+        //}
+        //else if(angle.x < 180 && angle.x > 40)
+        //{
+        //    angle.x = 40;
+        //}
+
+        //playerAim.localEulerAngles = angle;
+        player.transform.localEulerAngles = angles;
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit, float.PositiveInfinity, aimColliderMask))
         {
             debugTransform.position = raycastHit.point;
             mouseWorldPosition = raycastHit.point;
             hitTransform = raycastHit.transform;
+            hitCollider = raycastHit.collider;
         }
 
         Vector3 worldAimTarget = mouseWorldPosition;
         worldAimTarget.y = player.position.y;
         Vector3 aimDirection = (worldAimTarget - player.position).normalized;
 
-        player.forward = Vector3.Lerp(player.forward, aimDirection, Time.deltaTime * 20f);
+        //player.forward = Vector3.Lerp(player.forward, aimDirection, Time.deltaTime * 20f);
     }
 }

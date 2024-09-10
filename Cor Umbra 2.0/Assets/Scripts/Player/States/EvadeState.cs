@@ -8,6 +8,7 @@ public class EvadeState : State
     [SerializeField] private CharacterController chController;
     [SerializeField] private float evadeTime;
     private InputHandler inputHandler;
+    
     public override void Enter()
     {
         inputHandler = InputHandler.instance;
@@ -17,6 +18,10 @@ public class EvadeState : State
     public override void Do()
     {
         
+    }
+    public override void Exit()
+    {
+        isStarted = false;
     }
 
     public IEnumerator Evade()

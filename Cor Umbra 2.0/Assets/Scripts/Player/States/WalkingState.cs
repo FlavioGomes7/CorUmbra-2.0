@@ -20,7 +20,6 @@ public class WalkingState : State
 
     public override void Enter()
     {
-        isCompleted = true;
         inputHandler = InputHandler.instance;
     }
     public override void Do()
@@ -30,12 +29,19 @@ public class WalkingState : State
         playerDirection = playerDirection.x * player.right + playerDirection.z * player.forward;
 
         if(!isAimMode)
-        {      
+        {                  
             float angle = Mathf.SmoothDampAngle(player.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
             player.eulerAngles = new Vector3(player.localEulerAngles.x, angle, player.localEulerAngles.z);
         }
 
+        playerDirection.y = -2;
+
         chController.Move(playerDirection * Time.deltaTime * speed);
+
+        if(playerDirection.magnitude == 0)
+        {
+            isCompleted = true;
+        }
       
     }
 

@@ -5,10 +5,8 @@ using UnityEngine;
 public class GroundSensor : MonoBehaviour
 {
     public bool grounded { get; private set; }
-    private RaycastHit hit;
-    private float bufferCheckDistance = 0.1f; //Um pouco acima do zero 
-    private float groundedCheckDistance;
-    [SerializeField] private CharacterController chController;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundedDistance;
     [SerializeField] private LayerMask groundMask;
     private void FixedUpdate()
     {
@@ -17,16 +15,6 @@ public class GroundSensor : MonoBehaviour
 
     public void CheckGround()
     {
-        groundedCheckDistance = (chController.height / 25) + bufferCheckDistance;
-        if(Physics.Raycast(transform.position, -transform.up, out hit, groundedCheckDistance, groundMask))
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
-
-        Debug.DrawRay(transform.position, transform.up, Color.red);    
+        grounded = Physics.CheckSphere(groundCheck.position, groundedDistance, groundMask); 
     }
 }
