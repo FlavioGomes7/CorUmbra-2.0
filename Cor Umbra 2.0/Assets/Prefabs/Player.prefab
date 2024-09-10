@@ -650,7 +650,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1.8
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 35
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -694,7 +694,7 @@ MonoBehaviour:
   onAirState: {fileID: 4026142563114523263}
   hittedState: {fileID: 3861950378458213195}
   interactingState: {fileID: 2915454434438708091}
-  pickingArea: {fileID: 0}
+  pickingArea: {fileID: 5089023437057347022}
 --- !u!114 &2858652799383338785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
   freeLook: {fileID: 0}
   isAimMode: 0
   playerSpeed: 2
-  sprintMultiplier: 1.5
+  sprintMultiplier: 2
   turnSmoothTime: 0.2
 --- !u!1 &7892684032806992883
 GameObject:
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6330724419354461760}
   chController: {fileID: 8427713844788848184}
-  gravityforce: -2.5
+  gravityforce: -9.8
 --- !u!1 &8278798492933057889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   player: {fileID: 6330724419354461760}
   freeLook: {fileID: 0}
   isAimMode: 1
-  playerSpeed: 1
+  playerSpeed: 1.5
   sprintMultiplier: 1
   turnSmoothTime: 0
 --- !u!1 &9181871956855759379
