@@ -8,6 +8,7 @@ public class PatrolEnemyState : State
     [SerializeField] private IdleEnemyState idleState;
 
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask wallMask;
     [SerializeField] private Transform enemy;
     [SerializeField] private float walkRange;
 
@@ -22,7 +23,7 @@ public class PatrolEnemyState : State
 
         patrolDestination = new Vector3(enemy.position.x + randonX, enemy.position.y, enemy.position.z + randonZ);
 
-        if(Physics.Raycast(patrolDestination, -transform.up, 1f, groundMask))
+        if(Physics.Raycast(patrolDestination, -transform.up, 1f, groundMask) && !Physics.CheckSphere(patrolDestination, 1f, wallMask))
         {
             navigateState.destination = patrolDestination;
             Set(navigateState, true);
@@ -35,6 +36,7 @@ public class PatrolEnemyState : State
 
     public override void Enter()
     {
+        isCompleted = true;
         GoToNextDestination();
     }
 

@@ -17,10 +17,10 @@ public class ShootingState : State
         Set(idleState);
         if(aiming.hitTransform != null)
         {
-            if(aiming.hitTransform.GetComponentInParent<TargetScript>() != null)
+            if(aiming.hitTransform.GetComponent<HittedEnemyState>() != null)
             {
                 Debug.Log("Acertou o Alvo");
-                DealDamage(aiming.hitTransform.GetComponentInParent<TargetScript>(), damage, aiming.hitCollider);
+                DealDamage(aiming.hitTransform.GetComponentInParent<HittedEnemyState>(), damage, aiming.hitCollider);
             
             }
             else
@@ -48,7 +48,7 @@ public class ShootingState : State
         }
     }
 
-    public void DealDamage(TargetScript target, float damage, Collider collider)
+    public void DealDamage(HittedEnemyState target, float damage, Collider collider)
     {
         target.Hitted(collider, damage);
     }

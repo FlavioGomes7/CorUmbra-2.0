@@ -61,10 +61,10 @@ public class AnimationStateController : MonoBehaviour
 
     void HandleAimAnim()
     {
-        if(inputHandler.aimTriggered)
+        if (inputHandler.aimTriggered)
         {
             aimRigWeight = 1f;
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f) );
+            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
         }
         else
         {
@@ -101,9 +101,9 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20);
-       HandleBlendMove();
-       HandleAimAnim();
-       HandleEvadeAnim();
+        aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20);
+        HandleBlendMove();
+        HandleAimAnim();
+        HandleEvadeAnim();
     }
 }
