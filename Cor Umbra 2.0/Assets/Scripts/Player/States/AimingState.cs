@@ -26,8 +26,6 @@ public class AimingState : State
     {
         inputHandler = InputHandler.instance;
         aimCamera.Priority = 2;
-        isCompleted = true;
-
     }
 
     public override void Do()
@@ -46,9 +44,9 @@ public class AimingState : State
         {
             Set(idleState);
         }
-        
 
-        if(!inputHandler.aimTriggered)
+
+        if (!inputHandler.aimTriggered)
         {
             isCompleted = true;
         }
