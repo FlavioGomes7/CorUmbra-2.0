@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mbs-pack-descriptor
+  m_Script: "{\n    \"guid\": \"9e5df86537074e35a6c9b776d49c85cd\",\n    \"_name\":
+    \"SewerPack\",\n    \"_wallGroups\": [\n        {\n            \"guid\": \"b8f7d7acef9349cb84a3ee0c2850822e\",\n           
+    \"name\": \"BaseWall\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"0e1d6399b7c141c68a1bdcab828552d1\",\n                    \"name\":
+    \"BunkerWall_01\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 7613280426498581943,\n                           
+    \"guid\": \"5f363f07972ff574bb57847d46716b22\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"72bef42522094b5a826d98279a18db5c\",\n                   
+    \"name\": \"BunkerWall_02\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 9116709433144355474,\n                           
+    \"guid\": \"73000604d025b1949987229948319f93\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"c7c2472323d246289d37582265452685\",\n                   
+    \"name\": \"BunkerWall_03\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 205125893311566036,\n                           
+    \"guid\": \"de369c46b6efbd843810f62b820aafc2\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"6dd36f3aab9e4449a9d66c7434a5381f\",\n                   
+    \"name\": \"BunkerWall_04\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 1479061743718744285,\n                           
+    \"guid\": \"1e676154c0d7219409247f299e7cc7c6\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"2d45fac3e25641deb117fbf987b146b7\",\n                   
+    \"name\": \"BunkerWall_05\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 207419029927686668,\n                           
+    \"guid\": \"978e3757828646f4a8a4b85da6fe51be\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"aed29d8c46c24b3381e81accb9e614e2\",\n                   
+    \"name\": \"BunkerWall_06\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 342304702002493933,\n                           
+    \"guid\": \"c0054c61e8b0b124c88400f002ca3cfd\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"6eaa661355d243ff9fcb9bcb22d3139e\",\n                   
+    \"name\": \"BunkerWall_07\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 8213439839276065783,\n                           
+    \"guid\": \"081741890c9796949ab616273e950619\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"73d866a94c6f42f29a5657798902494e\",\n                   
+    \"name\": \"BunkerWall_08\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 3705175362856003942,\n                           
+    \"guid\": \"ebf3172d77b4e2643bfaa48f6a489669\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"49575b4496384991a61b1897835fd84b\",\n                   
+    \"name\": \"BunkerWall_09\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 6765195500165917044,\n                           
+    \"guid\": \"6904d7b125ba58b49a3626bfe76ad4e9\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"ad0f505af2ad49bf8cd0d3b1ccd2eb2f\",\n                   
+    \"name\": \"BunkerWall_10\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 3119255494984725200,\n                           
+    \"guid\": \"6ba26ba9b7bbd9540a295bb717b47069\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"3976a35b02954bd798348ea700c3e366\",\n                   
+    \"name\": \"BunkerWall_11\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 2578783216046714425,\n                           
+    \"guid\": \"31ad760a6a7ccb944a5a3354e8a6a20f\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"da9cc23094044193a154aa91ea8185ac\",\n                   
+    \"name\": \"BunkerWall_12\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 1332895814010765149,\n                           
+    \"guid\": \"14dad5b021332db4693e9c6e5d111eae\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"a2e510b3f5dd48a6b1d9e8f275dee7be\",\n                   
+    \"name\": \"SewerWall01\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 8720913594677901557,\n                           
+    \"guid\": \"f0b19e7aad4f16c49bddc0786c8bfde8\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"5bdcd56a8e344b3daa97abc963039e19\",\n                   
+    \"name\": \"SewerWall02\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 1929123754674980292,\n                           
+    \"guid\": \"709f9c93fb6b4c44384a9f6bcfae01b8\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"1102783a41bc44ceb0e8a56dd5b3fc58\",\n                   
+    \"name\": \"SewerWall03\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 4754978559710442478,\n                           
+    \"guid\": \"f2af974e0090a93469cd45e05884548e\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"de7fce92a85f44d6a722478ac8c99326\",\n           
+    \"name\": \"New Wall Group\",\n            \"_modules\": []\n        }\n    ],\n   
+    \"_floorGroups\": [\n        {\n            \"guid\": \"ee6321f4c20b4d4b8088cf8d67102ac4\",\n           
+    \"name\": \"FloorBase\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"277479a701fd47e3bcda06a651867e77\",\n                    \"name\":
+    \"Floor01\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 2374822721968592338,\n                            \"guid\": \"e6cc214346304b9459d5a9d5ccb2820f\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"8996ba38f26249d28de9e7a3201f57b3\",\n                   
+    \"name\": \"Floor02\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 8577550495121324869,\n                           
+    \"guid\": \"aac30a310ab77e24cad62831297b5ac4\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"9c1191a939cc46e18a8d7be8121aeef7\",\n                   
+    \"name\": \"Floor03\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 8545656496277266463,\n                           
+    \"guid\": \"f8fd36d1f70cc3a499e3924e79dc16f8\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"d37f812441204660a34270b0e3728d7a\",\n                   
+    \"name\": \"Floor04\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 3712920474846307752,\n                           
+    \"guid\": \"792526e793a3478448d68081f1dab2f3\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"e89ecb259fee470a89e5026bd8fbec0d\",\n                   
+    \"name\": \"Floor05\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 4372635704031938131,\n                           
+    \"guid\": \"f6edcc7fca2d23447ab4f145c7396549\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"8565d8c625144aa298189721895a4fa3\",\n           
+    \"name\": \"FloorBig\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"c6fca51d47ee4e0dacce4118f81d092f\",\n                    \"name\":
+    \"FloorB01\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 3557614433822250452,\n                            \"guid\": \"604d033e5b14e254abc5bcd6ef794bad\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"cf00e8ae095044b0af11c50058d7d6e6\",\n                   
+    \"name\": \"FloorB02\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 6898127048852617667,\n                           
+    \"guid\": \"5e31c6688f856b04789090cfb0e17328\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"0c6ad0891fe1428090fdb2dd9b9919a2\",\n                   
+    \"name\": \"FloorB03\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 1849059284648866935,\n                           
+    \"guid\": \"8563d9105a42bfc44ae4034fbcdfad22\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"8f8abc85cef04fa8b418b0e2a5f558ad\",\n           
+    \"name\": \"FloorCeillig\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"bfc40bbfb145417eb0686044e2f3b490\",\n                    \"name\":
+    \"CEILING01\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 5884176086569004323,\n                            \"guid\": \"12dbe8ca684a0ac46a9fa3dd6fc1e78a\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"53dad2da01d1411e9a92ba0327c7b099\",\n                   
+    \"name\": \"CEILING02\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 1465470148474229518,\n                           
+    \"guid\": \"f8e3f754dc2d53345b0dbe8d296dbc50\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"fa9d8f440d1547738826d2bb6605bf07\",\n           
+    \"name\": \"MetalFloor\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"65a178593fdc4882852b037abe34cf00\",\n                    \"name\":
+    \"FloorM01\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 7894331045419630016,\n                            \"guid\": \"1325c0e962fb7d047857a2514b25a27c\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"1a3da3704b2947538d88a99805acee9c\",\n                   
+    \"name\": \"FloorM02\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 2149433593854045371,\n                           
+    \"guid\": \"fea8538fae3279141b54097618b116b2\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"f25df5151a184c5b9348d718ff33c307\",\n                   
+    \"name\": \"FloorM03\",\n                    \"prefabs\": [\n                       
+    {\n                            \"instanceID\": 0\n                        },\n                       
+    {\n                            \"instanceID\": 0\n                        }\n                   
+    ]\n                }\n            ]\n        }\n    ],\n    \"_decoratorGroups\":
+    [\n        {\n            \"guid\": \"412bf1da973e4f00bf3e7e75b1d1f2a4\",\n           
+    \"name\": \"Grade\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"1c1239ddfe4d407fadd4ba7eaa2790c4\",\n                    \"name\":
+    \"Grade\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 5821769669005987549,\n                            \"guid\": \"4b882f014cd7689469de522abbcd2c83\",\n                           
+    \"type\": 3\n                        }\n                    ]\n               
+    }\n            ],\n            \"_assetCategoryGuid\": \"1e6a3f1d20fe41839500aa60646bcc64\"\n       
+    }\n    ],\n    \"_decoratorCategories\": [\n        {\n            \"guid\":
+    \"1e6a3f1d20fe41839500aa60646bcc64\",\n            \"_name\": \"All\"\n       
+    }\n    ]\n}"
