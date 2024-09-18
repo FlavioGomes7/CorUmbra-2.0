@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7931160716071980898}
   - component: {fileID: 2923144855801080417}
   - component: {fileID: 8387282212654996836}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MO_METAL_STAIRS_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}

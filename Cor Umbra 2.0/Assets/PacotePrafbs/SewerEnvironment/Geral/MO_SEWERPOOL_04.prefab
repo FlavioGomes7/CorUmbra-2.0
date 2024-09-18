@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5385872663639056804}
   - component: {fileID: 1085730031739078950}
   - component: {fileID: 5446893412225818969}
-  - component: {fileID: 8504174743798426183}
   m_Layer: 0
   m_Name: MO_SEWERPOOL_04
   m_TagString: Untagged
@@ -106,24 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3144354, y: 2, z: 2}
   m_Center: {x: -0.1528856, y: -1, z: 1}
---- !u!65 &8504174743798426183
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6920064672716528247}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 0.31443536}
-  m_Center: {x: -1, y: -1, z: 0.15288556}

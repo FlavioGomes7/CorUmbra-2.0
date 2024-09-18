@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3471138493972467545}
   - component: {fileID: 2036014344280061309}
   - component: {fileID: 1036227753022404199}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MO_ELEVATED_FLOOR_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,6 +13,7 @@ public class AimingState : State
     [SerializeField] private Transform playerAim;
     [SerializeField] private float sensitivy;
     [SerializeField] private CinemachineVirtualCamera aimCamera;
+    [SerializeField] private GameObject crosshair;
     [SerializeField] private Transform debugTransform;
     [SerializeField] private LayerMask aimColliderMask = new LayerMask();
 
@@ -26,6 +27,7 @@ public class AimingState : State
     {
         inputHandler = InputHandler.instance;
         aimCamera.Priority = 2;
+        crosshair.SetActive(true);
     }
 
     public override void Do()
@@ -56,6 +58,7 @@ public class AimingState : State
     public override void Exit()
     {
         aimCamera.Priority = 0;
+        crosshair.SetActive(false);
     }
 
     void HandleAim()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6362183581248933814}
   - component: {fileID: 7487432324367749429}
   - component: {fileID: 8530225387006798483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MO_METAL_WALKWAY_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

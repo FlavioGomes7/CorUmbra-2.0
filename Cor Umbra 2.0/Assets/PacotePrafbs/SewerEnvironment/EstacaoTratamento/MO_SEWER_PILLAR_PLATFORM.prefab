@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4748878431339596667}
   - component: {fileID: 6613599093331446431}
   - component: {fileID: 2316658983272041868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MO_SEWER_PILLAR_PLATFORM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1824333886774419795}
   - component: {fileID: 5182625140094212047}
   - component: {fileID: 4349549267387503489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MO_PLATAFORMA_GIRATORIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}

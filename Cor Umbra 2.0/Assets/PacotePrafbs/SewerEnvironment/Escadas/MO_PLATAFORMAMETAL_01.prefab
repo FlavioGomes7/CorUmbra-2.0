@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6670962388836247599}
   - component: {fileID: 5476544346918641846}
   - component: {fileID: 474347486629292362}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MO_PLATAFORMAMETAL_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
