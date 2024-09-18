@@ -26,6 +26,7 @@ public class HumanoidEnemy : Core
     private bool playerIsVisible;
     private bool playerInAttackRange;
     public bool isHitted = false;
+    public Collider hitCollider;
 
     public void Start()
     {
@@ -59,8 +60,9 @@ public class HumanoidEnemy : Core
             }
         }
 
+        hitCollider = collider;
         isHitted = true;
-        Debug.Log(health);
+        //Debug.Log(health);
     }
     private void SelectState()
     {
