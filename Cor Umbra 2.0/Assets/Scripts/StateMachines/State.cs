@@ -1,7 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public interface Iobserver
+{
+    public void OnNotify();
+}
 public abstract class State : MonoBehaviour
 {
     protected Core core;
@@ -12,6 +18,7 @@ public abstract class State : MonoBehaviour
     public float time => Time.time - startTime;
 
     //protected Rigidbody rb => core.rb;
+    private List<Iobserver> observers = new List<Iobserver>();
     protected Animator animator => core.animator;
     protected GroundSensor groundSensor => core.groundSensor;
 
@@ -44,6 +51,20 @@ public abstract class State : MonoBehaviour
     public virtual void Exit()
     {
 
+    }
+
+    public void AddObserver(Iobserver observer)
+    {
+        observers.Add(observer);
+    }
+
+    public void RemoveObserver(Iobserver observer)
+    {
+        observers.Remove(observer);
+    }
+    protected void notifyObserver()
+    {
+        observers.ForEach((observers) => { observers.OnNotify(); });
     }
 
     public void DoBranch()

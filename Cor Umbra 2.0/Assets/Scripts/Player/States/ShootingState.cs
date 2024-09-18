@@ -17,16 +17,13 @@ public class ShootingState : State
         Set(idleState);
         if(aiming.hitTransform != null)
         {
-            if(aiming.hitTransform.GetComponent<HittedEnemyState>() != null)
+            if(aiming.hitTransform.GetComponentInParent<HumanoidEnemy>() != null)
             {
-                Debug.Log("Acertou o Alvo");
-                DealDamage(aiming.hitTransform.GetComponentInParent<HittedEnemyState>(), damage, aiming.hitCollider);
-            
+                DealDamage(aiming.hitTransform.GetComponentInParent<HumanoidEnemy>(), damage, aiming.hitCollider);
             }
             else
             {
                 Debug.Log("Acertou Algo");
-               
             }
         }
 
@@ -48,7 +45,7 @@ public class ShootingState : State
         }
     }
 
-    public void DealDamage(HittedEnemyState target, float damage, Collider collider)
+    public void DealDamage(HumanoidEnemy target, float damage, Collider collider)
     {
         target.Hitted(collider, damage);
     }

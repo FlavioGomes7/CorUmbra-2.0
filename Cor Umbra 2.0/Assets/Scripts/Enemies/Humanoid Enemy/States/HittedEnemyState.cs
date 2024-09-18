@@ -4,38 +4,22 @@ using UnityEngine;
 
 public class HittedEnemyState : State
 {
-    [SerializeField] private float health;
-
+    [SerializeField] private HumanoidEnemy enemy;
     [SerializeField] private DieEnemyState dieState;
 
-    [SerializeField] private Collider headCollider;
-    [SerializeField] private Collider torsoCollider;
-    [SerializeField] private Collider[] ArmLCollider;
-    [SerializeField] private Collider[] ArmRCollider;
-    [SerializeField] private Collider[] LegLCollider;
-    [SerializeField] private Collider[] LegRCollider;
-
-    public void Hitted(Collider collider, float damageReceived)
+    public override void Enter()
     {
-        if (health > 0)
+        if(enemy.health <= 0)
         {
-            if (collider == headCollider)
-            {
-                health -= damageReceived * 2f;
-            }
-            else if (collider == torsoCollider)
-            {
-                health -= damageReceived * 1f;
-            }
-            else
-            {
-                health -= damageReceived * 0.8f;
-            }
+            Set(dieState);
+            isCompleted = state.isCompleted;
         }
-
-        Debug.Log(health);
+        else
+        {
+            enemy.isHitted = false;
+            isCompleted = true;
+        }
     }
-
     public override void Do()
     {
        
