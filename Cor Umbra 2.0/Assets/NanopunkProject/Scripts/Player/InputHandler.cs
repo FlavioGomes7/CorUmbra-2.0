@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string shoot = "Shoot";
     [SerializeField] private string dash = "Dash";
     [SerializeField] private string pick = "Pick";
+    [SerializeField] private string settings = "Settings";
 
     private InputAction moveAction;
     private InputAction sprintAction;
@@ -30,6 +31,7 @@ public class InputHandler : MonoBehaviour
     private InputAction shootAction;
     private InputAction dashAction;
     private InputAction pickAction;
+    private InputAction settingsAction;
 
     public Vector2 moveInput { get; private set; }
     public Vector2 lookValue { get; private set;}
@@ -38,6 +40,7 @@ public class InputHandler : MonoBehaviour
     public bool shootTriggered { get; private set; }
     public bool dashTriggered { get; private set; }
     public bool pickTriggered { get; private set; }
+    public bool settingsTriggered { get; private set; }
 
     public static InputHandler instance { get; private set; }
 
@@ -64,6 +67,9 @@ public class InputHandler : MonoBehaviour
 
         pickAction.performed += context => pickTriggered = true;
         pickAction.canceled += context => pickTriggered = false;
+
+        settingsAction.performed += context => settingsTriggered = true;
+        settingsAction.canceled += context => settingsTriggered = false;
     }
 
     private void ShootAction_canceled(InputAction.CallbackContext obj)
@@ -80,6 +86,7 @@ public class InputHandler : MonoBehaviour
         shootAction.Enable();
         dashAction.Enable();
         pickAction.Enable();
+        settingsAction.Enable();
     }
     private void OnDisable()
     {
@@ -90,6 +97,7 @@ public class InputHandler : MonoBehaviour
         shootAction.Disable();
         dashAction.Disable();
         pickAction.Disable();
+        settingsAction.Disable();
     }
 
     public IEnumerator Delay(float delay, string action)
@@ -115,6 +123,7 @@ public class InputHandler : MonoBehaviour
         shootAction = playerControls.FindActionMap(actionMapName).FindAction(shoot);
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
         pickAction = playerControls.FindActionMap(actionMapName).FindAction(pick);
+        settingsAction = playerControls.FindActionMap(actionMapName).FindAction(settings);
         RegisterInputActions();
 
     }

@@ -2,9 +2,11 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class StandardState : State
 {
+    public CinemachineFreeLook freeLook;
     public IdleState idleState;
     public WalkingState walkingState;
     public EvadeState evadeState;
@@ -16,6 +18,8 @@ public class StandardState : State
     {
         inputHandler = InputHandler.instance;
         Set(idleState);
+        freeLook.m_XAxis.m_MaxSpeed = 150f;
+        freeLook.m_YAxis.m_MaxSpeed = 1.5f;
     }
     public override void Do()
     {
