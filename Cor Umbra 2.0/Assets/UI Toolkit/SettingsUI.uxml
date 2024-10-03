@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/SliderCustom/CustomControls.uss?fileID=7433441132597879392&amp;guid=c8c6bb1e56918d84187fd47f9f78b0d9&amp;type=3#CustomControls" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
+        <ui:VisualElement name="Background-Settings" style="flex-grow: 1; background-color: rgb(255, 115, 0); width: 50%; height: 50%; justify-content: flex-start; align-items: auto; align-self: center; -unity-background-scale-mode: stretch-to-fill; flex-wrap: nowrap; margin-top: 15px; margin-right: 5px; margin-bottom: 15px; margin-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+            <ui:Slider label="Volume" value="40.53" high-value="100" name="Game-Slider" style="justify-content: space-between; align-self: center; flex-wrap: nowrap; align-items: center; flex-direction: row; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; width: initial;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

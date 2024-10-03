@@ -11,7 +11,7 @@ public class AimingState : State
 
     [SerializeField] private Transform player;
     [SerializeField] private Transform playerAim;
-    [SerializeField] private float sensitivy;
+    [SerializeField] public float sensitivy;
     [SerializeField] private CinemachineVirtualCamera aimCamera;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private Transform debugTransform;
