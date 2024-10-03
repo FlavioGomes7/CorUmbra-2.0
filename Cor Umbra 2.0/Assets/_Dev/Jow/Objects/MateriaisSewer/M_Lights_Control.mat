@@ -41,5 +41,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _EmissionColor: {r: 0.44940847, g: 0.4657083, b: 0.39996123, a: 0}
+    - _EmissionColor: {r: 0.24373813, g: 0.25257838, b: 0.21692026, a: 0}
   m_BuildTextureStacks: []
