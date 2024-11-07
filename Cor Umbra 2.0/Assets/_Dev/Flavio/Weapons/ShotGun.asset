@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50a8cef1e2609f47ab036e09e1b0b2d, type: 3}
+  m_Name: ShotGun
+  m_EditorClassIdentifier: 
+  type: 1
+  name: ShotGun
+  modelPrefab: {fileID: 4893723889916664343, guid: 9ac6a659ffe942d43a10b15c53e8c01d, type: 3}
+  spawnPoint: {x: -0.772, y: 0, z: 0.052}
+  spawnRotation: {x: 10.000016, y: 180, z: 180}
+  hitCollider: {fileID: 0}
+  hitTransform: {fileID: 0}
+  shootConfig: {fileID: 11400000, guid: 3a1a3838ce5defe40967f7912f235905, type: 2}
+  lineRenderer: {fileID: 0}

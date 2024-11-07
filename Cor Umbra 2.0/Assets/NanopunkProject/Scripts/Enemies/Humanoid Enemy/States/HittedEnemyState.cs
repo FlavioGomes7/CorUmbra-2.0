@@ -18,12 +18,12 @@ public class HittedEnemyState : State
     public override void Do()
     {
 
-        if (enemy.health <= 0)
+        if (enemy.CurrentHealth <= 0)
         {
             Set(dieState);
             isCompleted = state.isCompleted;
         }
-        else if (hitcollider == enemy.hitCollider && enemy.health > 0)
+        else if (hitcollider == enemy.hitCollider && enemy.CurrentHealth > 0)
         {
             Set(stunnedState);
             isCompleted = state.isCompleted;

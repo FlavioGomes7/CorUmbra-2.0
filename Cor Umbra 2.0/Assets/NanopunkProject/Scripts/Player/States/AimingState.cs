@@ -34,11 +34,11 @@ public class AimingState : State
     {
         HandleAim();
 
-        if(inputHandler.shootTriggered)
+        if (inputHandler.shootTriggered)
         {
             Set(shotingState);
         }
-        else if(inputHandler.moveInput.magnitude > 0)
+        else if (inputHandler.moveInput.magnitude > 0)
         {
             Set(walkingState);
         }
@@ -87,12 +87,13 @@ public class AimingState : State
         //playerAim.localEulerAngles = angle;
         player.transform.localEulerAngles = angles;
 
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.PositiveInfinity, aimColliderMask))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, aimColliderMask))
         {
             debugTransform.position = raycastHit.point;
             mouseWorldPosition = raycastHit.point;
             hitTransform = raycastHit.transform;
             hitCollider = raycastHit.collider;
+
         }
 
         Vector3 worldAimTarget = mouseWorldPosition;

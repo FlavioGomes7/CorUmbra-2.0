@@ -18,32 +18,32 @@ public class StandardState : State
     {
         inputHandler = InputHandler.instance;
         Set(idleState);
-        freeLook.m_XAxis.m_MaxSpeed = 150f;
-        freeLook.m_YAxis.m_MaxSpeed = 1.5f;
+        freeLook.m_XAxis.m_MaxSpeed = 220f;
+        freeLook.m_YAxis.m_MaxSpeed = 1f;
     }
     public override void Do()
     {
- 
 
-        if(inputHandler.dashTriggered)
+
+        if (inputHandler.dashTriggered)
         {
-           Set(evadeState);
+            Set(evadeState);
         }
-        else if(inputHandler.aimTriggered && !evadeState.isStarted)
+        else if (inputHandler.aimTriggered && !evadeState.isStarted)
         {
-           Set(aimingState);
+            Set(aimingState);
         }
-        else if(inputHandler.moveInput.magnitude > 0 && state.isCompleted)
+        else if (inputHandler.moveInput.magnitude > 0 && state.isCompleted)
         {
-           Set(walkingState);
+            Set(walkingState);
         }
-        else if(inputHandler.moveInput.magnitude == 0 && state.isCompleted)
+        else if (inputHandler.moveInput.magnitude == 0 && state.isCompleted)
         {
-           Set(idleState);
+            Set(idleState);
         }
-           
-           
-           
+
+
+
         isCompleted = true;
 
     }

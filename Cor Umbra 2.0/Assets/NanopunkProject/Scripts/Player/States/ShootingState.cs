@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ShootingState : State
 {
+    [SerializeField]
+    private PlayerWeaponSelector weaponSelector;
+
     public AimingState aiming;
     public IdleState idleState;
     public WalkingState walkingState;
-    public float damage;
+    //public float damage;
 
     private InputHandler inputHandler;
 
@@ -15,22 +18,27 @@ public class ShootingState : State
     {
         inputHandler = InputHandler.instance;
         Set(idleState);
-        if(aiming.hitTransform != null)
-        {
-            if(aiming.hitTransform.GetComponentInParent<HumanoidEnemy>() != null)
-            {
-                DealDamage(aiming.hitTransform.GetComponentInParent<HumanoidEnemy>(), damage, aiming.hitCollider);
-            }
-            else
-            {
-                Debug.Log("Acertou Algo");
-            }
-        }
+        weaponSelector.ActiveWeapon.Shoot();
+
+        //if(weaponSelector.ActiveWeapon.hitCollider != null)
+        //{
+        //    if(weaponSelector.ActiveWeapon.hitTransform.GetComponentInParent<HumanoidEnemy>() != null)
+        //    {
+        //        Debug.Log("Acertou o inimigo");
+        //        //DealDamage(weaponSelector.ActiveWeapon.hitTransform.GetComponentInParent<HumanoidEnemy>(), damage, weaponSelector.ActiveWeapon.hitCollider);
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Acertou Algo");
+        //    }
+        //}
 
     }
     public override void Do()
     {
-        if(!inputHandler.shootTriggered)
+        //weaponSelector.ActiveWeapon.Shoot();
+
+        if (!inputHandler.shootTriggered)
         {
             isCompleted = true;
         }
@@ -45,9 +53,9 @@ public class ShootingState : State
         }
     }
 
-    public void DealDamage(HumanoidEnemy target, float damage, Collider collider)
-    {
-        target.Hitted(collider, damage);
-    }
+    //public void DealDamage(HumanoidEnemy target, float damage, Collider collider)
+    //{
+    //    target.Hitted(collider, damage);
+    //}
 
 }

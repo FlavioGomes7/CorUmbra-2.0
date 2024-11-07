@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
         {
             playerController.enabled = true;
             animationStateController.enabled = true;
-            freeLook.m_XAxis.m_MaxSpeed = 150f;
-            freeLook.m_YAxis.m_MaxSpeed = 1.5f;
+            freeLook.m_XAxis.m_MaxSpeed = 100f;
+            freeLook.m_YAxis.m_MaxSpeed = 1f;
             PanelConfig.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
