@@ -14,10 +14,12 @@ public class PatrolEnemyState : State
 
     private float randonZ;
     private float randonX;
+    private int timesRequested = 0;
     private Vector3 patrolDestination;
 
     public void GoToNextDestination()
     {
+        timesRequested++;
         randonX = Random.Range(-walkRange, walkRange);
         randonZ = Random.Range(-walkRange, walkRange);
 
@@ -28,7 +30,7 @@ public class PatrolEnemyState : State
             navigateState.destination = patrolDestination;
             Set(navigateState, true);
         }
-        else
+        else if(timesRequested < 10)
         {
             GoToNextDestination();
         }
@@ -36,6 +38,7 @@ public class PatrolEnemyState : State
 
     public override void Enter()
     {
+        Set(idleState);
         isCompleted = true;
         GoToNextDestination();
     }
@@ -50,7 +53,7 @@ public class PatrolEnemyState : State
                 Set(idleState, true);
             }
         }
-        else
+        else if(timesRequested < 50)
         {
             if(state.time > 5.2f)
             {
