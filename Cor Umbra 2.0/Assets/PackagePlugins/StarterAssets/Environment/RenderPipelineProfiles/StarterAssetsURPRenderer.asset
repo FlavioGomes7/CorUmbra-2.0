@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: FiltroCRT
   m_EditorClassIdentifier: 
   m_Active: 1
-  passMaterial: {fileID: 2100000, guid: 2deef1400e95a22448283d267c452f3a, type: 2}
+  passMaterial: {fileID: 2100000, guid: 8980c245baafed447be184ffc460e195, type: 2}
   injectionPoint: 600
   requirements: 4
   passIndex: 0
