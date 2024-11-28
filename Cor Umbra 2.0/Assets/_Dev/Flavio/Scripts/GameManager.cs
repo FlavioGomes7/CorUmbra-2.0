@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Cinemachine;
 
@@ -55,15 +54,10 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if(inputHandler.settingsTriggered)
+        if (inputHandler.settingsTriggered)
         {
             inputHandler.Delay(1f, "Settings");
             OpenConfig();
-        }
-
-        if(inputHandler.restartTriggered)
-        {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

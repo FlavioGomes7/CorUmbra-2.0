@@ -23,7 +23,6 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string dash = "Dash";
     [SerializeField] private string pick = "Pick";
     [SerializeField] private string settings = "Settings";
-    [SerializeField] private string restart = "Restart";
 
     private InputAction moveAction;
     private InputAction sprintAction;
@@ -33,7 +32,6 @@ public class InputHandler : MonoBehaviour
     private InputAction dashAction;
     private InputAction pickAction;
     private InputAction settingsAction;
-    private InputAction restartAction;
 
     public Vector2 moveInput { get; private set; }
     public Vector2 lookValue { get; private set;}
@@ -43,7 +41,6 @@ public class InputHandler : MonoBehaviour
     public bool dashTriggered { get; private set; }
     public bool pickTriggered { get; private set; }
     public bool settingsTriggered { get; private set; }
-    public bool restartTriggered { get; private set; }
 
     public static InputHandler instance { get; private set; }
 
@@ -73,9 +70,6 @@ public class InputHandler : MonoBehaviour
 
         settingsAction.performed += context => settingsTriggered = true;
         settingsAction.canceled += context => settingsTriggered = false;
-
-        restartAction.performed += context => restartTriggered = true;
-        restartAction.canceled += context => restartTriggered = false;
     }
 
     private void ShootAction_canceled(InputAction.CallbackContext obj)
@@ -93,7 +87,6 @@ public class InputHandler : MonoBehaviour
         dashAction.Enable();
         pickAction.Enable();
         settingsAction.Enable();
-        restartAction.Enable();
     }
     private void OnDisable()
     {
@@ -105,7 +98,6 @@ public class InputHandler : MonoBehaviour
         dashAction.Disable();
         pickAction.Disable();
         settingsAction.Disable();
-        restartAction.Disable();
     }
 
     public IEnumerator Delay(float delay, string action)
@@ -132,7 +124,6 @@ public class InputHandler : MonoBehaviour
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
         pickAction = playerControls.FindActionMap(actionMapName).FindAction(pick);
         settingsAction = playerControls.FindActionMap(actionMapName).FindAction(settings);
-        restartAction = playerControls.FindActionMap(actionMapName).FindAction(restart);
         RegisterInputActions();
 
     }
