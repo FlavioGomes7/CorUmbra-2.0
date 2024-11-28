@@ -15,18 +15,23 @@ public class PlayerController : Core
     private CharacterController chController;
     private InputHandler inputHandler;
 
-
+    private bool interactbleInRange = false;
     [SerializeField] private Collider pickingArea;
+    [SerializeField] private LayerMask interactableMask = new LayerMask();
 
-    private void HandlePickItem()
+    private void HandleInteractable()
     {
-        if(inputHandler.pickTriggered)
+        Vector3 mouseWorldPosition = Vector3.zero;
+        Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+
+        if(Physics.Raycast(ray, out RaycastHit raycastHit, 2f, interactableMask))
         {
-            pickingArea.enabled = true;
+            interactbleInRange = true;
         }
-        else if(!inputHandler.pickTriggered)
+        else
         {
-            pickingArea.enabled = false;
+            interactbleInRange = false;
         }
 
     }
@@ -42,6 +47,10 @@ public class PlayerController : Core
             {
                 Set(onAirState);
             }
+        }
+        if(inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange)
+        {
+            Set(interactingState);
         }
         state.DoBranch();
     }
@@ -62,7 +71,7 @@ public class PlayerController : Core
     void Update()
     {
         SelectState();
-        HandlePickItem();
+        HandleInteractable();
     }
 
 
