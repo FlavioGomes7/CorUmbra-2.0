@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1630794054046062068}
   - component: {fileID: 5830433419320068062}
   - component: {fileID: 5354478027700786862}
-  - component: {fileID: 1040669517102235366}
   m_Layer: 3
   m_Name: SM_BLD__GROUND_01
   m_TagString: Untagged
@@ -106,25 +105,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!64 &1040669517102235366
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5885091332131665866}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5474335811573596794, guid: cc5d27a12387c1148a726035243f6d74, type: 3}
