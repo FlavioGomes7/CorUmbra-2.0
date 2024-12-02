@@ -15,6 +15,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CinemachineFreeLook freeLook;
     [SerializeField] private GameObject PanelConfig;
 
+    public void AddItem(List<Item> items, Item item)
+    {
+        items.Add(item);
+    }
+    public void RemoveItem(List<Item> items, Item item) 
+    {
+        items.Remove(item);
+    }
+
     public void OnSensitivyChange(float value)
     {
         aimingState.sensitivy = value;

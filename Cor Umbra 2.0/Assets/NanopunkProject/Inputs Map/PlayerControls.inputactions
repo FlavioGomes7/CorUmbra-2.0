@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pick",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "9154901c-bba5-4680-a0f5-0f2b6765e3fe",
                     "expectedControlType": "Button",
@@ -225,11 +225,11 @@
                 {
                     "name": "",
                     "id": "cd43e256-8589-496d-b229-93e44287213c",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
