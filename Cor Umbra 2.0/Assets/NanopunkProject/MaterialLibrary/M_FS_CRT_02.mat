@@ -116,21 +116,21 @@ Material:
     - _IsLinear: 0
     - _IsVerticalRGB: 1
     - _Metallic: 0
-    - _NoiseIntensity: 0.116
+    - _NoiseIntensity: 0.307
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _RGBLINES_SCALE: 200
+    - _RGBLINES_SCALE: 140.6
     - _RGB_Opacity: 0.144
     - _RGB_Scale: 91.22
     - _ReceiveShadows: 1
-    - _ScanLineOppacity: 0.168
+    - _ScanLineOppacity: 0
     - _ScanLinesSpeeds: 0.00078
     - _ScaningLine: 19.58
     - _ScaningLineSpeed: -2.9
-    - _ScanlineQuantity: 111.5
+    - _ScanlineQuantity: 199.5
     - _ScanlineSharpness: 7.68
-    - _Scanline_Thickness: 0.189
+    - _Scanline_Thickness: 0.3
     - _ScanlinesQuantity: 200
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -141,7 +141,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _isActive: 1
-    - _scanlineVelocity: 0.252
+    - _scanlineVelocity: 0.235
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 2.9960787, g: 2.9960787, b: 2.9960787, a: 1}
