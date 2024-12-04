@@ -5,9 +5,17 @@ using UnityEngine;
 public class ItemController : MonoBehaviour, IInteractable
 {
     public Item Item;
+    private GameManager gameManager;
 
-    public void Interact(GameObject interactor)
+    public void Interact()
     {
-        throw new System.NotImplementedException();
+        gameManager.AddItem(Item);
+        Destroy(gameObject);
     }
+
+    public void Start()
+    {
+        gameManager = GameManager.instance;
+    }
+
 }

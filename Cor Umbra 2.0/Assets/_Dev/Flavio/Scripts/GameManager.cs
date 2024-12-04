@@ -6,22 +6,25 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance { get; private set;}
+
     private bool active = false;
 
     private InputHandler inputHandler;
+    [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private AimingState aimingState;
     [SerializeField] private AnimationStateController animationStateController;
     [SerializeField] private CinemachineFreeLook freeLook;
     [SerializeField] private GameObject PanelConfig;
 
-    public void AddItem(List<Item> items, Item item)
+    public void AddItem(Item item)
     {
-        items.Add(item);
+        playerInventory.items.Add(item);
     }
-    public void RemoveItem(List<Item> items, Item item) 
+    public void RemoveItem(Item item) 
     {
-        items.Remove(item);
+        playerInventory.items.Remove(item);
     }
 
     public void OnSensitivyChange(float value)
@@ -53,6 +56,15 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             active = false;
         }
+    }
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+
     }
 
     void Start()

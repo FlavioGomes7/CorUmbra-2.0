@@ -16,17 +16,19 @@ public class PlayerController : Core
     private InputHandler inputHandler;
 
     private bool interactbleInRange = false;
+    public RaycastHit interactableHit;
     [SerializeField] private Collider pickingArea;
     [SerializeField] private LayerMask interactableMask = new LayerMask();
+
 
     private void HandleInteractable()
     {
         Vector3 mouseWorldPosition = Vector3.zero;
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-
         if(Physics.Raycast(ray, out RaycastHit raycastHit, 2f, interactableMask))
         {
+            interactableHit = raycastHit;
             interactbleInRange = true;
         }
         else
@@ -48,7 +50,7 @@ public class PlayerController : Core
                 Set(onAirState);
             }
         }
-        if(inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange)
+        if(inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange && state.isCompleted)
         {
             Set(interactingState);
         }

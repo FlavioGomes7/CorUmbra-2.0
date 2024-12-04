@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 103932648969029420}
   - component: {fileID: 6488920634308779292}
   - component: {fileID: 8044967623892744593}
+  - component: {fileID: 4103300693972174363}
   m_Layer: 0
   m_Name: AmmoModel
   m_TagString: Untagged
@@ -105,3 +106,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4103300693972174363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370454777309205225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6177f62e0926f41b2f8242ee0da9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: bd39ebffe5324ad4faabac14a55169a1, type: 2}

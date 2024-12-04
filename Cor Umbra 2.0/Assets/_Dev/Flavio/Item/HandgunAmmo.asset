@@ -15,6 +15,6 @@ MonoBehaviour:
   Type: 1
   Id: '#001'
   Name: HandGun Ammo
-  Description: 
+  Description: a
   Amount: 5
   modelPrefab: {fileID: 6370454777309205225, guid: c22983c482750fd4994410f81738f41d, type: 3}
