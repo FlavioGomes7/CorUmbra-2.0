@@ -482,7 +482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8775260}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01427592, y: 0.20089959, z: 0.0029280412, w: 0.97950345}
+  m_LocalRotation: {x: -0.01431539, y: 0.1872108, z: 0.0027285316, w: 0.98221165}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1944,7 +1944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58301512}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014356038, y: 0.15932716, z: 0.0023171545, w: 0.9871188}
+  m_LocalRotation: {x: -0.014386979, y: 0.14553612, z: 0.0021165865, w: 0.9892461}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9944,7 +9944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346644074}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014356037, y: 0.15932715, z: 0.002317154, w: 0.9871188}
+  m_LocalRotation: {x: -0.014386979, y: 0.14553612, z: 0.0021165865, w: 0.9892461}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -39249,6 +39249,7 @@ GameObject:
   - component: {fileID: 1368008896}
   - component: {fileID: 1368008898}
   - component: {fileID: 1368008897}
+  - component: {fileID: 1368008899}
   m_Layer: 0
   m_Name: Area Light (12)
   m_TagString: Untagged
@@ -39265,7 +39266,7 @@ Transform:
   m_GameObject: {fileID: 1368008895}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 15.108, y: -2.201, z: 79.534}
+  m_LocalPosition: {x: 15.108, y: -0.93000007, z: 79.534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39349,13 +39350,33 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 12.616875, y: 29.330246}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6267
+  m_ColorTemperature: 8363
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1368008899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368008895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0791a4aa3bc434583358bd62e7282c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissive: {fileID: 0}
+  EmissiveDColor: {r: 0, g: 0, b: 0, a: 0}
+  EmMultiplicador: 0
+  myLight: {fileID: 0}
+  maxInterval: 1
+  rMinIntesity: 0
+  rMaxIntesity: 0
+  maxDisplacement: 0.25
 --- !u!1001 &1370599751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56325,7 +56346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937059822}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014356038, y: 0.15932716, z: 0.0023171548, w: 0.9871187}
+  m_LocalRotation: {x: -0.014386975, y: 0.14553612, z: 0.002116586, w: 0.98924613}
   m_LocalPosition: {x: 9.22652, y: 1.48, z: -2.6204174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -68876,7 +68897,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 1.5
+    m_MaxSpeed: 0
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -68900,7 +68921,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 150
+    m_MaxSpeed: 0
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
