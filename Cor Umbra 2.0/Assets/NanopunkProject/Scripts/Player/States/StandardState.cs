@@ -41,7 +41,7 @@ public class StandardState : State
             Set(idleState);
         }
 
-
+        
 
         isCompleted = true;
 

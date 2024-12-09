@@ -17,7 +17,6 @@ public class PlayerController : Core
 
     private bool interactbleInRange = false;
     public RaycastHit interactableHit;
-    [SerializeField] private Collider pickingArea;
     [SerializeField] private LayerMask interactableMask = new LayerMask();
 
 

@@ -15,8 +15,8 @@ MonoBehaviour:
   type: 0
   name: Glock
   modelPrefab: {fileID: 5234345653847008749, guid: 38e3abd5729be984390dfe8c06b7d391, type: 3}
-  spawnPoint: {x: 0, y: 0.15, z: 0.03}
-  spawnRotation: {x: 0, y: 180, z: 270}
+  spawnPoint: {x: 0, y: 0.2, z: -0.05}
+  spawnRotation: {x: 0, y: 0, z: 270}
   hitCollider: {fileID: 0}
   hitTransform: {fileID: 0}
   shootConfig: {fileID: 11400000, guid: 9c097cd0ff6f15b40b4635a9502a8b7d, type: 2}

@@ -482,7 +482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8775260}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01427592, y: 0.20089959, z: 0.0029280412, w: 0.97950345}
+  m_LocalRotation: {x: -0.014275722, y: 0.20096539, z: 0.002929, w: 0.9794899}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1944,7 +1944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58301512}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014356038, y: 0.15932716, z: 0.0023171545, w: 0.9871188}
+  m_LocalRotation: {x: -0.014355883, y: 0.1593935, z: 0.0023181196, w: 0.98710805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6857,10 +6857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76b4d428f023524eb27c52b8d102e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponSelector: {fileID: 0}
   aiming: {fileID: 357180096}
   idleState: {fileID: 818568658}
   walkingState: {fileID: 357180095}
-  damage: 10
 --- !u!1001 &241927373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9944,7 +9944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346644074}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014356037, y: 0.15932715, z: 0.002317154, w: 0.9871188}
+  m_LocalRotation: {x: -0.014355882, y: 0.15939349, z: 0.0023181194, w: 0.98710805}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18370,9 +18370,8 @@ MonoBehaviour:
   aim: Aim
   shoot: Shoot
   dash: Evade
-  pick: Pick
+  interact: Interact
   settings: Settings
-  restart: Restart
 --- !u!114 &649234776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18392,6 +18391,9 @@ MonoBehaviour:
   hittedState: {fileID: 58229548}
   interactingState: {fileID: 1857765147}
   pickingArea: {fileID: 649234777}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &649234777
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36775,7 +36777,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 1.5
+    m_MaxSpeed: 1
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -36799,7 +36801,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 150
+    m_MaxSpeed: 220
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -53872,6 +53874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cd34965edc5d84b89ab646901f39ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
 --- !u!1001 &1858382518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56092,6 +56095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ceeb879d3d21c45ba73c3a83ccc6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInventory: {fileID: 0}
   playerController: {fileID: 7660397200458947546}
   aimingState: {fileID: 1868356881008955974}
   animationStateController: {fileID: 9041821641709013635}
@@ -56325,7 +56329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937059822}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014356038, y: 0.15932716, z: 0.0023171548, w: 0.9871187}
+  m_LocalRotation: {x: -0.014355883, y: 0.1593935, z: 0.0023181196, w: 0.98710805}
   m_LocalPosition: {x: 9.22652, y: 1.48, z: -2.6204174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -65014,9 +65018,8 @@ MonoBehaviour:
   aim: Aim
   shoot: Shoot
   dash: Evade
-  pick: Pick
+  interact: Interact
   settings: Settings
-  restart: Restart
 --- !u!1 &3104222046528858938
 GameObject:
   m_ObjectHideFlags: 0
@@ -65292,6 +65295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cd34965edc5d84b89ab646901f39ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
 --- !u!1 &3619737667027942196
 GameObject:
   m_ObjectHideFlags: 0
@@ -66495,10 +66499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76b4d428f023524eb27c52b8d102e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponSelector: {fileID: 0}
   aiming: {fileID: 1868356881008955974}
   idleState: {fileID: 879435485501910393}
   walkingState: {fileID: 968455128932092002}
-  damage: 10
 --- !u!1 &5376415930488841082
 GameObject:
   m_ObjectHideFlags: 0
@@ -68098,6 +68102,9 @@ MonoBehaviour:
   hittedState: {fileID: 8453571351533298246}
   interactingState: {fileID: 3554027626412765284}
   pickingArea: {fileID: 765810310362222910}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7780836834048774571
 GameObject:
   m_ObjectHideFlags: 0
@@ -68876,7 +68883,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 1.5
+    m_MaxSpeed: 0
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -68900,7 +68907,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 150
+    m_MaxSpeed: 0
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
