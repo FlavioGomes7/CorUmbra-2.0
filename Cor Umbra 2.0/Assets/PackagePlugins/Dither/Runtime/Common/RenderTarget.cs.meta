@@ -4,7 +4,7 @@ timeCreated: 1697618098
 AssetOrigin:
   serializedVersion: 1
   productId: 280822
-  packageName: DitherFx
-  packageVersion: 1.0
-  assetPath: Assets/Dither/Runtime/Common/RenderTarget.cs
-  uploadId: 653315
+  packageName: Dither - Retro pixelated pattern Effect
+  packageVersion: 1.3.2
+  assetPath: Assets/PackagePlugins/Dither/Runtime/Common/RenderTarget.cs
+  uploadId: 712999
