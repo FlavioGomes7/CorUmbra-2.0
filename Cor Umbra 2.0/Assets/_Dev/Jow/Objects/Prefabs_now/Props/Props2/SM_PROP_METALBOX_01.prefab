@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4625866380800468528}
   - component: {fileID: 6605645502646614572}
   - component: {fileID: 8218676965319936624}
+  - component: {fileID: 6536745709925154658}
   m_Layer: 0
   m_Name: SM_PROP_METALBOX_01
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6536745709925154658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182381715925680112}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1268632, y: 0.8000001, z: 0.19999886}
+  m_Center: {x: -0.028000236, y: 0.40000004, z: 0.09999943}

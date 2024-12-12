@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7530019014241691066}
   - component: {fileID: 7359535301032871377}
   - component: {fileID: 5361723220483095518}
+  - component: {fileID: 6831784249061470247}
   m_Layer: 0
   m_Name: SM_PROP_LOCKER_01
   m_TagString: Untagged
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6831784249061470247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4247586217250950774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5999985, y: 2.2, z: 0.5}
+  m_Center: {x: 0, y: 1.1, z: 0.25}
 --- !u!1 &6008535835651621586
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +149,7 @@ GameObject:
   - component: {fileID: 5024172384507474952}
   - component: {fileID: 1295511152973289138}
   - component: {fileID: 1522656247316331538}
+  - component: {fileID: 6823742333132600805}
   m_Layer: 0
   m_Name: SM_PROP_LOCKER_DOOR_01
   m_TagString: Untagged
@@ -199,3 +222,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6823742333132600805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079353977072263165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5533104, y: 2.1000001, z: 0.059895515}
+  m_Center: {x: -0.2766552, y: 1.0500001, z: 0.027188778}

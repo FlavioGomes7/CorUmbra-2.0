@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4493122878774813285}
   - component: {fileID: 7938735314259202301}
   - component: {fileID: 7804155799086823231}
+  - component: {fileID: 3932837103226147007}
   m_Layer: 0
   m_Name: SM_PROP_PIPE_METAL_06
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3932837103226147007
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649661931254721119}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4091959, y: 0.502903, z: 0.39172363}
+  m_Center: {x: 0.00873518, y: 0.25145155, z: 0}
