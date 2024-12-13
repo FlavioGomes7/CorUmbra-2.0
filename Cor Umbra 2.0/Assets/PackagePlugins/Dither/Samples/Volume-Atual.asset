@@ -222,13 +222,13 @@ MonoBehaviour:
   active: 1
   m_Impact:
     m_OverrideState: 1
-    m_Value: 0.15
+    m_Value: 0.106
   m_Power:
     m_OverrideState: 1
     m_Value: 1
   m_Scale:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 0.855
   m_Pixelate:
     m_OverrideState: 1
     m_Value: 1
