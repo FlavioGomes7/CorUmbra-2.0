@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class StandardState : State
 {
@@ -12,6 +13,9 @@ public class StandardState : State
     public AimingState aimingState;
 
     private InputHandler inputHandler;
+    [SerializeField] private Rig IdleRig;
+    [SerializeField] private Rig WalkingRig;
+
 
     public override void Enter()
     {
@@ -22,7 +26,15 @@ public class StandardState : State
     }
     public override void Do()
     {
+        if (state != idleState && IdleRig.weight != 0)
+        {
+            IdleRig.weight = 0f; //Mathf.Lerp(IdleRig.weight, 0, Time.deltaTime * 5);
+        }
 
+        if (state != walkingState && WalkingRig.weight != 0)
+        {
+            WalkingRig.weight = 0f; //Mathf.Lerp(WalkingRig.weight, 0, Time.deltaTime * 180);
+        }
 
         if (inputHandler.dashTriggered)
         {
@@ -41,7 +53,7 @@ public class StandardState : State
             Set(idleState);
         }
 
-        
+
 
         isCompleted = true;
 

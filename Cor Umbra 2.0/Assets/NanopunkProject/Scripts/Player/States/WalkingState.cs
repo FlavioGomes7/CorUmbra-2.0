@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Animations.Rigging;
 
 
 public class WalkingState : State
@@ -9,6 +10,7 @@ public class WalkingState : State
     [SerializeField] private Transform player;
     [SerializeField] private CinemachineFreeLook freeLook;
     [SerializeField] private bool isAimMode;
+    [SerializeField] private Rig WalkingRig;
 
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float sprintMultiplier;
@@ -21,9 +23,22 @@ public class WalkingState : State
     public override void Enter()
     {
         inputHandler = InputHandler.instance;
+        if(!isAimMode)
+        {
+            WalkingRig.weight = 1f; //Mathf.Lerp(WalkingRig.weight, 1, Time.deltaTime * 180);
+        }
     }
     public override void Do()
     {
+        if((inputHandler.sprintValue > 0 || inputHandler.moveInput.x != 0) && !isAimMode)
+        {
+            WalkingRig.weight = Mathf.Lerp(WalkingRig.weight, 0, Time.deltaTime * 100);
+        }
+        else if(WalkingRig.weight != 1.0f && inputHandler.sprintValue == 0 && !isAimMode)
+        {
+            WalkingRig.weight = Mathf.Lerp(WalkingRig.weight, 1, Time.deltaTime * 100);
+        }
+
         float speed = playerSpeed * (inputHandler.sprintValue > 0 && inputHandler.moveInput.y > -0.5f ? sprintMultiplier : 1f);
         playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
         playerDirection = playerDirection.x * player.right + playerDirection.z * player.forward;
@@ -38,7 +53,7 @@ public class WalkingState : State
 
         chController.Move(playerDirection * Time.deltaTime * speed);
 
-        if(playerDirection.magnitude == 0)
+        if(inputHandler.moveInput.magnitude == 0)
         {
             isCompleted = true;
         }

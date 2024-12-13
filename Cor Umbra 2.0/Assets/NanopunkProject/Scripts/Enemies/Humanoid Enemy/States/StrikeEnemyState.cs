@@ -16,6 +16,7 @@ public class StrikeEnemyState : State
     {
         enemy.LookAt(player);
         animator.Play("Strike Mutant");
+        hitbox.enabled = true;
     }
 
     public override void Do()
@@ -24,19 +25,12 @@ public class StrikeEnemyState : State
         {
             isCompleted = true;
         }
-
-        ////if(Physics.CheckSphere(attackPoint.position, 0.5f, playerMask))
-        ////{
-
-        ////}
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public override void Exit()
     {
-        if (Physics.CheckSphere(attackPoint.position, 0.5f, playerMask) && collision.gameObject.GetComponent<PlayerController>() != null)
-        {
-            collision.gameObject.GetComponent<PlayerController>();
-            Debug.Log("Acertou");
-        }
+        hitbox.enabled = false;
     }
+
+    
 }

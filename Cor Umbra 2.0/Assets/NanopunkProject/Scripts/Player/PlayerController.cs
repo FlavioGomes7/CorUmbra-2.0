@@ -1,11 +1,14 @@
 using Cinemachine;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Core
+public class PlayerController : Core, IDamageable
 {
+    //Stats
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
+    
+
     //Estados
     [SerializeField] private StandardState standardState;
     [SerializeField] private OnAirState onAirState;
@@ -18,6 +21,22 @@ public class PlayerController : Core
     private bool interactbleInRange = false;
     public RaycastHit interactableHit;
     [SerializeField] private LayerMask interactableMask = new LayerMask();
+
+
+    public event IDamageable.TakeDamageEvent OnTakeDamage;
+    public event IDamageable.DeathEvent OnDeath;
+
+    public float CurrentHealth { get => currentHealth; private set => maxHealth = value; }
+
+    public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
+
+
+    public void TakeDamage(float damage, Collider collider)
+    {
+        float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
+        CurrentHealth -= damageTaken;
+        Set(hittedState);
+    }
 
 
     private void HandleInteractable()
@@ -61,6 +80,7 @@ public class PlayerController : Core
     {
         SetupInstances();
         Set(standardState);
+        currentHealth = maxHealth;
         chController = GetComponent<CharacterController>();
         inputHandler = InputHandler.instance;
 
@@ -75,5 +95,5 @@ public class PlayerController : Core
         HandleInteractable();
     }
 
-
+    
 }

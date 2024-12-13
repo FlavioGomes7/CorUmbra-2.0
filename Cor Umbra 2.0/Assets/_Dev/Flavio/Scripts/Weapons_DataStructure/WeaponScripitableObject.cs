@@ -70,10 +70,7 @@ public class WeaponScripitableObject : ScriptableObject
                         damageable.TakeDamage(damageConfig.damage, hitCollider);
                         //DealDamage(weaponSelector.ActiveWeapon.hitTransform.GetComponentInParent<HumanoidEnemy>(), damage, weaponSelector.ActiveWeapon.hitCollider);
                     }
-                    else
-                    {
-                        Debug.Log("Acertou Algo");
-                    }
+                    
                 }
             }
         }

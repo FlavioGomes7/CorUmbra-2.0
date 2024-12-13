@@ -11,6 +11,7 @@ public class HumanoidEnemy : Core, IDamageable
 
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
+    [SerializeField] public float strikeDamage;
 
     [SerializeField] private Collider headCollider;
     [SerializeField] private Collider torsoCollider;
@@ -32,9 +33,9 @@ public class HumanoidEnemy : Core, IDamageable
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
-    public float CurrentHealth { get => maxHealth; private set => maxHealth = value; }
+    public float CurrentHealth { get => currentHealth; private set => maxHealth = value; }
 
-    public float MaxHealth { get => currentHealth; private set => maxHealth = value; }
+    public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
 
     public void OnEnable()
     {

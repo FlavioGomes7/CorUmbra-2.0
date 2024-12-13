@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HittedState : MonoBehaviour
+public class HittedState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Enter()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        animator.SetTrigger("Damaged");
     }
 }

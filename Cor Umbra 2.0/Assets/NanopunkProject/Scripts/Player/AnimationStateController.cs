@@ -44,9 +44,14 @@ public class AnimationStateController : MonoBehaviour
         {
             velocityX += (velocityX < 0 ? Time.deltaTime * deceleration : Time.deltaTime * acceleration);
         }        
-        else if(leftpress && velocityX > -thresholdX[runpressed])
+        else if(leftpress && velocityX > -thresholdX[1])
         {
             velocityX -= (velocityX > 0 ? Time.deltaTime * deceleration : Time.deltaTime * acceleration);
+        }
+        else if (thresholdX[runpressed] == 0.5f)
+        {
+            velocityX = (velocityX > 0 ? velocityX -= Time.deltaTime * deceleration : velocityX);
+            velocityX = (velocityX < 0 ? velocityX += Time.deltaTime * deceleration : velocityX);
         }
         else
         {
