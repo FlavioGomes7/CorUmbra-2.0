@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5497272016326568528}
   - component: {fileID: 1045900334975916021}
   - component: {fileID: 3294970498330406008}
+  - component: {fileID: 4420699645690685347}
   m_Layer: 0
   m_Name: SM_PROP_WATER_MACHINE_01
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4420699645690685347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893565615762532405}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2.7299972, z: 0.88710403}
+  m_Center: {x: -0.0000019073486, y: 1.3649986, z: 0.018550873}

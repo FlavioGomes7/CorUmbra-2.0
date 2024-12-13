@@ -5,27 +5,27 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-//  Dither © NullTale - https://twitter.com/NullTale/
+//  Dither © NullTale - https://x.com/NullTale
 namespace VolFx
 {
     [ShaderName("Hidden/VolFx/Dither")]
-    public class DitherPass : VolFxProc.Pass
+    public class DitherPass : VolFx.Pass
     {
-        private static readonly int s_Weight      = Shader.PropertyToID("_Weight");
         private static readonly int s_PaletteTex  = Shader.PropertyToID("_PaletteTex");
         private static readonly int s_QuantTex    = Shader.PropertyToID("_QuantTex");
         private static readonly int s_MeasureTex  = Shader.PropertyToID("_MeasureTex");
         private static readonly int s_DitherTex   = Shader.PropertyToID("_DitherTex");
-        private static readonly int s_Dither      = Shader.PropertyToID("_Dither");
+        private static readonly int s_Data        = Shader.PropertyToID("_Data");
         private static readonly int s_PatternData = Shader.PropertyToID("_PatternData");
         private static readonly int s_DitherMad   = Shader.PropertyToID("_DitherMad");
-        
-        [Range(0, 1)]
-        [Tooltip("Screen nose scale in NoseMode")]
-        public float     _noiseScale = .5f;
-        
+		
+        public override string ShaderName => string.Empty;
+		
+		[HideInInspector]
         [Tooltip("Dithering pattern tiling range mapped from Scale value")]
         public Vector2Int _scaleRange = new Vector2Int(1, 100);
+        [Tooltip("Random noise texture resolution (noise texture with random values will used if custom texture is not set)")]
+		public int _noiseResolution = 512;
         
         [Header("Default volume overrides")]
         [Tooltip("Default palette")]
@@ -54,7 +54,7 @@ namespace VolFx
         private Vector4              _ditherMad;
         private Mode                 _noiseModePrev;
         private LutGenerator.LutSize _lutSizePrev;
-
+		
         // =======================================================================
         public class PaletteCash
         {
@@ -70,43 +70,6 @@ namespace VolFx
         }
 
         // =======================================================================
-        /*public bool _save;
-        public void Save(string name, Texture2D tex)
-        {
-#if UNITY_EDITOR
-            var path = $"{Path.GetDirectoryName(UnityEditor.AssetDatabase.GetAssetPath(this))}\\{name}.png";
-            File.WriteAllBytes(path, tex.EncodeToPNG());
-
-            UnityEditor.AssetDatabase.ImportAsset(path, UnityEditor.ImportAssetOptions.ForceUpdate);
-            var assetTex = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>(path);
-            _setImportOptions(assetTex, false);
-#endif   
-        }
-        
-        public static void _setImportOptions(Texture2D tex, bool readable, bool import = true)
-        {
-            var path     = UnityEditor.AssetDatabase.GetAssetPath(tex);
-            var importer = (UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(path);
-            importer.alphaSource         = UnityEditor.TextureImporterAlphaSource.FromInput;
-            importer.anisoLevel          = 0;
-            importer.textureType         = UnityEditor.TextureImporterType.Default;
-            importer.textureCompression  = UnityEditor.TextureImporterCompression.Uncompressed;
-            importer.filterMode          = FilterMode.Point;
-            importer.alphaIsTransparency = true;
-            importer.sRGBTexture         = false;
-            importer.isReadable          = readable;
-            importer.mipmapEnabled       = false;
-            importer.npotScale           = UnityEditor.TextureImporterNPOTScale.None;
-            
-            var texset = importer.GetDefaultPlatformTextureSettings();
-            texset.format              = UnityEditor.TextureImporterFormat.RGBA32;
-            texset.crunchedCompression = false;
-            importer.SetPlatformTextureSettings(texset);
-            
-            if (import)
-                UnityEditor.AssetDatabase.ImportAsset(path, UnityEditor.ImportAssetOptions.ForceUpdate);
-        }*/
-        
         public override void Init()
         {
             _frame = 0;
@@ -138,8 +101,6 @@ namespace VolFx
             var noiseMode = settings.m_Mode.overrideState ? settings.m_Mode.value : _noiseMode;
             _validateMode(noiseMode);
             
-            //_validateLutSize(_lutSize);
-
             var palette = settings.m_Palette.overrideState ? settings.m_Palette.value as Texture2D : this._palette;
             if (palette == null)
                 palette = this._palette;
@@ -158,8 +119,7 @@ namespace VolFx
             if (_dither == null)
                 _dither = _pattern;
             
-            mat.SetFloat(s_Dither, settings.m_Power.value);
-            mat.SetFloat(s_Weight, settings.m_Impact.value);
+            mat.SetVector(s_Data, new Vector4(settings.m_Impact.value, settings.m_Power.value));
             
             mat.SetTexture(s_PaletteTex, _palette);
             mat.SetTexture(s_QuantTex, _quant);
@@ -192,15 +152,34 @@ namespace VolFx
             
             if (noiseMode == Mode.Noise)
             {
-                _validateNoise();
-                
-                mat.SetTexture(s_DitherTex, _noiseTex);
-                mat.SetVector(s_DitherMad, new Vector4(_noiseScale, _noiseScale, _ditherMad.z, _ditherMad.w));
-            }
+                // use custom noise texture or an a texture with a random generated noise
+				var noiseTex = settings.m_Noise.overrideState ? settings.m_Noise.value : null;
+				if (noiseTex != null)
+				{
+					mat.SetTexture(s_DitherTex, noiseTex);
+				}
+				else
+				{
+					_validateNoise();
+					mat.SetTexture(s_DitherTex, _noiseTex);
+				}
+				
+				// custom noise scale or default
+				if (settings.m_NoiseScale.overrideState)
+				{
+					var noiseScale = settings.m_NoiseScale.value;
+					mat.SetVector(s_DitherMad, new Vector4(noiseScale, (Screen.width / (float)Screen.height) * noiseScale, _ditherMad.z, _ditherMad.w));
+				}
+				else
+				{
+					var noiseScale = settings.m_NoiseScale.value;
+					mat.SetVector(s_DitherMad, new Vector4(noiseScale, noiseScale, _ditherMad.z, _ditherMad.w));
+				}
+			}
+			
 
             return true;
-
-            // -----------------------------------------------------------------------
+			// -----------------------------------------------------------------------
             void _validatePix(bool on)
             {
                 if (_material.IsKeywordEnabled("PIXELATE") == on)
@@ -211,26 +190,6 @@ namespace VolFx
                 else
                     _material.DisableKeyword("PIXELATE");
             }
-            
-            /*void _validateLutSize(LutGenerator.LutSize lutSize)
-            {
-                if (_lutSize == _lutSizePrev)
-                    return;
-                
-                _lutSizePrev = lutSize;
-                _material.DisableKeyword("_LUT_SIZE_X16");
-                _material.DisableKeyword("_LUT_SIZE_X32");
-                _material.DisableKeyword("_LUT_SIZE_X64");
-                _paletteCash.Clear();
-
-                _material.EnableKeyword(lutSize switch
-                    {
-                        LutGenerator.LutSize.x16 => "_LUT_SIZE_X16",
-                        LutGenerator.LutSize.x32 => "_LUT_SIZE_X32",
-                        LutGenerator.LutSize.x64 => "_LUT_SIZE_X64",
-                        _                        => throw new ArgumentOutOfRangeException(nameof(lutSize), lutSize, null)
-                    });
-            }*/
             
             void _validateMode(Mode mode)
             {
@@ -257,8 +216,9 @@ namespace VolFx
             
             void _validateNoise()
             {
-                var width  = Screen.width;
-                var height = Screen.height;
+				var aspect = Screen.width / (float)Screen.height;
+                var width  = Mathf.Max(Mathf.RoundToInt(_noiseResolution * aspect), 4);
+                var height = Mathf.Max(Mathf.RoundToInt(_noiseResolution), 4);
                 
                 if (_noiseTex == null || _noiseTex.width != width || _noiseTex.height != height)
                 {

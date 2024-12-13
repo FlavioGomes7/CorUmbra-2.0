@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6314712517502888100}
   - component: {fileID: 7880129399207631057}
   - component: {fileID: 5938437544980217434}
+  - component: {fileID: 2365571223390521539}
   m_Layer: 0
   m_Name: SM_PROP_CARBOARD_BOX_03
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2365571223390521539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378694301686384923}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5068035, y: 0.50930184, z: 0.543473}
+  m_Center: {x: 0.013401985, y: 0.25465092, z: 0.01975596}

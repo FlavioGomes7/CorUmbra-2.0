@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Cor Umbra 2.0/Assets/_Dev/Flavio/Item.meta
 guid: 064df81268f0d7e4c8526a7615091fcd
+========
+guid: c9a7beacef3ea80458edf81fc2bc199c
+>>>>>>>> main:Cor Umbra 2.0/Assets/_Dev/Jow/Character/Enemy/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

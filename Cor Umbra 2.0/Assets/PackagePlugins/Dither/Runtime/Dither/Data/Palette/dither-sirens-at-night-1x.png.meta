@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b5febdfe1da1fe4796e4767651f6d82
+guid: 13c3fdc29151c214f9d4712476fe19f1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,7 +141,7 @@ TextureImporter:
 AssetOrigin:
   serializedVersion: 1
   productId: 280822
-  packageName: DitherFx
-  packageVersion: 1.0
-  assetPath: Assets/Dither/Runtime/Dither/Data/Palette/dither-sirens-at-night-1x.png
-  uploadId: 653315
+  packageName: Dither - Retro pixelated pattern Effect
+  packageVersion: 1.3.2
+  assetPath: Assets/PackagePlugins/Dither/Runtime/Dither/Data/Palette/dither-sirens-at-night-1x.png
+  uploadId: 712999

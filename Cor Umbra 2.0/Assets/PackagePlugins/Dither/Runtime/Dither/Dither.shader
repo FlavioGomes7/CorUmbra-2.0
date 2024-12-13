@@ -1,3 +1,4 @@
+//  Dither © NullTale - https://x.com/NullTale
 Shader "Hidden/VolFx/Dither"
 {    
     SubShader
@@ -21,23 +22,9 @@ Shader "Hidden/VolFx/Dither"
             
             #pragma multi_compile_local PIXELATE _
             #pragma multi_compile_local DITHER NOISE
-            //#pragma multi_compile_local _LUT_SIZE_X16 _LUT_SIZE_X32 _LUT_SIZE_X64
             
             #define LUT_SIZE 16.
             #define LUT_SIZE_MINUS (16. - 1.)
-            
-/*#if defined(_LUT_SIZE_X16)
-            #define LUT_SIZE 16.
-            #define LUT_SIZE_MINUS (16. - 1.)
-#endif
-#if defined(_LUT_SIZE_X32)
-            #define LUT_SIZE 32.
-            #define LUT_SIZE_MINUS (32. - 1.)
-#endif
-#if defined(_LUT_SIZE_X64)
-            #define LUT_SIZE 64.
-            #define LUT_SIZE_MINUS (64. - 1.)
-#endif*/
 
             sampler2D _MainTex;
 	        sampler2D _DitherTex;
@@ -46,8 +33,10 @@ Shader "Hidden/VolFx/Dither"
 	        sampler2D _QuantTex;
 	        sampler2D _MeasureTex;
             
-            uniform float  _Dither;
-            uniform float  _Weight;
+            uniform float4  _Data;
+            
+            #define _Weight _Data.x
+            #define _Dither _Data.y
             
             uniform float4 _DitherMad;
             uniform float4 _PatternData;
@@ -100,9 +89,9 @@ Shader "Hidden/VolFx/Dither"
 
                 float4 lutColor = tex2D(tex, uv);
                 
-#if !defined(UNITY_COLORSPACE_GAMMA)
-                lutColor = float4(GetSRGBToLinear(lutColor.xyz), lutColor.w);
-#endif
+// #if !defined(UNITY_COLORSPACE_GAMMA)
+//                 lutColor = float4(GetSRGBToLinear(lutColor.xyz), lutColor.w);
+//#endif
 
                 return lutColor;
             }
@@ -142,6 +131,7 @@ Shader "Hidden/VolFx/Dither"
                           
 #if NOISE
                 float measure = lut_sample(uvw, _MeasureTex);
+                float grade   = 1 - saturate(pow(1 - measure / _Dither, 4) + .001);
                 float noise   = tex2D(_DitherTex, frac(mad(i.uv, _DitherMad.xy, _DitherMad.zw))).r;
                 
                 return half4(lerp(col, lerp(lut_sample(uvw, _PaletteTex), lut_sample(uvw, _QuantTex), step(measure, _Dither) * noise), _Weight).rgb, col.a);
