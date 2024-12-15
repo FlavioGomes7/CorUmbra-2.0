@@ -8,7 +8,7 @@ public class SimpleDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null && TryGetComponent(out IDamageable damageable))
+        if (other != null && other.TryGetComponent(out IDamageable damageable))
         {
             damageable.TakeDamage(humanoidEnemy.strikeDamage, null);
         }

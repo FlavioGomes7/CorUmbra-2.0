@@ -36,6 +36,7 @@ public class PatrolEnemyState : State
 
     public override void Enter()
     {
+        Set(idleState);
         isCompleted = true;
         GoToNextDestination();
     }

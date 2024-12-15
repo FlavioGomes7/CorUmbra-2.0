@@ -9,27 +9,33 @@ public class StrikeEnemyState : State
 
     [SerializeField] private LayerMask playerMask;
 
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private Collider hitbox;
+    [SerializeField] private GameObject hitbox;
 
     public override void Enter()
     {
         enemy.LookAt(player);
         animator.Play("Strike Mutant");
-        hitbox.enabled = true;
+        hitbox.SetActive(true);
+        //Debug.Log(hitbox.activeSelf);
     }
 
     public override void Do()
     {
-        if(time > 2.15f)
+        //if(time > 2.15f)
+        //{
+        //    isCompleted = true;
+        //}
+        if (time >= animator.GetCurrentAnimatorStateInfo(0).length)
         {
+            Debug.Log("...");
             isCompleted = true;
         }
     }
 
     public override void Exit()
     {
-        hitbox.enabled = false;
+        hitbox.SetActive(false);
+        //Debug.Log(hitbox.activeSelf);
     }
 
     

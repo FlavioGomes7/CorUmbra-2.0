@@ -26,7 +26,7 @@ public class PlayerController : Core, IDamageable
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
-    public float CurrentHealth { get => currentHealth; private set => maxHealth = value; }
+    public float CurrentHealth { get => currentHealth; private set => currentHealth = value; }
 
     public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
 
@@ -35,7 +35,11 @@ public class PlayerController : Core, IDamageable
     {
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         CurrentHealth -= damageTaken;
-        Set(hittedState);
+        if(state.isCompleted)
+        {
+            Set(hittedState);
+        }
+
     }
 
 
@@ -57,7 +61,7 @@ public class PlayerController : Core, IDamageable
     }
     private void SelectState()
     {
-        if(state.isCompleted)
+        if(state.isCompleted && currentHealth > 0)
         {
             if (groundSensor.grounded)
             {

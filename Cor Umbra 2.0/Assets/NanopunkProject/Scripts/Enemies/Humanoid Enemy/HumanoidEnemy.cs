@@ -13,12 +13,12 @@ public class HumanoidEnemy : Core, IDamageable
     [SerializeField] private float maxHealth;
     [SerializeField] public float strikeDamage;
 
-    [SerializeField] private Collider headCollider;
-    [SerializeField] private Collider torsoCollider;
-    [SerializeField] private Collider[] ArmLCollider;
-    [SerializeField] private Collider[] ArmRCollider;
-    [SerializeField] private Collider[] LegLCollider;
-    [SerializeField] private Collider[] LegRCollider;
+    [SerializeField] public Collider headCollider;
+    [SerializeField] public Collider torsoCollider;
+    [SerializeField] public Collider[] ArmLCollider;
+    [SerializeField] public Collider[] ArmRCollider;
+    [SerializeField] public Collider[] LegLCollider;
+    [SerializeField] public Collider[] LegRCollider;
 
     [SerializeField] private Transform player;
     [SerializeField] private float sightRange;
@@ -33,7 +33,7 @@ public class HumanoidEnemy : Core, IDamageable
     public event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
-    public float CurrentHealth { get => currentHealth; private set => maxHealth = value; }
+    public float CurrentHealth { get => currentHealth; private set => currentHealth = value; }
 
     public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
 
@@ -45,6 +45,8 @@ public class HumanoidEnemy : Core, IDamageable
     public void Start()
     {
         SetupInstances();
+        playerIsVisible = false;
+        playerInAttackRange = false;
         Set(patrolState);
     }
 
@@ -71,7 +73,7 @@ public class HumanoidEnemy : Core, IDamageable
             }
             else if(playerIsVisible && playerInAttackRange)
             {
-                Set(attackState);
+                Set(attackState,true);
             }
             else if(!playerIsVisible && state.isCompleted)
             {
