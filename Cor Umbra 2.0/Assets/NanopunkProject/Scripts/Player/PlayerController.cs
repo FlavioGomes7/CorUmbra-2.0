@@ -20,10 +20,12 @@ public class PlayerController : Core, IDamageable
 
     private bool interactbleInRange = false;
     public RaycastHit interactableHit;
+    public Collider Hitbox;
     [SerializeField] private LayerMask interactableMask = new LayerMask();
+    [SerializeField] private HealthBar healthBar;
 
 
-    public event IDamageable.TakeDamageEvent OnTakeDamage;
+    public static event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
 
     public float CurrentHealth { get => currentHealth; private set => currentHealth = value; }
@@ -35,9 +37,10 @@ public class PlayerController : Core, IDamageable
     {
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         CurrentHealth -= damageTaken;
+        healthBar.RemoveHealth(damageTaken);
         if(state.isCompleted)
         {
-            Set(hittedState);
+            Set(hittedState, true);
         }
 
     }
@@ -95,6 +98,12 @@ public class PlayerController : Core, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if(CurrentHealth <= 0)
+        {
+            healthBar.gameObject.SetActive(false);
+            inputHandler.Disable();
+        }
+
         SelectState();
         HandleInteractable();
     }

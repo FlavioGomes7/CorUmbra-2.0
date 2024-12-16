@@ -109,6 +109,17 @@ public class InputHandler : MonoBehaviour
         StopCoroutine(Delay(delay, action));
     }
 
+    public void Disable()
+    {
+        moveAction.Disable();
+        sprintAction.Disable();
+        lookAction.Disable();
+        aimAction.Disable();
+        shootAction.Disable();
+        dashAction.Disable();
+        interactAction.Disable();
+    }
+
     private void Awake()
     {
         if (instance == null)

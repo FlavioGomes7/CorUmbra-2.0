@@ -32,6 +32,15 @@ public class GameManager : MonoBehaviour
         aimingState.sensitivy = value;
     }
 
+    public void DisableEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(var enemy in enemies)
+        {
+            enemy.GetComponent<HumanoidEnemy>().enabled = false;
+        }
+    }
+
     private void OpenConfig()
     {
         if(active == false)
@@ -69,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        inputHandler = InputHandler.instance; 
+        inputHandler = InputHandler.instance;
     }
 
     

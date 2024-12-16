@@ -13,9 +13,9 @@ public class StrikeEnemyState : State
 
     public override void Enter()
     {
+        hitbox.SetActive(true);
         enemy.LookAt(player);
         animator.Play("Strike Mutant");
-        hitbox.SetActive(true);
         //Debug.Log(hitbox.activeSelf);
     }
 
@@ -27,7 +27,6 @@ public class StrikeEnemyState : State
         //}
         if (time >= animator.GetCurrentAnimatorStateInfo(0).length)
         {
-            Debug.Log("...");
             isCompleted = true;
         }
     }

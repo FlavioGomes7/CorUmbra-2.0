@@ -19,6 +19,8 @@ public class HumanoidEnemy : Core, IDamageable
     [SerializeField] public Collider[] ArmRCollider;
     [SerializeField] public Collider[] LegLCollider;
     [SerializeField] public Collider[] LegRCollider;
+    [SerializeField] public Collider hitbox;
+
 
     [SerializeField] private Transform player;
     [SerializeField] private float sightRange;
@@ -26,7 +28,7 @@ public class HumanoidEnemy : Core, IDamageable
     [SerializeField] private LayerMask playerMask;
 
     private bool playerIsVisible;
-    private bool playerInAttackRange;
+    public bool playerInAttackRange;
     public bool isHitted = false;
     public Collider hitCollider;
 
@@ -71,7 +73,7 @@ public class HumanoidEnemy : Core, IDamageable
                 chaseState.target = player;
                 Set(chaseState);                
             }
-            else if(playerIsVisible && playerInAttackRange)
+            else if(playerIsVisible && playerInAttackRange && state.isCompleted)
             {
                 Set(attackState,true);
             }
@@ -105,12 +107,12 @@ public class HumanoidEnemy : Core, IDamageable
 
         if(damageTaken != 0)
         {
-            OnTakeDamage?.Invoke(damageTaken);
+            //OnTakeDamage?.Invoke(damageTaken);
         }
 
         if(CurrentHealth == 0 && damageTaken != 0)
         {
-            OnDeath?.Invoke();
+            //OnDeath?.Invoke();
         }
         
 

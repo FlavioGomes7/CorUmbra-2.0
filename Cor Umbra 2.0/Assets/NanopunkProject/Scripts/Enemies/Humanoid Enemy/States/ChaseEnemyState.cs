@@ -6,6 +6,7 @@ public class ChaseEnemyState : State
 {
     [SerializeField] private NavigateEnemyState navigateState;
     public Transform target;
+    [SerializeField] private HumanoidEnemy Enemy;
     public bool playerIsVisible;
 
     public override void Enter()
@@ -18,13 +19,13 @@ public class ChaseEnemyState : State
     public override void Do()
     {
         navigateState.destination = target.position;
-        if(playerIsVisible)
+        if(Enemy.playerInAttackRange)
         {
-            isCompleted = navigateState.isCompleted;
+            isCompleted = true;
         }
         else
         {
-            isCompleted = true;
+            isCompleted = navigateState.isCompleted;
         }
         
     }

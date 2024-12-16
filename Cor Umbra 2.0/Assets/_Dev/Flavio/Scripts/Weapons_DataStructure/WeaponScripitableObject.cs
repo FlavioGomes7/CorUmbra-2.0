@@ -19,7 +19,7 @@ public class WeaponScripitableObject : ScriptableObject
     private GameObject Model;
     private float lastShootTime;
     private ParticleSystem shootSystem;
-    public LineRenderer lineRenderer;
+    //public LineRenderer lineRenderer;
 
     public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
     {
@@ -32,7 +32,7 @@ public class WeaponScripitableObject : ScriptableObject
         Model.transform.localRotation = Quaternion.Euler(spawnRotation);
 
         shootSystem = Model.GetComponentInChildren<ParticleSystem>();
-        lineRenderer = Model.GetComponentInChildren<LineRenderer>();
+        //lineRenderer = Model.GetComponentInChildren<LineRenderer>();
     }
 
     public void Shoot()
@@ -41,13 +41,13 @@ public class WeaponScripitableObject : ScriptableObject
         //Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         //Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
         //Debug.Log("Atirou");
-        lineRenderer.SetPosition(0, shootSystem.transform.position);
+        //lineRenderer.SetPosition(0, shootSystem.transform.position);
 
 
         if (Time.time > shootConfig.fireRate + lastShootTime)
         {
             lastShootTime = Time.time;
-            Debug.Log("Atirou");
+            //Debug.Log("Atirou");
             Vector3 shootDirection = -Model.transform.right
                 + new Vector3(
                     Random.Range(-shootConfig.Spread.x, shootConfig.Spread.x), 
@@ -58,15 +58,15 @@ public class WeaponScripitableObject : ScriptableObject
 
             if (Physics.Raycast(shootSystem.transform.position, shootDirection, out RaycastHit hit, int.MaxValue, shootConfig.hitMask) )
             {
-                Debug.Log(hit.collider);
+                //Debug.Log(hit.collider);
                 hitTransform = hit.transform;
                 hitCollider = hit.collider;
-                lineRenderer.SetPosition(1, hit.point);
+                //lineRenderer.SetPosition(1, hit.point);
                 if (hitCollider != null)
                 {
                     if (hitTransform.TryGetComponent(out IDamageable damageable))
                     {
-                        Debug.Log("Acertou o inimigo");
+                        //Debug.Log("Acertou o inimigo");
                         damageable.TakeDamage(damageConfig.damage, hitCollider);
                         //DealDamage(weaponSelector.ActiveWeapon.hitTransform.GetComponentInParent<HumanoidEnemy>(), damage, weaponSelector.ActiveWeapon.hitCollider);
                     }

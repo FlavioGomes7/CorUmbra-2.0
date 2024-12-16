@@ -8,10 +8,10 @@ public interface IDamageable
     public float MaxHealth { get;}
 
     public delegate void TakeDamageEvent(float health);
-    public event TakeDamageEvent OnTakeDamage;
+    public static event TakeDamageEvent OnTakeDamage;
 
     public delegate void DeathEvent();
-    public event DeathEvent OnDeath;
+    public static event DeathEvent OnDeath;
 
     public void TakeDamage(float damage, Collider collider);
 }

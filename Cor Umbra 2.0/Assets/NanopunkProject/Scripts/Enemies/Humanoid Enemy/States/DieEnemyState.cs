@@ -16,6 +16,7 @@ public class DieEnemyState : State
     }
     public override void Do()
     {
+        Enemy.hitbox.enabled = false;
         Enemy.headCollider.enabled = false;
         Enemy.torsoCollider.enabled = false;
 
@@ -35,7 +36,7 @@ public class DieEnemyState : State
         {
             collider.enabled = false;
         }
-
+        Enemy.enabled = false;
         if (time >= animator.GetCurrentAnimatorStateInfo(0).length)
         {
             isCompleted = true;
