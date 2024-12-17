@@ -9,7 +9,7 @@ public class HittedEnemyState : State
     [SerializeField] private DieEnemyState dieState;
     [SerializeField] private StunnedEnemyState stunnedState;
 
-    [SerializeField] private Collider hitcollider;
+    [SerializeField] private Collider headcollider;
 
     public override void Enter()
     {
@@ -17,22 +17,25 @@ public class HittedEnemyState : State
     }
     public override void Do()
     {
-
-        if (enemy.health <= 0)
+        if (state == stunnedState)
         {
-            Set(dieState);
-            isCompleted = state.isCompleted;
-        }
-        else if (hitcollider == enemy.hitCollider && enemy.health > 0)
-        {
-            Set(stunnedState);
             isCompleted = state.isCompleted;
             if (isCompleted)
             {
                 enemy.isHitted = false;
             }
         }
-        else
+
+        if (enemy.CurrentHealth <= 0)
+        {
+            Set(dieState);
+            isCompleted = state.isCompleted;
+        }
+        else if (headcollider == enemy.hitCollider && enemy.CurrentHealth > 0)
+        {
+            Set(stunnedState);
+        }
+        else if(state != stunnedState)
         {
             enemy.isHitted = false;
             isCompleted = true;

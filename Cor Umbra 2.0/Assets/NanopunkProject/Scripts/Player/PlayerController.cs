@@ -1,11 +1,14 @@
 using Cinemachine;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Core
+public class PlayerController : Core, IDamageable
 {
+    //Stats
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
+    
+
     //Estados
     [SerializeField] private StandardState standardState;
     [SerializeField] private OnAirState onAirState;
@@ -15,24 +18,53 @@ public class PlayerController : Core
     private CharacterController chController;
     private InputHandler inputHandler;
 
+    private bool interactbleInRange = false;
+    public RaycastHit interactableHit;
+    public Collider Hitbox;
+    [SerializeField] private LayerMask interactableMask = new LayerMask();
+    [SerializeField] private HealthBar healthBar;
 
-    [SerializeField] private Collider pickingArea;
 
-    private void HandlePickItem()
+    public static event IDamageable.TakeDamageEvent OnTakeDamage;
+    public event IDamageable.DeathEvent OnDeath;
+
+    public float CurrentHealth { get => currentHealth; private set => currentHealth = value; }
+
+    public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
+
+
+    public void TakeDamage(float damage, Collider collider)
     {
-        if(inputHandler.pickTriggered)
+        float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
+        CurrentHealth -= damageTaken;
+        healthBar.RemoveHealth(damageTaken);
+        if(state.isCompleted)
         {
-            pickingArea.enabled = true;
+            Set(hittedState, true);
         }
-        else if(!inputHandler.pickTriggered)
+
+    }
+
+
+    private void HandleInteractable()
+    {
+        Vector3 mouseWorldPosition = Vector3.zero;
+        Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+        if(Physics.Raycast(ray, out RaycastHit raycastHit, 2f, interactableMask))
         {
-            pickingArea.enabled = false;
+            interactableHit = raycastHit;
+            interactbleInRange = true;
+        }
+        else
+        {
+            interactbleInRange = false;
         }
 
     }
     private void SelectState()
     {
-        if(state.isCompleted)
+        if(state.isCompleted && currentHealth > 0)
         {
             if (groundSensor.grounded)
             {
@@ -43,6 +75,10 @@ public class PlayerController : Core
                 Set(onAirState);
             }
         }
+        if(inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange && state.isCompleted)
+        {
+            Set(interactingState);
+        }
         state.DoBranch();
     }
 
@@ -51,6 +87,7 @@ public class PlayerController : Core
     {
         SetupInstances();
         Set(standardState);
+        currentHealth = maxHealth;
         chController = GetComponent<CharacterController>();
         inputHandler = InputHandler.instance;
 
@@ -61,9 +98,15 @@ public class PlayerController : Core
     // Update is called once per frame
     void Update()
     {
+        if(CurrentHealth <= 0)
+        {
+            healthBar.gameObject.SetActive(false);
+            inputHandler.Disable();
+        }
+
         SelectState();
-        HandlePickItem();
+        HandleInteractable();
     }
 
-
+    
 }

@@ -2,7 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using UnityEngine.Animations.Rigging;
 
 public class StandardState : State
 {
@@ -13,37 +13,48 @@ public class StandardState : State
     public AimingState aimingState;
 
     private InputHandler inputHandler;
+    [SerializeField] private Rig IdleRig;
+    [SerializeField] private Rig WalkingRig;
+
 
     public override void Enter()
     {
         inputHandler = InputHandler.instance;
         Set(idleState);
-        freeLook.m_XAxis.m_MaxSpeed = 150f;
-        freeLook.m_YAxis.m_MaxSpeed = 1.5f;
+        freeLook.m_XAxis.m_MaxSpeed = 220f;
+        freeLook.m_YAxis.m_MaxSpeed = 1f;
     }
     public override void Do()
     {
- 
+        if (state != idleState && IdleRig.weight != 0)
+        {
+            IdleRig.weight = 0f; //Mathf.Lerp(IdleRig.weight, 0, Time.deltaTime * 5);
+        }
 
-        if(inputHandler.dashTriggered)
+        if (state != walkingState && WalkingRig.weight != 0)
         {
-           Set(evadeState);
+            WalkingRig.weight = 0f; //Mathf.Lerp(WalkingRig.weight, 0, Time.deltaTime * 180);
         }
-        else if(inputHandler.aimTriggered && !evadeState.isStarted)
+
+        if (inputHandler.dashTriggered)
         {
-           Set(aimingState);
+            Set(evadeState);
         }
-        else if(inputHandler.moveInput.magnitude > 0 && state.isCompleted)
+        else if (inputHandler.aimTriggered && !evadeState.isStarted)
         {
-           Set(walkingState);
+            Set(aimingState);
         }
-        else if(inputHandler.moveInput.magnitude == 0 && state.isCompleted)
+        else if (inputHandler.moveInput.magnitude > 0 && state.isCompleted)
         {
-           Set(idleState);
+            Set(walkingState);
         }
-           
-           
-           
+        else if (inputHandler.moveInput.magnitude == 0 && state.isCompleted)
+        {
+            Set(idleState);
+        }
+
+
+
         isCompleted = true;
 
     }

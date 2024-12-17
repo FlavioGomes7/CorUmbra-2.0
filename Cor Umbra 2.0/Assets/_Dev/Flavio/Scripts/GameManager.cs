@@ -1,24 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance { get; private set;}
+
     private bool active = false;
 
     private InputHandler inputHandler;
+    [SerializeField] private PlayerInventory playerInventory;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private AimingState aimingState;
     [SerializeField] private AnimationStateController animationStateController;
     [SerializeField] private CinemachineFreeLook freeLook;
     [SerializeField] private GameObject PanelConfig;
 
+    public void AddItem(Item item)
+    {
+        playerInventory.items.Add(item);
+    }
+    public void RemoveItem(Item item) 
+    {
+        playerInventory.items.Remove(item);
+    }
+
     public void OnSensitivyChange(float value)
     {
         aimingState.sensitivy = value;
+    }
+
+    public void DisableEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(var enemy in enemies)
+        {
+            enemy.GetComponent<HumanoidEnemy>().enabled = false;
+        }
     }
 
     private void OpenConfig()
@@ -38,8 +58,8 @@ public class GameManager : MonoBehaviour
         {
             playerController.enabled = true;
             animationStateController.enabled = true;
-            freeLook.m_XAxis.m_MaxSpeed = 150f;
-            freeLook.m_YAxis.m_MaxSpeed = 1.5f;
+            freeLook.m_XAxis.m_MaxSpeed = 100f;
+            freeLook.m_YAxis.m_MaxSpeed = 1f;
             PanelConfig.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -47,23 +67,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+
+    }
+
     void Start()
     {
-        inputHandler = InputHandler.instance; 
+        inputHandler = InputHandler.instance;
     }
 
     
     void Update()
     {
-        if(inputHandler.settingsTriggered)
+        if (inputHandler.settingsTriggered)
         {
             inputHandler.Delay(1f, "Settings");
             OpenConfig();
-        }
-
-        if(inputHandler.restartTriggered)
-        {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

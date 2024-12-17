@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractingState : MonoBehaviour
+public class InteractingState : State
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private PlayerController playerController;
+
+    public override void Enter()
     {
-        
+        if (playerController.interactableHit.transform.GetComponent<IInteractable>() != null)
+        {
+            isCompleted = true;
+            playerController.interactableHit.transform.GetComponent<IInteractable>().Interact();
+        }
+        else
+        {
+            isCompleted = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Do()
     {
-        
+       
     }
 }
