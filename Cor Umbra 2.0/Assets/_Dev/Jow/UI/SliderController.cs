@@ -10,10 +10,10 @@ public class MultiSliderController : MonoBehaviour
     private List<Slider> brightnessSliders = new List<Slider>();
     private Dictionary<string, float> minVisibleValues = new Dictionary<string, float>
     {
-        { "Slider-brilho", 1.1f },
-        { "Slider-sensibilidade", 1.1f },
-        { "Slider-principalSound", 1.1f },
-        { "Slider-soundFX", 1.1f }
+        { "Slider-brilho", .1f },
+        { "Slider-sensibilidade", .1f },
+        { "Slider-principalSound", .1f },
+        { "Slider-soundFX", .1f }
     };
 
     void OnEnable()

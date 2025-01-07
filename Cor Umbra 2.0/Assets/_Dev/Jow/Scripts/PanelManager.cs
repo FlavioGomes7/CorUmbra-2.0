@@ -4,11 +4,13 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.HDROutputUtils;
+using UnityEngine.InputSystem;
+using Cursor = UnityEngine.Cursor;
 
 public class MenuController : MonoBehaviour
 {
-    private VisualElement rootBase;
+    private InputAction toggleAction;
+
     private VisualElement rootOptions;
     private VisualElement currentMenuOptions;
     private Stack<VisualElement> menuHistory = new Stack<VisualElement>();
@@ -18,16 +20,32 @@ public class MenuController : MonoBehaviour
     {
 
         var uiDocument = GetComponent<UIDocument>();
-        rootBase = uiDocument.rootVisualElement;
         rootOptions = uiDocument.rootVisualElement;
-        currentMenuOptions = rootOptions.Q<VisualElement>("BaseMenu");
+
         if (rootOptions == null)
         {
             Debug.LogError("Root is null");
             return;
 
         }
+        if(uiDocument.visualTreeAsset.name == "mai-menu")
+        {
+            currentMenuOptions = rootOptions.Q<VisualElement>("BaseMenu");
+            SetMainMenuButtons();
+        }else if (uiDocument.visualTreeAsset.name == "Pause-MENU")
+        {
+            currentMenuOptions = rootOptions.Q<VisualElement>("PauseMenu");
+            SetPauseMenu();
+        }
 
+        
+    }
+    void Start()
+    {
+
+    }
+    void SetMainMenuButtons()
+    {
         // Adicionando eventos aos botões do menu principal
         var startButton = rootOptions.Q<Button>("StartButton");
         var optionsButton = rootOptions.Q<Button>("OptionsButton");
@@ -41,17 +59,23 @@ public class MenuController : MonoBehaviour
         if (backButton != null)
         {
             backButton.clicked += Back;
-        }    
+        }
 
-        foreach (var button in rootOptions.Query<Button>().ToList())
-        {
-            var originalText = button.text; // Adicionar manipuladores de eventos de mouse
-            button.RegisterCallback<MouseEnterEvent>(evt => OnMouseEnter(button, originalText));
-            button.RegisterCallback<MouseLeaveEvent>(evt => OnMouseLeave(button, originalText)); }
+        ClickeAbleButtons();
     }
-    void Start()
+    void SetPauseMenu()
     {
+        var pauseMenu = rootOptions.Q<VisualElement>("PauseMenu");
+        var resumeButton = rootOptions.Q<Button>("ResumeButton");
 
+        toggleAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/p");
+        toggleAction.performed += ctx => TogglePauseMenu(pauseMenu);
+        toggleAction.Enable();
+
+        
+        pauseMenu.style.display = DisplayStyle.None; // Iniciar com o menu de pausa desabilitado
+        resumeButton.clicked += () => TogglePauseMenu(pauseMenu);
+        ClickeAbleButtons() ;
     }
     void ShowStartMenu()
     {
@@ -82,6 +106,7 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
+
     void SwitchMenu(string menuName)
     {
 
@@ -107,7 +132,7 @@ public class MenuController : MonoBehaviour
         operation.allowSceneActivation = true;
     }
 
-        void LoadGameScene()
+    void LoadGameScene()
     {
         StartCoroutine(LoadSceneAsync(1));
     }
@@ -131,5 +156,39 @@ public class MenuController : MonoBehaviour
         // Restaurar o texto original ao remover o mouse
         button.text = originalText;
     }
-
+    void ClickeAbleButtons()
+    {
+        foreach (var button in rootOptions.Query<Button>().ToList())
+        {
+            var originalText = button.text; // Adicionar manipuladores de eventos de mouse
+            button.RegisterCallback<MouseEnterEvent>(evt => OnMouseEnter(button, originalText));
+            button.RegisterCallback<MouseLeaveEvent>(evt => OnMouseLeave(button, originalText));
+        }
+    }
+    void TogglePauseMenu(VisualElement pauseMenu)
+    {
+            if (pauseMenu.style.display == DisplayStyle.None)
+            {
+                pauseMenu.style.display = DisplayStyle.Flex; 
+                Time.timeScale = 0f; // Pausar o jogo
+                ToggleCursor(true);
+            } else { 
+                pauseMenu.style.display = DisplayStyle.None; 
+                Time.timeScale = 1f; // Retomar o jogo
+                ToggleCursor(false);
+            }
+        }
+    void ToggleCursor(bool isVisible)
+    {
+        if (isVisible)
+        {
+            Cursor.lockState = CursorLockMode.None; // Libera o cursor
+            Cursor.visible = true; // Torna o cursor visível
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked; // Trava o cursor
+            Cursor.visible = false; // Torna o cursor invisível
+        }
+    }
 }

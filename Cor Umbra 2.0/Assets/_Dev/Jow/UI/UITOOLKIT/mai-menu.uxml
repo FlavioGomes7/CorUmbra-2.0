@@ -12,8 +12,8 @@
             <ui:VisualElement name="OptionsMenu" style="flex-grow: 1; min-height: initial; padding-top: 20px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 40px; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 1520px; height: auto; justify-content: flex-start; display: none; align-items: stretch;">
                 <ui:Label tabindex="-1" text="C:\ CONFIGURAÇÕES" display-tooltip-when-elided="true" style="-unity-text-outline-color: rgba(255, 255, 255, 0); color: rgb(31, 31, 31); background-color: rgb(255, 136, 0); font-size: 36px; margin-top: 20px; margin-right: 0; margin-bottom: 100px; margin-left: 0; padding-top: 10px; padding-right: 12px; padding-bottom: 10px; padding-left: 12px; justify-content: flex-start; align-items: stretch; align-self: stretch; width: auto;" />
                 <ui:VisualElement style="flex-grow: 0; flex-shrink: 0; flex-direction: row; align-items: auto; justify-content: space-evenly; height: 125px; flex-wrap: wrap;">
-                    <ui:Slider label="BRILHO" value="1" high-value="4" low-value="1" name="Slider-brilho" class="unity-slider" />
-                    <ui:Slider label="Sensibilidade MOUSE" value="1" high-value="4" low-value="1" name="Slider-sensibilidade" class="unity-slider" />
+                    <ui:Slider label="BRILHO" value="1" high-value="4" low-value="0" name="Slider-brilho" class="unity-slider" />
+                    <ui:Slider label="Sensibilidade MOUSE" value="1" high-value="4" low-value="0" name="Slider-sensibilidade" class="unity-slider" />
                 </ui:VisualElement>
                 <ui:VisualElement style="flex-grow: 0; flex-shrink: 0; flex-direction: row; align-items: auto; justify-content: space-evenly; height: 125px; flex-wrap: wrap;">
                     <ui:Slider label="PRINCIPAL SOUND" value="1" high-value="4" low-value="1" name="Slider-principalSound" class="unity-slider" />
@@ -23,9 +23,9 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="Brigthness-screen" style="flex-grow: 1; padding-top: 80px; padding-right: 80px; padding-bottom: 80px; padding-left: 80px; align-items: auto; justify-content: space-evenly; display: none; flex-direction: row; overflow: visible; visibility: visible; align-self: stretch;">
+    <ui:VisualElement name="Brigthness-screen" style="flex-grow: 1; padding-top: 80px; padding-right: 80px; padding-bottom: 80px; padding-left: 80px; align-items: auto; justify-content: space-evenly; display: none; flex-direction: row; overflow: visible; visibility: visible; align-self: stretch; background-color: rgba(0, 0, 0, 0); background-image: url(&apos;project://database/Assets/_Dev/Jow/Scripts/UI-BRIGHTNESS.renderTexture?fileID=8400000&amp;guid=92bce737c3a5ae648acfe6678d7a7b15&amp;type=2#UI-BRIGHTNESS&apos;);">
         <ui:VisualElement name="VisualElement" style="flex-grow: 1; height: 128px; width: auto; align-items: stretch; justify-content: center; align-self: flex-end; flex-direction: row; min-width: auto; min-height: auto; position: relative; top: auto; left: auto; right: auto; bottom: auto; background-color: rgba(0, 0, 0, 0.7);">
-            <ui:Slider label="BRILHO" value="1" high-value="4" low-value="1" name="Slider-brilho" class="unity-slider" style="display: flex; width: 741px; min-height: auto; align-self: stretch;" />
+            <ui:Slider label="BRILHO" value="1" high-value="4" low-value="0" name="Slider-brilho" class="unity-slider" style="display: flex; width: 741px; min-height: auto; align-self: stretch;" />
             <ui:Button text="PRONTO?" display-tooltip-when-elided="true" name="readyButton" enable-rich-text="true" class="main-menu-buttons" style="align-items: auto; justify-content: flex-start; height: 50px; align-self: center; width: 207px; margin-right: 4px; margin-left: 150px; margin-top: 0; translate: 0 5px; visibility: hidden;" />
         </ui:VisualElement>
     </ui:VisualElement>

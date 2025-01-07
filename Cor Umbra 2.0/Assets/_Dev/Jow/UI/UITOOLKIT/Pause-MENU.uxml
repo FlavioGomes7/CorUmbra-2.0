@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Dev/Jow/UI/UITOOLKIT/MenuStyle.uss?fileID=7433441132597879392&amp;guid=94355c1b68e88fc41bb070397551b7bf&amp;type=3#MenuStyle" />
+    <Style src="project://database/Assets/_Dev/Jow/UI/UITOOLKIT/SliderCustomized.uss?fileID=7433441132597879392&amp;guid=59f623e3a53e7d149a162fd17e00bd6b&amp;type=3#SliderCustomized" />
+    <ui:VisualElement name="PauseMenu" style="flex-grow: 1; padding-top: 80px; padding-right: 80px; padding-bottom: 80px; padding-left: 80px;">
+        <ui:VisualElement style="flex-grow: 1; width: auto; align-items: flex-start; flex-direction: column; align-self: stretch; background-color: rgba(0, 0, 0, 0.5); padding-top: 20px; padding-right: 20px; padding-bottom: 60px; padding-left: 104px; justify-content: space-between;">
+            <ui:Label tabindex="-1" text="PAUSE MENU" display-tooltip-when-elided="true" selectable="false" style="align-self: auto; padding-top: 50px; padding-bottom: 20px; padding-left: 12px; font-size: 60px; padding-right: 12px;" />
+            <ui:Slider label="BRILHO" value="1" high-value="4" name="Slider-brilho" style="align-self: auto; height: 79px;" />
+            <ui:Button text="retornar ao jogo" display-tooltip-when-elided="true" name="ResumeButton" class="main-menu-buttons" style="align-self: auto; align-items: flex-start;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
