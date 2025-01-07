@@ -483,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8775260}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014275724, y: 0.2009654, z: 0.0029290004, w: 0.9794899}
+  m_LocalRotation: {x: -0.014257432, y: 0.20698836, z: 0.0030167839, w: 0.9782349}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2196,7 +2196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58301512}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014355884, y: 0.15939349, z: 0.0023181194, w: 0.98710805}
+  m_LocalRotation: {x: -0.014341349, y: 0.16546413, z: 0.0024064071, w: 0.9861086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8062,6 +8062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Humanoid Enemy (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4621575973186723436, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: player
       value: 
@@ -11987,7 +11991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346644074}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014355882, y: 0.15939349, z: 0.0023181194, w: 0.98710805}
+  m_LocalRotation: {x: -0.014341348, y: 0.16546413, z: 0.0024064071, w: 0.9861086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24659,6 +24663,10 @@ PrefabInstance:
     - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: m_Name
       value: Humanoid Enemy (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4621575973186723436, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: player
@@ -45405,6 +45413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Humanoid Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4621575973186723436, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: player
       value: 
@@ -54869,6 +54881,10 @@ PrefabInstance:
     - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: m_Name
       value: Humanoid Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4621575973186723436, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: player
@@ -66218,10 +66234,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -66991,6 +67007,10 @@ PrefabInstance:
     - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: m_Name
       value: Humanoid Enemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4621575973186723436, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: player
@@ -67787,7 +67807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937059822}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014355883, y: 0.1593935, z: 0.0023181196, w: 0.98710805}
+  m_LocalRotation: {x: -0.014341348, y: 0.16546413, z: 0.002406407, w: 0.9861086}
   m_LocalPosition: {x: -0.6234808, y: 1.48, z: 94.42959}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -68262,6 +68282,10 @@ PrefabInstance:
     - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: m_Name
       value: Humanoid Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815662636596508515, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4621575973186723436, guid: b0111d658e61f6c44bfb1b5b223d51a7, type: 3}
       propertyPath: player

@@ -12,12 +12,14 @@ public class PatrolEnemyState : State
     [SerializeField] private Transform enemy;
     [SerializeField] private float walkRange;
 
+    private int numberOfRequest = 0;
     private float randonZ;
     private float randonX;
     private Vector3 patrolDestination;
 
     public void GoToNextDestination()
     {
+
         randonX = Random.Range(-walkRange, walkRange);
         randonZ = Random.Range(-walkRange, walkRange);
 
@@ -28,9 +30,14 @@ public class PatrolEnemyState : State
             navigateState.destination = patrolDestination;
             Set(navigateState, true);
         }
+        else if(numberOfRequest < 5)
+        {
+            numberOfRequest++;
+            GoToNextDestination();
+        }
         else
         {
-            GoToNextDestination();
+            Set(idleState, true);
         }
     }
 
