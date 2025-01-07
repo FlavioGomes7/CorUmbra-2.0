@@ -1,0 +1,80 @@
+Slider.unity-slider {
+    background-color: rgba(255, 0, 0, 0);
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    width: 500px;
+    height: 70%;
+}
+
+Label.unity-label {
+    -unity-font-definition: url('project://database/Assets/_Dev/Jow/UI/superstar_memesbruh03.ttf?fileID=12800000&guid=5a5f5961158ed9141a601f56fa897bb6&type=3#superstar_memesbruh03');
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    letter-spacing: 30px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 10px;
+    padding-right: 0;
+    padding-bottom: 3px;
+    padding-left: 12px;
+}
+
+VisualElement.unity-base-slider__input {
+    background-color: rgba(255, 255, 255, 0);
+    height: auto;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+#unity-drag-container.unity-base-slider__drag-container {
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#unity-tracker.unity-base-slider__tracker {
+    display: flex;
+    position: relative;
+    height: auto;
+    background-color: rgb(255, 136, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    flex-grow: 0.1;
+    left: 0;
+    right: 0;
+    flex-basis: auto;
+    scale: 1 6;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#unity-dragger.unity-base-slider__dragger {
+    visibility: visible;
+    display: none;
+}

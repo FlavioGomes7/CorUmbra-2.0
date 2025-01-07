@@ -1,0 +1,195 @@
+.main-menu {
+    flex-grow: 1;
+    align-items: stretch;
+    justify-content: space-evenly;
+    align-self: flex-start;
+    height: auto;
+    width: 470px;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    margin-right: 160px;
+    margin-bottom: 100px;
+    margin-left: 160px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(0, 0, 0);
+}
+
+.main-menu-buttons {
+    -unity-font-definition: url('project://database/Assets/_Dev/Jow/UI/superstar_memesbruh03.ttf?fileID=12800000&guid=5a5f5961158ed9141a601f56fa897bb6&type=3#superstar_memesbruh03');
+    -unity-text-align: middle-left;
+    font-size: 26px;
+    width: auto;
+    height: auto;
+    background-color: rgba(231, 231, 231, 0);
+    color: rgb(255, 255, 255);
+    letter-spacing: 30px;
+    margin-top: 20px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    justify-content: flex-start;
+    align-self: auto;
+    align-items: auto;
+    border-left-color: rgba(243, 243, 243, 0);
+    border-right-color: rgba(243, 243, 243, 0);
+    border-top-color: rgba(243, 243, 243, 0);
+    border-bottom-color: rgba(243, 243, 243, 0);
+}
+
+.main-menu-buttons:hover {
+    -unity-font-definition: url('project://database/Assets/_Dev/Jow/UI/superstar_memesbruh03.ttf?fileID=12800000&guid=5a5f5961158ed9141a601f56fa897bb6&type=3#superstar_memesbruh03');
+    -unity-text-align: middle-left;
+    font-size: 26px;
+    width: auto;
+    height: auto;
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 0, 0);
+    letter-spacing: 30px;
+    text-overflow: clip;
+}
+
+.main-menu-buttons:active {
+    -unity-font-definition: url('project://database/Assets/_Dev/Jow/UI/superstar_memesbruh03.ttf?fileID=12800000&guid=5a5f5961158ed9141a601f56fa897bb6&type=3#superstar_memesbruh03');
+    -unity-text-align: middle-left;
+    font-size: 26px;
+    width: auto;
+    height: auto;
+    background-color: rgb(255, 136, 0);
+    color: rgb(0, 0, 0);
+    letter-spacing: 30px;
+}
+
+#custom-slider {
+    height: auto;
+    background-color: transparent;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-self: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 40px;
+    margin-left: 0;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+#custom-slider .unity-label {
+    translate: 8px 0;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-self: flex-start;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: visible;
+    display: flex;
+    opacity: 1;
+    letter-spacing: 25px;
+}
+
+#custom-slider .unity-base-field__input {
+    flex-direction: row;
+    align-items: center;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    padding-top: 0;
+    padding-right: 10px;
+    padding-bottom: 0;
+    padding-left: 10px;
+}
+
+#custom-slider .unity-base-slider__tracker {
+    height: 35px;
+    background-color: rgb(255, 136, 0);
+    justify-content: flex-end;
+    align-self: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    overflow: visible;
+    max-height: none;
+    min-height: auto;
+    translate: 0 -18px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1%;
+}
+
+#custom-slider .unity-base-slider__dragger {
+    height: 40px;
+    width: 20px;
+    background-color: rgb(255, 255, 255);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    visibility: visible;
+    align-self: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    transform-origin: center;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    translate: 0 0;
+    top: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#custom-slider .unity-text-element {
+    color: rgb(255, 255, 255);
+}

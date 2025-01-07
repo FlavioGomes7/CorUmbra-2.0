@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Dev/Jow/Scenes/SCENE_V02_VERTICALSLICE (Copy).unity
     guid: 6472de756a5ed344eb59b6a4dd2a1189
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Dev/Flavio/Scenes/MenuUIToolkit.unity
     guid: 94aeacc5d0f84a942b6c20aea256b7b3
+  - enabled: 1
+    path: Assets/_Dev/Jow/Scenes/WORKERSCENES/UI_TEST.unity
+    guid: aa9446f78519d5941bf79ce7c5a26db6
   - enabled: 1
     path: Assets/_Dev/Jow/Scenes/SCENE_V02_VERTICALSLICE.unity
     guid: 0c90bb02712655a4ba790c25f93e7e5c

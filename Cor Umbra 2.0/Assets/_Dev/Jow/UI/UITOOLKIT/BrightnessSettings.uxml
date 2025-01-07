@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Dev/Jow/UI/UITOOLKIT/SliderCustomized.uss?fileID=7433441132597879392&amp;guid=59f623e3a53e7d149a162fd17e00bd6b&amp;type=3#SliderCustomized" />
+    <ui:VisualElement name="Brigthness-screen" style="flex-grow: 1; padding-top: 152px; padding-right: 152px; padding-bottom: 152px; padding-left: 152px; align-items: center; justify-content: flex-end; display: flex; flex-direction: column;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0.2; height: 150px; width: 980px; align-items: stretch; justify-content: space-between; align-self: auto;">
+            <ui:Slider label="BRILHO" value="1" high-value="4" low-value="1" name="Slider-brilho" class="unity-slider" style="display: flex; width: auto;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
