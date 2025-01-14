@@ -202,6 +202,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 64
+  bloodEffect: {fileID: 7125724551270558522}
   playerInAttackRange: 0
   isHitted: 0
   hitCollider: {fileID: 0}

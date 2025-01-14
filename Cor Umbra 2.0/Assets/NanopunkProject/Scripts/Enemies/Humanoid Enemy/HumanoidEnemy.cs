@@ -48,6 +48,7 @@ public class HumanoidEnemy : Core, IDamageable
 
     public void Start()
     {
+        bloodEffect.GetComponent<VisualEffect>().playRate = 2.8f;
         SetupInstances();
         playerIsVisible = false;
         playerInAttackRange = false;
@@ -90,9 +91,10 @@ public class HumanoidEnemy : Core, IDamageable
 
     public void TakeDamage(float damage, Collider collider, Vector3 hitPoint)
     {
+        bloodEffect.transform.position = hitPoint;
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         hitCollider = collider;
-
+        bloodEffect.GetComponent<VisualEffect>().Play();
         if (collider == headCollider)
         {
             CurrentHealth -= damageTaken * 2f;
