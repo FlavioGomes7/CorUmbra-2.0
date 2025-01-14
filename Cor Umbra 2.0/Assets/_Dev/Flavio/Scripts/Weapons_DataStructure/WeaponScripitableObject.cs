@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Weapon", order = 0)]
 public class WeaponScripitableObject : ScriptableObject
@@ -6,8 +7,12 @@ public class WeaponScripitableObject : ScriptableObject
     public WeaponType type;
     public string name;
     public GameObject modelPrefab;
+    public float weaponAmmo;
     public Vector3 spawnPoint;
     public Vector3 spawnRotation;
+    public VisualEffect shootEffect;
+    public AudioSource shootAudioSource;
+    public AudioClip[] shootAudios;
     public Collider hitCollider = null;
     public Transform hitTransform = null;
 
@@ -18,7 +23,6 @@ public class WeaponScripitableObject : ScriptableObject
     private MonoBehaviour activeMonoBehaviour;
     private GameObject Model;
     private float lastShootTime;
-    private ParticleSystem shootSystem;
     //public LineRenderer lineRenderer;
 
     public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
@@ -31,23 +35,34 @@ public class WeaponScripitableObject : ScriptableObject
         Model.transform.localPosition = spawnPoint;
         Model.transform.localRotation = Quaternion.Euler(spawnRotation);
 
-        shootSystem = Model.GetComponentInChildren<ParticleSystem>();
+        shootEffect = Model.GetComponentInChildren<VisualEffect>();
+        shootAudioSource = Model.GetComponent<AudioSource>();
+        shootAudioSource.volume = 0.5f;
         //lineRenderer = Model.GetComponentInChildren<LineRenderer>();
     }
 
     public void Shoot()
     {
+        if(weaponAmmo > 0)
+        {
+            shootAudioSource.clip = shootAudios[Random.Range(0, 2)];
+        }
+        else
+        {
+            shootAudioSource.clip = shootAudios[3] ;
+        }
         //Vector3 mouseWorldPosition = Vector3.zero;
         //Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         //Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
         //Debug.Log("Atirou");
         //lineRenderer.SetPosition(0, shootSystem.transform.position);
 
-
+    
         if (Time.time > shootConfig.fireRate + lastShootTime)
         {
+            shootAudioSource.Play();
             lastShootTime = Time.time;
-            //Debug.Log("Atirou");
+            Debug.Log("Atirou");
             Vector3 shootDirection = -Model.transform.right
                 + new Vector3(
                     Random.Range(-shootConfig.Spread.x, shootConfig.Spread.x), 
@@ -56,8 +71,10 @@ public class WeaponScripitableObject : ScriptableObject
                     );
             shootDirection.Normalize();
 
-            if (Physics.Raycast(shootSystem.transform.position, shootDirection, out RaycastHit hit, int.MaxValue, shootConfig.hitMask) )
+            if (Physics.Raycast(shootEffect.transform.position, shootDirection, out RaycastHit hit, int.MaxValue, shootConfig.hitMask) && weaponAmmo > 0)
             {
+                weaponAmmo--;
+                shootEffect.Play();
                 //Debug.Log(hit.collider);
                 hitTransform = hit.transform;
                 hitCollider = hit.collider;
@@ -73,7 +90,9 @@ public class WeaponScripitableObject : ScriptableObject
                     
                 }
             }
+
         }
+
     }
 
 }

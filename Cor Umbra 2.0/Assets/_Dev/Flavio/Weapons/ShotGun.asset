@@ -15,9 +15,13 @@ MonoBehaviour:
   type: 1
   name: ShotGun
   modelPrefab: {fileID: 4893723889916664343, guid: 9ac6a659ffe942d43a10b15c53e8c01d, type: 3}
+  weaponAmmo: 16
   spawnPoint: {x: -0.772, y: 0, z: 0.052}
   spawnRotation: {x: 10.000016, y: 180, z: 180}
+  shootEffect: {fileID: 0}
+  shootAudioSource: {fileID: 0}
+  shootAudios: []
   hitCollider: {fileID: 0}
   hitTransform: {fileID: 0}
   shootConfig: {fileID: 11400000, guid: 3a1a3838ce5defe40967f7912f235905, type: 2}
-  lineRenderer: {fileID: 0}
+  damageConfig: {fileID: 0}

@@ -41,31 +41,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OpenConfig()
-    {
-        if(active == false)
-        {
-            playerController.enabled = false;
-            animationStateController.enabled = false;
-            freeLook.m_XAxis.m_MaxSpeed = 0;
-            freeLook.m_YAxis.m_MaxSpeed = 0;
-            PanelConfig.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            active = true;
-        }
-        else if(active == true)
-        {
-            playerController.enabled = true;
-            animationStateController.enabled = true;
-            freeLook.m_XAxis.m_MaxSpeed = 100f;
-            freeLook.m_YAxis.m_MaxSpeed = 1f;
-            PanelConfig.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            active = false;
-        }
-    }
+    //private void OpenConfig()
+    //{
+    //    if(active == false)
+    //    {
+    //        playerController.enabled = false;
+    //        animationStateController.enabled = false;
+    //        freeLook.m_XAxis.m_MaxSpeed = 0;
+    //        freeLook.m_YAxis.m_MaxSpeed = 0;
+    //        PanelConfig.SetActive(true);
+    //        Cursor.visible = true;
+    //        Cursor.lockState = CursorLockMode.None;
+    //        active = true;
+    //    }
+    //    else if(active == true)
+    //    {
+    //        playerController.enabled = true;
+    //        animationStateController.enabled = true;
+    //        freeLook.m_XAxis.m_MaxSpeed = 100f;
+    //        freeLook.m_YAxis.m_MaxSpeed = 1f;
+    //        PanelConfig.SetActive(false);
+    //        Cursor.visible = false;
+    //        Cursor.lockState = CursorLockMode.Locked;
+    //        active = false;
+    //    }
+    //}
 
     private void Awake()
     {
@@ -84,10 +84,10 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (inputHandler.settingsTriggered)
-        {
-            inputHandler.Delay(1f, "Settings");
-            OpenConfig();
-        }
+        //if (inputHandler.settingsTriggered)
+        //{
+        //    inputHandler.Delay(1f, "Settings");
+        //    OpenConfig();
+        //}
     }
 }
