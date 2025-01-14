@@ -354,7 +354,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614560}
   - {fileID: 8926484042661614564}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614559}
   m_MasterData:
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614622}
   m_ExposedName: Rate
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -2673,7 +2673,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614682}
   m_ExposedName: BloodVelocity
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: ShaderBlood
   m_Min:
     m_Type:
@@ -7364,7 +7364,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614956}
   m_ExposedName: Pixelize
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: ShaderBlood
   m_Min:
     m_Type:
@@ -7454,7 +7454,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614958}
   m_ExposedName: BloodDissolvePower
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: ShaderBlood
   m_Min:
     m_Type:

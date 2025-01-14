@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4311114168658844132}
   - component: {fileID: 3584883572062589275}
   - component: {fileID: -8891337929335845274}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SM_BLD__PILLAR_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
