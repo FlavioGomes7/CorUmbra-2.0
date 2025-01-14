@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class MultiSliderController : MonoBehaviour
 {
+    [SerializeField] private AimingState aimingState;
     public Volume postProcessVolume; // Referência ao volume de pós-processamento do URP
     private List<Slider> brightnessSliders = new List<Slider>();
     private Dictionary<string, float> minVisibleValues = new Dictionary<string, float>
@@ -111,6 +112,7 @@ public class MultiSliderController : MonoBehaviour
                 break;
             case "Slider-sensibilidade":
                 SetMouseSensitivity(value);
+
                 break;
             case "Slider-principalSound":
                 SetMainVolume(value);
@@ -135,6 +137,7 @@ public class MultiSliderController : MonoBehaviour
 
     void SetMouseSensitivity(float value)
     {
+        aimingState.sensitivy = value;
         // Supondo que você tenha um gerenciador de entrada para ajustar a sensibilidade do mouse
         // InputManager.Instance.SetMouseSensitivity(value);
     }

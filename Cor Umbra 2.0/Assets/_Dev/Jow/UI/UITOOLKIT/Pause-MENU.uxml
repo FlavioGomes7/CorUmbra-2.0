@@ -4,7 +4,8 @@
     <ui:VisualElement name="PauseMenu" style="flex-grow: 1; padding-top: 80px; padding-right: 80px; padding-bottom: 80px; padding-left: 80px;">
         <ui:VisualElement style="flex-grow: 1; width: auto; align-items: flex-start; flex-direction: column; align-self: stretch; background-color: rgba(0, 0, 0, 0.5); padding-top: 20px; padding-right: 20px; padding-bottom: 60px; padding-left: 104px; justify-content: space-between;">
             <ui:Label tabindex="-1" text="PAUSE MENU" display-tooltip-when-elided="true" selectable="false" style="align-self: auto; padding-top: 50px; padding-bottom: 20px; padding-left: 12px; font-size: 60px; padding-right: 12px;" />
-            <ui:Slider label="BRILHO" value="1" high-value="4" name="Slider-brilho" style="align-self: auto; height: 79px;" />
+            <ui:Slider label="BRILHO" value="1" high-value="4" name="Slider-brilho" style="align-self: auto; height: 79px; justify-content: flex-start;" />
+            <ui:Slider label="SENSIBILIDADE" value="0" high-value="1" name="Slider-sensibilidade" style="align-self: auto; height: 79px;" />
             <ui:Button text="retornar ao jogo" display-tooltip-when-elided="true" name="ResumeButton" class="main-menu-buttons" style="align-self: auto; align-items: flex-start;" />
         </ui:VisualElement>
     </ui:VisualElement>
