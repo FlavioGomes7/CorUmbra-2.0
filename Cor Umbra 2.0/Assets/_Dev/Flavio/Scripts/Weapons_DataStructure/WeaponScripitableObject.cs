@@ -14,6 +14,7 @@ public class WeaponScripitableObject : ScriptableObject
     public AudioSource shootAudioSource;
     public AudioClip[] shootAudios;
     public Collider hitCollider = null;
+    public Vector3 hitPoint = Vector3.zero;
     public Transform hitTransform = null;
 
     public ShootConfigScriptableObject shootConfig;
@@ -76,6 +77,7 @@ public class WeaponScripitableObject : ScriptableObject
                 weaponAmmo--;
                 shootEffect.Play();
                 //Debug.Log(hit.collider);
+                hitPoint = hit.point;
                 hitTransform = hit.transform;
                 hitCollider = hit.collider;
                 //lineRenderer.SetPosition(1, hit.point);
@@ -84,7 +86,7 @@ public class WeaponScripitableObject : ScriptableObject
                     if (hitTransform.TryGetComponent(out IDamageable damageable))
                     {
                         //Debug.Log("Acertou o inimigo");
-                        damageable.TakeDamage(damageConfig.damage, hitCollider);
+                        damageable.TakeDamage(damageConfig.damage, hitCollider, hitPoint);
                         //DealDamage(weaponSelector.ActiveWeapon.hitTransform.GetComponentInParent<HumanoidEnemy>(), damage, weaponSelector.ActiveWeapon.hitCollider);
                     }
                     

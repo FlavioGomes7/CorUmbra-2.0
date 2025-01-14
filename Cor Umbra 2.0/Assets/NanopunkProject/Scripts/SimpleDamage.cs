@@ -10,7 +10,7 @@ public class SimpleDamage : MonoBehaviour
     {
         if (other != null && other.TryGetComponent(out IDamageable damageable))
         {
-            damageable.TakeDamage(humanoidEnemy.strikeDamage, null);
+            damageable.TakeDamage(humanoidEnemy.strikeDamage, null, other.transform.position);
         }
     }
 }

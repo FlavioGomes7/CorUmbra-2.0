@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class HumanoidEnemy : Core, IDamageable
 {
@@ -26,6 +27,7 @@ public class HumanoidEnemy : Core, IDamageable
     [SerializeField] private float sightRange;
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask playerMask;
+    [SerializeField] private GameObject bloodEffect;
 
     private bool playerIsVisible;
     public bool playerInAttackRange;
@@ -86,7 +88,7 @@ public class HumanoidEnemy : Core, IDamageable
         state.DoBranch();
     }
 
-    public void TakeDamage(float damage, Collider collider)
+    public void TakeDamage(float damage, Collider collider, Vector3 hitPoint)
     {
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         hitCollider = collider;

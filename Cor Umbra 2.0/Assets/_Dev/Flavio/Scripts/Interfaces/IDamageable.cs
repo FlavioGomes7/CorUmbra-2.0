@@ -13,6 +13,6 @@ public interface IDamageable
     public delegate void DeathEvent();
     public static event DeathEvent OnDeath;
 
-    public void TakeDamage(float damage, Collider collider);
+    public void TakeDamage(float damage, Collider collider, Vector3 hitPoint);
 }
 

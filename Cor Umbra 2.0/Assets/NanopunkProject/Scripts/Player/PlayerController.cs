@@ -33,7 +33,7 @@ public class PlayerController : Core, IDamageable
     public float MaxHealth { get => maxHealth; private set => maxHealth = value; }
 
 
-    public void TakeDamage(float damage, Collider collider)
+    public void TakeDamage(float damage, Collider collider, Vector3 hitPoint)
     {
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         CurrentHealth -= damageTaken;
