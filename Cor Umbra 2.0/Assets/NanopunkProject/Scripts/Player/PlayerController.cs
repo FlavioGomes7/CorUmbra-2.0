@@ -1,5 +1,6 @@
 using Cinemachine;
 using System;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : Core, IDamageable
@@ -23,7 +24,8 @@ public class PlayerController : Core, IDamageable
     public Collider Hitbox;
     [SerializeField] private LayerMask interactableMask = new LayerMask();
     [SerializeField] private HealthBar healthBar;
-
+    public PlayerWeaponSelector weaponSelector;
+    public TextMeshProUGUI AmmoText;
 
     public static event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
@@ -81,6 +83,10 @@ public class PlayerController : Core, IDamageable
         }
         state.DoBranch();
     }
+    public void UpdateTextAmmo()
+    {
+        AmmoText.text = "Munição: " + weaponSelector.ActiveWeapon.weaponAmmo;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +94,14 @@ public class PlayerController : Core, IDamageable
         SetupInstances();
         Set(standardState);
         currentHealth = maxHealth;
+        UpdateTextAmmo();
         chController = GetComponent<CharacterController>();
         inputHandler = InputHandler.instance;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        
     }
 
     // Update is called once per frame
@@ -103,7 +112,6 @@ public class PlayerController : Core, IDamageable
             healthBar.gameObject.SetActive(false);
             inputHandler.Disable();
         }
-
         SelectState();
         HandleInteractable();
     }

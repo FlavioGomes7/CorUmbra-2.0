@@ -11,6 +11,7 @@ public class StandardState : State
     public WalkingState walkingState;
     public EvadeState evadeState;
     public AimingState aimingState;
+    public ReloadingState reloadingState;
 
     private InputHandler inputHandler;
     [SerializeField] private Rig IdleRig;
@@ -19,6 +20,7 @@ public class StandardState : State
 
     public override void Enter()
     {
+        
         inputHandler = InputHandler.instance;
         Set(idleState);
         freeLook.m_XAxis.m_MaxSpeed = 220f;
@@ -36,10 +38,14 @@ public class StandardState : State
             WalkingRig.weight = 0f; //Mathf.Lerp(WalkingRig.weight, 0, Time.deltaTime * 180);
         }
 
-        if (inputHandler.dashTriggered)
+        if(inputHandler.reloadTriggered && state != reloadingState && state != aimingState)
         {
-            Set(evadeState);
+            Set(reloadingState);
         }
+        //else if (inputHandler.dashTriggered)
+        //{
+        //    Set(evadeState);
+        //}
         else if (inputHandler.aimTriggered && !evadeState.isStarted)
         {
             Set(aimingState);

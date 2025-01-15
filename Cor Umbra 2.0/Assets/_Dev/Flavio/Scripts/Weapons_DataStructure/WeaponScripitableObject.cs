@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Weapon", order = 0)]
@@ -7,6 +9,7 @@ public class WeaponScripitableObject : ScriptableObject
     public WeaponType type;
     public string name;
     public GameObject modelPrefab;
+    public float maxWeaponAmmo;
     public float weaponAmmo;
     public Vector3 spawnPoint;
     public Vector3 spawnRotation;
@@ -16,6 +19,7 @@ public class WeaponScripitableObject : ScriptableObject
     public Collider hitCollider = null;
     public Vector3 hitPoint = Vector3.zero;
     public Transform hitTransform = null;
+    
 
     public ShootConfigScriptableObject shootConfig;
     public DamageConfigScriptableObject damageConfig;
@@ -30,7 +34,7 @@ public class WeaponScripitableObject : ScriptableObject
     {
         this.activeMonoBehaviour = activeMonoBehaviour;
         lastShootTime = 0;
-
+        weaponAmmo = maxWeaponAmmo;
         Model = Instantiate(modelPrefab);
         Model.transform.SetParent(parent, false);
         Model.transform.localPosition = spawnPoint;
@@ -38,8 +42,13 @@ public class WeaponScripitableObject : ScriptableObject
 
         shootEffect = Model.GetComponentInChildren<VisualEffect>();
         shootAudioSource = Model.GetComponent<AudioSource>();
-        shootAudioSource.volume = 0.5f;
+        shootAudioSource.volume = 0.3f;
         //lineRenderer = Model.GetComponentInChildren<LineRenderer>();
+    }
+
+    public void Reload()
+    {
+        weaponAmmo = maxWeaponAmmo;
     }
 
     public void Shoot()

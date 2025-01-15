@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShootingState : State
 {
-    [SerializeField]
-    private PlayerWeaponSelector weaponSelector;
+    [SerializeField] private PlayerWeaponSelector weaponSelector;
+    [SerializeField] private PlayerController playerController;
 
     public AimingState aiming;
     public IdleState idleState;
@@ -19,7 +20,7 @@ public class ShootingState : State
         inputHandler = InputHandler.instance;
         Set(idleState);
         weaponSelector.ActiveWeapon.Shoot();
-
+        playerController.UpdateTextAmmo();
         //if(weaponSelector.ActiveWeapon.hitCollider != null)
         //{
         //    if(weaponSelector.ActiveWeapon.hitTransform.GetComponentInParent<HumanoidEnemy>() != null)
@@ -51,6 +52,10 @@ public class ShootingState : State
         {
             Set(idleState);
         }
+    }
+    public override void Exit()
+    {
+       
     }
 
     //public void DealDamage(HumanoidEnemy target, float damage, Collider collider)

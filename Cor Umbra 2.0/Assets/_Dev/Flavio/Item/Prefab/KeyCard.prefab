@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8044967623892744593}
   - component: {fileID: 4103300693972174363}
   m_Layer: 9
-  m_Name: AmmoModel
+  m_Name: KeyCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9d5c9af70e22344e947d40dbc967c54, type: 2}
+  - {fileID: 2100000, guid: cf105f3051f60fa40b7abf466ac401ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6177f62e0926f41b2f8242ee0da9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: bd39ebffe5324ad4faabac14a55169a1, type: 2}
+  Item: {fileID: 11400000, guid: 855b067a7ffa5bc4f94c9c598b7da684, type: 2}
