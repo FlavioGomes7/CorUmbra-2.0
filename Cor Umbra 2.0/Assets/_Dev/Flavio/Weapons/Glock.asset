@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   name: Glock
-  modelPrefab: {fileID: 8519880021871677484, guid: dd0962be1c34ce448953f4735e960e54, type: 3}
-  weaponAmmo: 47
-  spawnPoint: {x: -0.0449, y: 0.1048, z: -0.055}
+  modelPrefab: {fileID: 5234345653847008749, guid: 38e3abd5729be984390dfe8c06b7d391, type: 3}
+  maxWeaponAmmo: 16
+  weaponAmmo: 16
+  spawnPoint: {x: 0, y: 0.2, z: -0.05}
   spawnRotation: {x: 0, y: 0, z: 270}
   shootEffect: {fileID: 0}
   shootAudioSource: {fileID: 0}
@@ -26,7 +27,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 54239b5722e0e0540aafca16ce1c07e0, type: 3}
   - {fileID: 8300000, guid: 140d1f43af8360e4eb1a3189d36ec9a7, type: 3}
   hitCollider: {fileID: 0}
-  hitPoint: {x: 10.394817, y: 0.00000011920929, z: 29.673824}
+  hitPoint: {x: 20.344147, y: 1.6141771, z: 87.634865}
   hitTransform: {fileID: 0}
   shootConfig: {fileID: 11400000, guid: 9c097cd0ff6f15b40b4635a9502a8b7d, type: 2}
   damageConfig: {fileID: 11400000, guid: 2381e82edf3915d4583eaf1666b56c2e, type: 2}

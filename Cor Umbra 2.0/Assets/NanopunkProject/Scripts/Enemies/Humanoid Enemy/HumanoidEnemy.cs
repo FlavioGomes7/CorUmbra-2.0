@@ -28,6 +28,8 @@ public class HumanoidEnemy : Core, IDamageable
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private GameObject bloodEffect;
+    [SerializeField] private AudioSource enemyAudioSource;
+    [SerializeField] private AudioClip damageSound;
 
     private bool playerIsVisible;
     public bool playerInAttackRange;
@@ -49,6 +51,7 @@ public class HumanoidEnemy : Core, IDamageable
     public void Start()
     {
         bloodEffect.GetComponent<VisualEffect>().playRate = 2.8f;
+        enemyAudioSource.clip = damageSound;
         SetupInstances();
         playerIsVisible = false;
         playerInAttackRange = false;
@@ -95,6 +98,7 @@ public class HumanoidEnemy : Core, IDamageable
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         hitCollider = collider;
         bloodEffect.GetComponent<VisualEffect>().Play();
+        enemyAudioSource.Play();
         if (collider == headCollider)
         {
             CurrentHealth -= damageTaken * 2f;

@@ -20,6 +20,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string look = "Look";
     [SerializeField] private string aim = "Aim";
     [SerializeField] private string shoot = "Shoot";
+    [SerializeField] private string reload = "Reload";
     [SerializeField] private string dash = "Dash";
     [SerializeField] private string interact = "Interact";
     [SerializeField] private string settings = "Settings";
@@ -29,6 +30,7 @@ public class InputHandler : MonoBehaviour
     private InputAction lookAction;
     private InputAction aimAction;
     private InputAction shootAction;
+    private InputAction reloadAction;
     private InputAction dashAction;
     private InputAction interactAction;
     private InputAction settingsAction;
@@ -38,6 +40,7 @@ public class InputHandler : MonoBehaviour
     public float sprintValue { get; private set; }
     public bool aimTriggered { get; private set; }
     public bool shootTriggered { get; private set; }
+    public bool reloadTriggered { get; private set; }
     public bool dashTriggered { get; private set; }
     public bool interactTriggered { get; private set; }
     public bool settingsTriggered { get; private set; }
@@ -62,6 +65,9 @@ public class InputHandler : MonoBehaviour
         shootAction.performed += context => shootTriggered = true;
         shootAction.canceled += context => shootTriggered = false;
 
+        reloadAction.performed += context => reloadTriggered = true;
+        reloadAction.canceled += context => reloadTriggered = false;
+
         dashAction.performed += context => dashTriggered = true;
         dashAction.canceled += context => dashTriggered = false;
 
@@ -84,6 +90,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Enable();
         aimAction.Enable();
         shootAction.Enable();
+        reloadAction.Enable();
         dashAction.Enable();
         interactAction.Enable();
         settingsAction.Enable();
@@ -95,6 +102,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Disable();
         aimAction.Disable();
         shootAction.Disable();
+        reloadAction.Disable();
         dashAction.Disable();
         interactAction.Disable();
         settingsAction.Disable();
@@ -116,6 +124,7 @@ public class InputHandler : MonoBehaviour
         lookAction.Disable();
         aimAction.Disable();
         shootAction.Disable();
+        reloadAction.Disable();
         dashAction.Disable();
         interactAction.Disable();
     }
@@ -132,6 +141,7 @@ public class InputHandler : MonoBehaviour
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         aimAction = playerControls.FindActionMap(actionMapName).FindAction(aim);
         shootAction = playerControls.FindActionMap(actionMapName).FindAction(shoot);
+        reloadAction = playerControls.FindActionMap(actionMapName).FindAction(reload);
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
         interactAction = playerControls.FindActionMap(actionMapName).FindAction(interact);
         settingsAction = playerControls.FindActionMap(actionMapName).FindAction(settings);

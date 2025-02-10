@@ -68,7 +68,7 @@ public class MenuController : MonoBehaviour
         var pauseMenu = rootOptions.Q<VisualElement>("PauseMenu");
         var resumeButton = rootOptions.Q<Button>("ResumeButton");
 
-        toggleAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/p");
+        toggleAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/escape");
         toggleAction.performed += ctx => TogglePauseMenu(pauseMenu);
         toggleAction.Enable();
 

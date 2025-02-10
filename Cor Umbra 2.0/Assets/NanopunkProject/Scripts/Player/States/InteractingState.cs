@@ -12,7 +12,7 @@ public class InteractingState : State
         if (playerController.interactableHit.transform.GetComponent<IInteractable>() != null)
         {
             isCompleted = true;
-            playerController.interactableHit.transform.GetComponent<IInteractable>().Interact();
+            playerController.interactableHit.transform.GetComponent<IInteractable>().Interact(playerController.gameObject);
         }
         else
         {

@@ -10,6 +10,7 @@ public class WalkingState : State
     [SerializeField] private Transform player;
     [SerializeField] private CinemachineFreeLook freeLook;
     [SerializeField] private bool isAimMode;
+    [SerializeField] private bool isReloadingChild;
     [SerializeField] private Rig WalkingRig;
 
     [SerializeField] private float playerSpeed = 2.0f;
@@ -23,7 +24,7 @@ public class WalkingState : State
     public override void Enter()
     {
         inputHandler = InputHandler.instance;
-        if(!isAimMode)
+        if(!isAimMode && !isReloadingChild)
         {
             WalkingRig.weight = 1f; //Mathf.Lerp(WalkingRig.weight, 1, Time.deltaTime * 180);
         }
@@ -43,7 +44,7 @@ public class WalkingState : State
         playerDirection = new Vector3(inputHandler.moveInput.x, 0f, inputHandler.moveInput.y).normalized;
         playerDirection = playerDirection.x * player.right + playerDirection.z * player.forward;
 
-        if(!isAimMode)
+        if(!isAimMode || isReloadingChild)
         {                  
             float angle = Mathf.SmoothDampAngle(player.eulerAngles.y, freeLook.m_XAxis.Value, ref turnSmoothVelocity, turnSmoothTime);
             player.eulerAngles = new Vector3(player.localEulerAngles.x, angle, player.localEulerAngles.z);

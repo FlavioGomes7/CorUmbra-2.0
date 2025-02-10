@@ -109,6 +109,6 @@ public class AnimationStateController : MonoBehaviour
         aimRig.weight = Mathf.Lerp(aimRig.weight, aimRigWeight, Time.deltaTime * 20);
         HandleBlendMove();
         HandleAimAnim();
-        HandleEvadeAnim();
+        //HandleEvadeAnim();
     }
 }

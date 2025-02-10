@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1027c23bd0421a4ca196ba407c9ab63, type: 3}
-  m_Name: GlockShootConfig
+  m_Script: {fileID: 11500000, guid: da62a2d084ac3f14cb753ead566f0311, type: 3}
+  m_Name: KeyCard
   m_EditorClassIdentifier: 
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 841
-  Spread: {x: 0, y: 0.008, z: 0.008}
-  fireRate: 0.4
+  Type: 0
+  Id: 
+  Name: 
+  Description: 
+  Amount: 1
+  modelPrefab: {fileID: 0}
