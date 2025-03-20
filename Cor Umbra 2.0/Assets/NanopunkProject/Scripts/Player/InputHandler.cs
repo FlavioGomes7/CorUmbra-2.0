@@ -56,7 +56,7 @@ public class InputHandler : MonoBehaviour
         sprintAction.performed += context => sprintValue = context.ReadValue<float>();
         sprintAction.canceled += context => sprintValue = 0f;
 
-        lookAction.performed += context => lookValue = context.ReadValue<Vector2>();
+        lookAction.performed += context => lookValue = context.ReadValue<Vector2>().normalized;
         lookAction.canceled += context => lookValue = Vector2.zero;
 
         aimAction.performed += context => aimTriggered = true;

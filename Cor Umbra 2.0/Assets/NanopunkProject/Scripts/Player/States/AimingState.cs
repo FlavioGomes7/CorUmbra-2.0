@@ -73,7 +73,7 @@ public class AimingState : State
         //playerAim.eulerAngles = new Vector3(Mathf.Clamp(playerAim.rotation.x, -30f, 60f), playerAim.rotation.y, playerAim.rotation.z);
         player.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.x * sensitivy, Vector3.up);
         playerAim.rotation *= Quaternion.AngleAxis(-inputHandler.lookValue.y * sensitivy, Vector3.right);
-
+        
         var angles = player.eulerAngles;
         angles.z = 0;
 
