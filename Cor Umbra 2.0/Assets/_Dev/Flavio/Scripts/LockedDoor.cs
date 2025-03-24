@@ -14,6 +14,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         {
             if(item == key)
             {
+                
                 doorCollider.enabled = true;
             }
             else if(item == interactant.GetComponent<PlayerInventory>().items.Last<Item>())

@@ -26,9 +26,10 @@ public class Dialogue
     public List<DialogueLine> dialogueLines = new List<DialogueLine>();
 }
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour, IInteractable
 {
     public bool isRepeatable;
+    public bool isInteractable = false;
     public Dialogue dialogue;
 
     public void TriggerDialogue()
@@ -38,14 +39,14 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (!isRepeatable && DialogueManager.Instance.dialogueCountRepeat<1)
+        if (!isRepeatable && DialogueManager.Instance.dialogueCountRepeat<1&& !isInteractable)
         {
             if (collision.tag == "Player")
             {
                 TriggerDialogue();
             }
         }
-        else if(isRepeatable)
+        else if(isRepeatable&& !isInteractable)
         {
             if (collision.tag == "Player")
             {
@@ -59,4 +60,10 @@ public class DialogueTrigger : MonoBehaviour
         DialogueManager.Instance.StopDialogueDistance();
 
     }
+    public void Interact(GameObject interactant)
+    {
+        Debug.Log("Interagiu Com o Dialogo");
+        TriggerDialogue();
+    }
+
 }
