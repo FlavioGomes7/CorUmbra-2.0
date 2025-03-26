@@ -32,8 +32,8 @@ public class CardDevice_Manager : MonoBehaviour, IInteractable
     }
     public void Interact(GameObject interactant)
     {
-        Debug.Log("Interagiu");
         if(key != null)
+        Debug.Log("Interagiu");
         foreach(Item item in interactant.GetComponent<PlayerInventory>().items)
         {
             if(item.Id == key.Id)
