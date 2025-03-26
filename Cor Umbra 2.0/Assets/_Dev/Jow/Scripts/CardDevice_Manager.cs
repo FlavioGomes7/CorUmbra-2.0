@@ -36,6 +36,7 @@ public class CardDevice_Manager : MonoBehaviour, IInteractable
         Debug.Log("Interagiu");
         foreach(Item item in interactant.GetComponent<PlayerInventory>().items)
         {
+            if(item != null)
             if(item.Id == key.Id)
             {
                 OpenedDoor();

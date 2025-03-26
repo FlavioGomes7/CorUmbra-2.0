@@ -558,7 +558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8775260}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014275722, y: 0.2009654, z: 0.0029290002, w: 0.9794899}
+  m_LocalRotation: {x: -0.014275724, y: 0.20096539, z: 0.0029290002, w: 0.9794899}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -84215,7 +84215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3989810757744372902, guid: fc271f7f921c9a84c8076b2e89396989, type: 3}
       propertyPath: isDoorOpen
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3989810757744372902, guid: fc271f7f921c9a84c8076b2e89396989, type: 3}
       propertyPath: doorCollider
