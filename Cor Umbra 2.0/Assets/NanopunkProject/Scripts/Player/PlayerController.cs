@@ -77,7 +77,7 @@ public class PlayerController : Core, IDamageable
                 Set(onAirState);
             }
         }
-        if(inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange && state.isCompleted)
+        if (inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange && state.isCompleted)
         {
             Set(interactingState);
         }
