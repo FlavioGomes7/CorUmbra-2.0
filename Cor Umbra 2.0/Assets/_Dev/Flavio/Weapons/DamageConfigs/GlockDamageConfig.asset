@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7f783f4e59b054db2a2aeeaafefc65, type: 3}
   m_Name: GlockDamageConfig
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 50
