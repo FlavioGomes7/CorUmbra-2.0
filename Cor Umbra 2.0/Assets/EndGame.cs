@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour, IInteractable
 {
+    public CameraSwitch cameracutscene;
     public void Interact(GameObject interactant)
     {
-        SceneManager.LoadScene(0);
+        cameracutscene.activeCutscene();
+        gameObject.SetActive(false);
     }
 
     

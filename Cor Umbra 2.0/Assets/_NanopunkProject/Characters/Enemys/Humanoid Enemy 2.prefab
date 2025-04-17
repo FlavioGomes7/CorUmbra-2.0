@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 4621575973186723436}
   - component: {fileID: 8430104838807966057}
   m_Layer: 3
-  m_Name: Humanoid Enemy
+  m_Name: Humanoid Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1059,6 +1059,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1594507985398242691, guid: 3ddd919905bca984fb3ffd43619304d2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 56b38bfc211a79343ad37bd8b79a8d35, type: 2}
     - target: {fileID: 919132149155446097, guid: 3ddd919905bca984fb3ffd43619304d2, type: 3}
       propertyPath: m_Name
       value: ENEMY_MALE_MELEE_01
