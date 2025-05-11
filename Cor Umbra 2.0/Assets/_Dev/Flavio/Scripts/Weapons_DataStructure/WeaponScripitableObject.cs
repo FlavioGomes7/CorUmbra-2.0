@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
@@ -9,13 +10,15 @@ public class WeaponScripitableObject : ScriptableObject
     public WeaponType type;
     public string name;
     public GameObject modelPrefab;
-    public float maxWeaponAmmo;
-    public float weaponAmmo;
+    public int maxWeaponAmmo;
+    public int weaponAmmo;
+    public int reloadbleAmmo;
     public Vector3 spawnPoint;
     public Vector3 spawnRotation;
     public VisualEffect shootEffect;
     public AudioSource shootAudioSource;
     public AudioClip[] shootAudios;
+    public Item[] ammotype;
     public Collider hitCollider = null;
     public Vector3 hitPoint = Vector3.zero;
     public Transform hitTransform = null;
@@ -28,6 +31,7 @@ public class WeaponScripitableObject : ScriptableObject
     private MonoBehaviour activeMonoBehaviour;
     private GameObject Model;
     private float lastShootTime;
+    [SerializeField] private PlayerInventory playerInventory;
     //public LineRenderer lineRenderer;
 
     public void Spawn(Transform parent, MonoBehaviour activeMonoBehaviour)
@@ -35,6 +39,7 @@ public class WeaponScripitableObject : ScriptableObject
         this.activeMonoBehaviour = activeMonoBehaviour;
         lastShootTime = 0;
         weaponAmmo = maxWeaponAmmo;
+        reloadbleAmmo = 0;
         Model = Instantiate(modelPrefab);
         Model.transform.SetParent(parent, false);
         Model.transform.localPosition = spawnPoint;
@@ -43,12 +48,51 @@ public class WeaponScripitableObject : ScriptableObject
         shootEffect = Model.GetComponentInChildren<VisualEffect>();
         shootAudioSource = Model.GetComponent<AudioSource>();
         shootAudioSource.volume = 0.3f;
+        playerInventory = FindAnyObjectByType<PlayerInventory>();
         //lineRenderer = Model.GetComponentInChildren<LineRenderer>();
+        //AddAmmo();
+    }
+
+    public void AddAmmo()
+    {
+        foreach (Item item in playerInventory.items)
+        {
+            if (item != null)
+            {
+                if (item.Id == "#001")
+                {
+                    reloadbleAmmo += item.Amount;
+                    playerInventory.items.Remove(item);
+                    break;
+                }
+            }
+
+        }
     }
 
     public void Reload()
     {
-        weaponAmmo = maxWeaponAmmo;
+
+        int ammoRequired = maxWeaponAmmo - weaponAmmo;
+        
+        if (ammoRequired > 0)
+        {
+            if(reloadbleAmmo > 0)
+            {
+                int reloadingAmmo = Mathf.Min(ammoRequired, reloadbleAmmo);
+                weaponAmmo += reloadingAmmo;
+                reloadbleAmmo -= reloadingAmmo;
+            }
+            else
+            {
+                Debug.Log("Sem munição");
+            }
+        }
+        else
+        {
+            Debug.Log("Carregador cheio");
+        }
+
     }
 
     public void Shoot()

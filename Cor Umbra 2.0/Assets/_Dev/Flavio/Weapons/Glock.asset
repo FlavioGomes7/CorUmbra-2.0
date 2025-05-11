@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Glock
   modelPrefab: {fileID: 8519880021871677484, guid: dd0962be1c34ce448953f4735e960e54, type: 3}
   maxWeaponAmmo: 16
-  weaponAmmo: 15
+  weaponAmmo: 16
   spawnPoint: {x: -0.043, y: 0.101, z: -0.0513}
   spawnRotation: {x: 0, y: 0, z: 270}
   shootEffect: {fileID: 0}
@@ -26,8 +26,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: de1ab64226df22845b3cdf6b2bc708f5, type: 3}
   - {fileID: 8300000, guid: 54239b5722e0e0540aafca16ce1c07e0, type: 3}
   - {fileID: 8300000, guid: 140d1f43af8360e4eb1a3189d36ec9a7, type: 3}
+  ammotype:
+  - {fileID: 11400000, guid: bd39ebffe5324ad4faabac14a55169a1, type: 2}
+  - {fileID: 11400000, guid: a09fdd0e8e0491144b211c37a6511811, type: 2}
   hitCollider: {fileID: 0}
-  hitPoint: {x: 6.3200006, y: 2.5601513, z: 10.572115}
+  hitPoint: {x: 24.191727, y: 0.64906764, z: -33.939922}
   hitTransform: {fileID: 0}
   shootConfig: {fileID: 11400000, guid: 9c097cd0ff6f15b40b4635a9502a8b7d, type: 2}
   damageConfig: {fileID: 11400000, guid: 2381e82edf3915d4583eaf1666b56c2e, type: 2}
+  playerInventory: {fileID: 0}

@@ -18,9 +18,9 @@ public class ReloadingState : State
         IdleRig.weight = 0f;
         animator.SetLayerWeight(3, 1);
         inputHandler = InputHandler.instance;
+        //weaponSelector.ActiveWeapon.AddAmmo();
         animator.Play("Reload", 3);
-        //weaponSelector.ActiveWeapon.Reload();
-       
+        //weaponSelector.ActiveWeapon.Reload();  
     }
     public override void Do()
     {

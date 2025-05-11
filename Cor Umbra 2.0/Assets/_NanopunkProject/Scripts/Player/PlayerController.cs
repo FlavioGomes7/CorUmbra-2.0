@@ -85,7 +85,7 @@ public class PlayerController : Core, IDamageable
     }
     public void UpdateTextAmmo()
     {
-        AmmoText.text =weaponSelector.ActiveWeapon.weaponAmmo.ToString("00");
+        AmmoText.text =weaponSelector.ActiveWeapon.weaponAmmo.ToString("00") + "|" + weaponSelector.ActiveWeapon.reloadbleAmmo;
     }
 
     // Start is called before the first frame update
