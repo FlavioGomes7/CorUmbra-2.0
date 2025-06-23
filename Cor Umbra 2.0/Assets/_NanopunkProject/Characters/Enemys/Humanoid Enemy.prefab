@@ -49,7 +49,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  hitbox: {fileID: 2377461934139145282}
+  hitbox: {fileID: 7404079443098529392}
 --- !u!1 &1815662636596508515
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +315,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2553694593764768190}
   - component: {fileID: 2669051569074903757}
-  - component: {fileID: 847071130656630472}
   m_Layer: 0
   m_Name: StrikeCollider.R
   m_TagString: Untagged
@@ -361,19 +360,6 @@ CapsuleCollider:
   m_Height: 0.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.25, z: 0.06}
---- !u!114 &847071130656630472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2377461934139145282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f53432b183ce0ec42b121a8939504290, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  humanoidEnemy: {fileID: 4621575973186723436}
 --- !u!1 &3252669540744151470
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8345015226371709468}
   - component: {fileID: 1442738894607180022}
+  - component: {fileID: 4414142897414564215}
   m_Layer: 0
   m_Name: StrikeCollider.L
   m_TagString: Untagged
@@ -955,7 +942,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -963,6 +950,19 @@ CapsuleCollider:
   m_Height: 0.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.25, z: 0.06}
+--- !u!114 &4414142897414564215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7404079443098529392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f53432b183ce0ec42b121a8939504290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  humanoidEnemy: {fileID: 4621575973186723436}
 --- !u!1 &8197454710100914303
 GameObject:
   m_ObjectHideFlags: 0

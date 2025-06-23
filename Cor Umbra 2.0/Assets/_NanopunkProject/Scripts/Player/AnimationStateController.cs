@@ -68,11 +68,15 @@ public class AnimationStateController : MonoBehaviour
     {
         if (inputHandler.aimTriggered)
         {
+            thresholdX[1] = 0.5f;
+            thresholdZ[1] = 0.5f;
             aimRigWeight = 1f;
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
         }
         else
         {
+            thresholdX[1] = 1.0f;
+            thresholdZ[1] = 1.0f;
             aimRigWeight = 0f;
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
