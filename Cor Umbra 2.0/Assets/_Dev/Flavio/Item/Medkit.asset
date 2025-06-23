@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da62a2d084ac3f14cb753ead566f0311, type: 3}
   m_Name: Medkit
   m_EditorClassIdentifier: 
-  Type: 0
-  Id: 
+  Type: 2
+  Id: '#002'
   Name: 
   Description: 
-  Amount: 0
+  Amount: 1
   modelPrefab: {fileID: 0}

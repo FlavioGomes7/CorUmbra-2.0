@@ -27,5 +27,6 @@ public class InteractingState : State
     public override void Exit()
     {
         playerController.UpdateTextAmmo();
+        playerController.UpdateTextMedkit();
     }
 }

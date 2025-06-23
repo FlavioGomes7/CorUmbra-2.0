@@ -50,7 +50,7 @@ public class WeaponScripitableObject : ScriptableObject
         shootAudioSource.volume = 0.3f;
         playerInventory = FindAnyObjectByType<PlayerInventory>();
         //lineRenderer = Model.GetComponentInChildren<LineRenderer>();
-        //AddAmmo();
+        AddAmmo();
     }
 
     public void AddAmmo()

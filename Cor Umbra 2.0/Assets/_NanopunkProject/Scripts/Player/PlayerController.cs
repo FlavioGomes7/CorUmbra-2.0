@@ -15,6 +15,7 @@ public class PlayerController : Core, IDamageable
     [SerializeField] private OnAirState onAirState;
     [SerializeField] private HittedState hittedState;
     [SerializeField] private InteractingState interactingState;
+    [SerializeField] private HealingState healingState;
 
     private CharacterController chController;
     private InputHandler inputHandler;
@@ -26,6 +27,7 @@ public class PlayerController : Core, IDamageable
     [SerializeField] private HealthBar healthBar;
     public PlayerWeaponSelector weaponSelector;
     public TextMeshProUGUI AmmoText;
+    public TextMeshProUGUI MedkitText;
 
     public static event IDamageable.TakeDamageEvent OnTakeDamage;
     public event IDamageable.DeathEvent OnDeath;
@@ -39,7 +41,7 @@ public class PlayerController : Core, IDamageable
     {
         float damageTaken = Mathf.Clamp(damage, 0, currentHealth);
         CurrentHealth -= damageTaken;
-        healthBar.RemoveHealth(damageTaken);
+        healthBar.UpdateHealth(CurrentHealth);
         if(state.isCompleted)
         {
             Set(hittedState, true);
@@ -64,6 +66,7 @@ public class PlayerController : Core, IDamageable
         }
 
     }
+
     private void SelectState()
     {
         if(state.isCompleted && currentHealth > 0)
@@ -77,16 +80,44 @@ public class PlayerController : Core, IDamageable
                 Set(onAirState);
             }
         }
+
         if (inputHandler.interactTriggered && groundSensor.grounded && interactbleInRange && state.isCompleted)
         {
             Set(interactingState);
         }
+
+        if(inputHandler.healTriggered && groundSensor.grounded && state.isCompleted)
+        {
+            Set(healingState);
+            UpdateTextMedkit();
+        }
         state.DoBranch();
     }
+
     public void UpdateTextAmmo()
     {
         AmmoText.text =weaponSelector.ActiveWeapon.weaponAmmo.ToString("00") + "|" + weaponSelector.ActiveWeapon.reloadbleAmmo;
     }
+
+    public void UpdateTextMedkit()
+    {
+        healingState.AddMedkit();
+        MedkitText.text = healingState.medkitAmount.ToString("00");
+    }
+
+    public void Healing(float amount, bool isOverhealing)
+    {
+        if(!isOverhealing)
+        {
+            CurrentHealth += amount;
+        }
+        else
+        {
+            CurrentHealth = MaxHealth;
+        }
+        healthBar.UpdateHealth(CurrentHealth);
+    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -95,6 +126,7 @@ public class PlayerController : Core, IDamageable
         Set(standardState);
         currentHealth = maxHealth;
         UpdateTextAmmo();
+        UpdateTextMedkit();
         chController = GetComponent<CharacterController>();
         inputHandler = InputHandler.instance;
 

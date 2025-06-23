@@ -24,6 +24,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private string dash = "Dash";
     [SerializeField] private string interact = "Interact";
     [SerializeField] private string settings = "Settings";
+    [SerializeField] private string heal = "Heal";
 
     private InputAction moveAction;
     private InputAction sprintAction;
@@ -34,6 +35,7 @@ public class InputHandler : MonoBehaviour
     private InputAction dashAction;
     private InputAction interactAction;
     private InputAction settingsAction;
+    private InputAction healAction;
 
     public Vector2 moveInput { get; private set; }
     public Vector2 lookValue { get; private set;}
@@ -44,6 +46,7 @@ public class InputHandler : MonoBehaviour
     public bool dashTriggered { get; private set; }
     public bool interactTriggered { get; private set; }
     public bool settingsTriggered { get; private set; }
+    public bool healTriggered { get; private set; }
 
     public static InputHandler instance { get; private set; }
 
@@ -76,6 +79,9 @@ public class InputHandler : MonoBehaviour
 
         settingsAction.performed += context => settingsTriggered = true;
         settingsAction.canceled += context => settingsTriggered = false;
+
+        healAction.performed += context => healTriggered = true;
+        healAction.canceled += context => healTriggered = false;
     }
 
     private void ShootAction_canceled(InputAction.CallbackContext obj)
@@ -94,6 +100,7 @@ public class InputHandler : MonoBehaviour
         dashAction.Enable();
         interactAction.Enable();
         settingsAction.Enable();
+        healAction.Enable();
     }
     private void OnDisable()
     {
@@ -106,6 +113,7 @@ public class InputHandler : MonoBehaviour
         dashAction.Disable();
         interactAction.Disable();
         settingsAction.Disable();
+        healAction.Disable();
     }
 
     public IEnumerator Delay(float delay, string action)
@@ -127,6 +135,7 @@ public class InputHandler : MonoBehaviour
         reloadAction.Disable();
         dashAction.Disable();
         interactAction.Disable();
+        healAction.Disable();
     }
 
     private void Awake()
@@ -145,6 +154,7 @@ public class InputHandler : MonoBehaviour
         dashAction = playerControls.FindActionMap(actionMapName).FindAction(dash);
         interactAction = playerControls.FindActionMap(actionMapName).FindAction(interact);
         settingsAction = playerControls.FindActionMap(actionMapName).FindAction(settings);
+        healAction = playerControls.FindActionMap(actionMapName).FindAction(heal);
         RegisterInputActions();
 
     }

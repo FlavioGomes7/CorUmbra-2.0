@@ -8,5 +8,6 @@ public class DamageOnChar : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         playerController.TakeDamage(10, other, new Vector3(0,0,0));
+        playerController.gameObject.transform.position += new Vector3(0, 0, -0.2f); 
     }
 }
