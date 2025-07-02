@@ -12,7 +12,7 @@ public class LockedDoor : MonoBehaviour, IInteractable
         Debug.Log("Interagiu");
         foreach(Item item in interactant.GetComponent<PlayerInventory>().items)
         {
-            if(item == key)
+            if(item.Id == key.Id)
             {
                 
                 doorCollider.enabled = true;

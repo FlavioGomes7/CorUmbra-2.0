@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KeyCard
   m_EditorClassIdentifier: 
   Type: 0
-  Id: 
+  Id: card02
   Name: 
   Description: 
   Amount: 1
