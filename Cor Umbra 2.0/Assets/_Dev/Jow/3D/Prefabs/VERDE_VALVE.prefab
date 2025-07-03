@@ -62,6 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e266e782f1981e844964c2e21c4b3e03, type: 2}
+  - {fileID: 2100000, guid: 8cf2698e41dbe774c9015d2e3de7094f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f472dfe6d3e049242bbfcb82016de19c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valveActive: 0
   colliderslocks:
   - {fileID: 0}
   - {fileID: 0}
@@ -138,6 +140,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  steamParticlesA: []
+  steamParticlesB: []
+  steamSoundA: []
+  steamSoundB: []
 --- !u!65 &4063275876225506994
 BoxCollider:
   m_ObjectHideFlags: 0
