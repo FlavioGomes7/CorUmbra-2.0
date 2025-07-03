@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Id: card02
-  Name: 
-  Description: 
+  Name: KayCard2
+  Description: sadasdaws
   Amount: 1
   modelPrefab: {fileID: 0}
