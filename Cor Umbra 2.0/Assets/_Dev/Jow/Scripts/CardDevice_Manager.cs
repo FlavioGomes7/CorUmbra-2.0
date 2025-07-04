@@ -44,7 +44,7 @@ public class CardDevice_Manager : MonoBehaviour, IInteractable
             else if(item == interactant.GetComponent<PlayerInventory>().items.Last<Item>())
             {
                 ClosedDoor();
-                Debug.Log("Não Possui o Cartão");
+               
             }
         }
         
@@ -59,6 +59,7 @@ public class CardDevice_Manager : MonoBehaviour, IInteractable
     }
     private void ClosedDoor() 
     {
+        Debug.Log("Não Possui o Cartão");
         dialoguePorta.TriggerDialogue();
     }
 

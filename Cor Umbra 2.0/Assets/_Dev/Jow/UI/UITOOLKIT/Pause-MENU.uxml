@@ -6,6 +6,7 @@
             <ui:Label tabindex="-1" text="PAUSE MENU" display-tooltip-when-elided="true" selectable="false" style="align-self: auto; padding-top: 50px; padding-bottom: 20px; padding-left: 12px; font-size: 60px; padding-right: 12px;" />
             <ui:Slider label="BRILHO" value="1" high-value="4" name="Slider-brilho" style="align-self: auto; height: 79px; justify-content: flex-start;" />
             <ui:Slider label="SENSIBILIDADE" value="0.5" high-value="1" name="Slider-sensibilidade" low-value="0.1" style="align-self: auto; height: 79px;" />
+            <ui:Button text="Menu Principal" display-tooltip-when-elided="true" name="MenuPrincipal" class="main-menu-buttons" style="align-self: auto; align-items: flex-start;" />
             <ui:Button text="retornar ao jogo" display-tooltip-when-elided="true" name="ResumeButton" class="main-menu-buttons" style="align-self: auto; align-items: flex-start;" />
             <ui:VisualElement style="flex-grow: 1; flex-direction: row; position: absolute; flex-wrap: nowrap; align-self: auto; justify-content: space-around; align-items: auto; height: 724px; width: 836px; left: 844px; top: 100px; background-image: url(&apos;project://database/Assets/_Dev/Jow/UI/EsquemaGame%201.png?fileID=2800000&amp;guid=88cabc5f301416943b56a3cd16cf38a0&amp;type=3#EsquemaGame 1&apos;);" />
         </ui:VisualElement>

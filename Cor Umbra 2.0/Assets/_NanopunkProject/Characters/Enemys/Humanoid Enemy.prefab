@@ -199,7 +199,7 @@ MonoBehaviour:
   hitbox: {fileID: 2669051569074903757}
   player: {fileID: 6330724419354461760, guid: f407404b4d03d93439ec2f824322b95a, type: 3}
   sightRange: 8
-  attackRange: 1
+  attackRange: 1.25
   playerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -891,7 +891,7 @@ MonoBehaviour:
   enemy: {fileID: 445366436278494157}
   agent: {fileID: 9022897797962777302}
   speed: 1.5
-  sprintValue: 1.5
+  sprintValue: 2
   destination: {x: 0, y: 0, z: 0}
   isChasing: 0
 --- !u!1 &7404079443098529392

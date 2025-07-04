@@ -67,7 +67,7 @@ public class MenuController : MonoBehaviour
     {
         var pauseMenu = rootOptions.Q<VisualElement>("PauseMenu");
         var resumeButton = rootOptions.Q<Button>("ResumeButton");
-
+        var menuPrincipal = rootOptions.Q<Button>("MenuPrincipal");
         toggleAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/escape");
         toggleAction.performed += ctx => TogglePauseMenu(pauseMenu);
         toggleAction.Enable();
@@ -75,6 +75,7 @@ public class MenuController : MonoBehaviour
         
         pauseMenu.style.display = DisplayStyle.None; // Iniciar com o menu de pausa desabilitado
         resumeButton.clicked += () => TogglePauseMenu(pauseMenu);
+        menuPrincipal.clicked += () => RetornarMenuPrincipal();
         ClickeAbleButtons() ;
     }
     void ShowStartMenu()
@@ -190,5 +191,9 @@ public class MenuController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked; // Trava o cursor
             Cursor.visible = false; // Torna o cursor invisível
         }
+    }
+    void RetornarMenuPrincipal()
+    {
+        SceneManager.LoadScene(0);
     }
 }
