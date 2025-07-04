@@ -8,6 +8,7 @@ public class CameraSwitch : MonoBehaviour
     public CinemachineFreeLook thirdPersonCamera; // Câmera de terceira pessoa
     public CinemachineVirtualCamera cutsceneCamera;    // Câmera de cutscene
     public Animator animator;
+    public GameObject dialogueTrigger;
    
     public Animator doorValve2;
     public void activeCutscene()
@@ -20,13 +21,14 @@ public class CameraSwitch : MonoBehaviour
     }
     public void CutsceneOff()
     {
- 
+        
         cutsceneCamera.Priority = -1;
     }
     public void DoorOpenValve()
     {
         
         doorValve2.SetBool("DoorOpen", true);
+        dialogueTrigger.SetActive(false);
     }
 
 
