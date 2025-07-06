@@ -86596,19 +86596,19 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8cf2698e41dbe774c9015d2e3de7094f, type: 2}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.03735
+      value: -8.975
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.548
+      value: 0.313
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.25
+      value: 76.491
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9973972
+      value: 0.9887404
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -86620,7 +86620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.07210273
+      value: -0.14964123
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -86632,7 +86632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4279588842898858884, guid: 99e61abf52c2fc14082297872c0bc37a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 8.27
+      value: -17.212
       objectReference: {fileID: 0}
     - target: {fileID: 8044967623892744593, guid: 04fd6094ba3ad424e94969feec3e8d7c, type: 3}
       propertyPath: m_Size.x
@@ -125930,6 +125930,10 @@ PrefabInstance:
     - target: {fileID: 4785502139281087503, guid: 1aed89a72a7f44d4494ca5360bf24bbb, type: 3}
       propertyPath: m_Name
       value: Item-VFX (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4785502139281087503, guid: 1aed89a72a7f44d4494ca5360bf24bbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6819220282254315469, guid: 1aed89a72a7f44d4494ca5360bf24bbb, type: 3}
       propertyPath: m_LocalPosition.x
