@@ -11,12 +11,12 @@
             </ui:VisualElement>
             <ui:VisualElement name="OptionsMenu" style="flex-grow: 1; min-height: initial; padding-top: 20px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 40px; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 1520px; height: auto; justify-content: flex-start; display: none; align-items: stretch;">
                 <ui:Label tabindex="-1" text="C:\ CONFIGURAÇÕES" display-tooltip-when-elided="true" style="-unity-text-outline-color: rgba(255, 255, 255, 0); color: rgb(31, 31, 31); background-color: rgb(255, 136, 0); font-size: 36px; margin-top: 20px; margin-right: 0; margin-bottom: 100px; margin-left: 0; padding-top: 10px; padding-right: 12px; padding-bottom: 10px; padding-left: 12px; justify-content: flex-start; align-items: stretch; align-self: stretch; width: auto;" />
-                <ui:VisualElement style="flex-grow: 0; flex-shrink: 0; flex-direction: row; align-items: auto; justify-content: space-evenly; height: 125px; flex-wrap: wrap;">
-                    <ui:Slider label="BRILHO" value="1" high-value="4" low-value="0" name="Slider-brilho" class="unity-slider" />
+                <ui:VisualElement name="VisualElement" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; align-items: auto; justify-content: space-evenly; height: 125px; flex-wrap: wrap; display: flex;">
+                    <ui:Slider label="BRILHO" value="1" high-value="4" low-value="0" name="Slider-brilho" class="unity-slider" style="display: flex; background-color: rgba(255, 0, 0, 0);" />
                     <ui:Slider label="Sensibilidade MOUSE" value="0.5" high-value="1" low-value="0.1" name="Slider-sensibilidade" class="unity-slider" />
                 </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 0; flex-shrink: 0; flex-direction: row; align-items: auto; justify-content: space-evenly; height: 125px; flex-wrap: wrap;">
-                    <ui:Slider label="PRINCIPAL SOUND" value="1" high-value="4" low-value="1" name="Slider-principalSound" class="unity-slider" />
+                <ui:VisualElement name="VisualElement" style="flex-grow: 0; flex-shrink: 0; flex-direction: row; align-items: auto; justify-content: space-evenly; height: 125px; flex-wrap: wrap;">
+                    <ui:Slider label="Sensibilidade Free Camera" value="0.5" high-value="1" low-value="0.1" name="Slider-sensibilidadeLivre" class="unity-slider" />
                     <ui:Slider label="SOUND FX" value="1" high-value="4" low-value="1" name="Slider-soundFX" class="unity-slider" />
                 </ui:VisualElement>
                 <ui:Button text="Voltar" display-tooltip-when-elided="true" name="BackButton" class="main-menu-buttons" style="width: 560px; align-self: flex-start; align-items: auto; bottom: 0; position: absolute; left: auto; right: auto; top: auto;" />

@@ -22,9 +22,15 @@ public class StandardState : State
     {
         
         inputHandler = InputHandler.instance;
+        freeLook.m_XAxis.m_MaxSpeed = CameraSensitivityConfig.GetXSpeed();
+        freeLook.m_YAxis.m_MaxSpeed = CameraSensitivityConfig.GetYSpeed();
+        freeLook.m_XAxis.m_AccelTime = 0.1f;
+        freeLook.m_XAxis.m_DecelTime = 0.1f;
+        freeLook.m_YAxis.m_AccelTime = 0.2f;
+        freeLook.m_YAxis.m_DecelTime = 0.2f;
         Set(idleState);
-        freeLook.m_XAxis.m_MaxSpeed = 220f;
-        freeLook.m_YAxis.m_MaxSpeed = 1f;
+        
+
     }
     public override void Do()
     {

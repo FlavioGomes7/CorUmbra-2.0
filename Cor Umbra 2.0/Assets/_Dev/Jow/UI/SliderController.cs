@@ -13,8 +13,10 @@ public class MultiSliderController : MonoBehaviour
     {
         { "Slider-brilho", .1f },
         { "Slider-sensibilidade", .1f },
+        { "Slider-sensibilidadeLivre", .5f },
         { "Slider-principalSound", .1f },
         { "Slider-soundFX", .1f }
+        
     };
 
     void OnEnable()
@@ -22,7 +24,7 @@ public class MultiSliderController : MonoBehaviour
         var uiDocument = GetComponent<UIDocument>();
 
         // Adicione sliders com seus IDs correspondentes
-        var sliders = new string[] { "Slider-brilho", "Slider-sensibilidade", "Slider-principalSound", "Slider-soundFX" };
+        var sliders = new string[] { "Slider-brilho", "Slider-sensibilidade", "Slider-sensibilidadeLivre", "Slider-principalSound", "Slider-soundFX" };
 
         foreach (var sliderId in sliders)
         {
@@ -74,6 +76,7 @@ public class MultiSliderController : MonoBehaviour
         var trackerElement = slider.Q("unity-tracker");
         if (trackerElement != null)
         {
+            Debug.Log("Entrou no tracker");
             trackerElement.style.width = new Length(percentage, LengthUnit.Percent);
         }
     }
@@ -114,6 +117,9 @@ public class MultiSliderController : MonoBehaviour
                 SetMouseSensitivity(value);
 
                 break;
+            case "Slider-sensibilidadeLivre":
+                SetMouseSensitivityFree(value);
+                break;
             case "Slider-principalSound":
                 SetMainVolume(value);
                 break;
@@ -137,9 +143,14 @@ public class MultiSliderController : MonoBehaviour
 
     void SetMouseSensitivity(float value)
     {
-        aimingState.sensitivy = value;
+        CameraSensitivityConfig.sensititivityAim = value;
+        //aimingState.sensitivy = value;
         // Supondo que você tenha um gerenciador de entrada para ajustar a sensibilidade do mouse
         // InputManager.Instance.SetMouseSensitivity(value);
+    }
+    void SetMouseSensitivityFree(float value)
+    {
+        CameraSensitivityConfig.normalizedSensitivity = value;
     }
 
     void SetMainVolume(float value)

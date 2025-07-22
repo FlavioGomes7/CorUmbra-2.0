@@ -71,8 +71,8 @@ public class AimingState : State
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
         //playerAim.eulerAngles = new Vector3(Mathf.Clamp(playerAim.rotation.x, -30f, 60f), playerAim.rotation.y, playerAim.rotation.z);
-        player.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.x * sensitivy, Vector3.up);
-        playerAim.rotation *= Quaternion.AngleAxis(-inputHandler.lookValue.y * sensitivy, Vector3.right);
+        player.rotation *= Quaternion.AngleAxis(inputHandler.lookValue.x * CameraSensitivityConfig.GetAimSensi(), Vector3.up);
+        playerAim.rotation *= Quaternion.AngleAxis(-inputHandler.lookValue.y * CameraSensitivityConfig.GetAimSensi(), Vector3.right);
         
         var angles = player.eulerAngles;
         angles.z = 0;

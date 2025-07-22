@@ -28,7 +28,7 @@
                     "type": "Value",
                     "id": "0ecb5118-aed5-4dcb-b7ac-3559cdd79fe7",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -212,7 +212,7 @@
                     "id": "c0341752-b7c9-47e7-84bf-18b1a7e90030",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "DeltaTimeScale,ScaleVector2(x=0.01,y=0.01)",
                     "groups": "",
                     "action": "Look",
                     "isComposite": false,
